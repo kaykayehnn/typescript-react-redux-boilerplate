@@ -1,0 +1,47 @@
+{
+  "name": "react-boilerplate",
+  "version": "1.0.0",
+  "description": "React boilerplate with webpack",
+  "main": "index.js",
+  "scripts": {
+    "start": "webpack-dev-server",
+    "build": "webpack --env=production"
+  },
+  "keywords": [
+    "react",
+    "boilerplate",
+    "webpack"
+  ],
+  "author": "KN",
+  "license": "MIT",
+  "dependencies": {
+    "prop-types": "^15.6.2",
+    "react": "^16.4.2",
+    "react-dom": "^16.4.2",
+    "react-redux": "^5.0.7",
+    "react-router-dom": "^4.3.1",
+    "redux": "^4.0.0",
+    "redux-thunk": "^2.3.0"
+  },
+  "devDependencies": {
+    "@types/react": "^16.4.13",
+    "@types/react-dom": "^16.0.7",
+    "@types/react-redux": "^6.0.6",
+    "@types/redux-logger": "^3.0.6",
+    "@types/webpack-env": "^1.13.6",
+    "awesome-typescript-loader": "^5.2.0",
+    "clean-webpack-plugin": "^0.1.19",
+    "copy-webpack-plugin": "^4.5.2",
+    "css-loader": "^0.28.11",
+    "hard-source-webpack-plugin": "^0.12.0",
+    "html-webpack-plugin": "^3.2.0",
+    "redux-logger": "^3.0.6",
+    "style-loader": "^0.21.0",
+    "tslint": "^5.11.0",
+    "tslint-config-standard": "^8.0.0",
+    "typescript": "^3.0.3",
+    "webpack": "^4.17.1",
+    "webpack-cli": "^3.1.0",
+    "webpack-dev-server": "^3.1.7"
+  }
+}
