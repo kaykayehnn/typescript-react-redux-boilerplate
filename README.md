@@ -4,6 +4,7 @@
 - Typescript
 - TSLint configured with Standard Style settings
 - React & Redux
+- Redux DevTools Chrome extension
 - Webpack configuration with Hot Module Replacement
 
 ### Commands
