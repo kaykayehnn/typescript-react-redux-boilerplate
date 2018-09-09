@@ -3,7 +3,6 @@ const webpack = require('webpack')
 const CleanWebpackPlugin = require('clean-webpack-plugin')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
 const HTMLWebpackPlugin = require('html-webpack-plugin')
-const HardSourceWebpackPlugin = require('hard-source-webpack-plugin')
 
 const basePath = __dirname
 const baseConfig = {
@@ -41,10 +40,7 @@ const baseConfig = {
     new CopyWebpackPlugin([
       { from: path.join(basePath, 'public/'), to: path.join(basePath, 'dist') }
     ]),
-    new HTMLWebpackPlugin({ template: path.join(basePath, 'public/index.html') }),
-    new HardSourceWebpackPlugin({
-      sizeThreshold: 50 * 1024 * 1024
-    })
+    new HTMLWebpackPlugin({ template: path.join(basePath, 'public/index.html') })
   ]
 }
 
@@ -58,7 +54,7 @@ module.exports = (env) => {
   } else {
     config.mode = 'development'
     config.devtool = 'inline-source-map'
-    config.plugins.push(new webpack.HotModuleReplacementPlugin())
+    config.plugins.unshift(new webpack.HotModuleReplacementPlugin())
   }
 
   return config
