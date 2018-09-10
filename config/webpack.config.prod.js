@@ -6,6 +6,11 @@ exports.modifications = {
   mode: {
     $set: 'production'
   },
+  output: {
+    filename: {
+      $set: '[name].[contenthash].js'
+    }
+  },
   devtool: {
     $set: 'source-map'
   },

@@ -12,7 +12,6 @@ exports.baseConfig = {
     polyfills: './src/polyfills.ts'
   },
   output: {
-    filename: '[name].[chunkhash].js',
     path: path.join(basePath, 'dist')
   },
   resolve: {
