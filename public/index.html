@@ -13,6 +13,20 @@
   <meta name="msapplication-TileColor" content="#774ab8">
   <meta name="msapplication-config" content="/icons/browserconfig.xml">
   <meta name="theme-color" content="#ffffff">
+  <script>
+    var modernBrowser = (
+      'fetch' in window &&
+      'assign' in Object
+    )
+
+    if (!modernBrowser) {
+      var scriptElement = document.createElement('script');
+
+      scriptElement.async = false;
+      scriptElement.src = '/polyfills.bundle.js';
+      document.head.appendChild(scriptElement);
+    }
+  </script>
   <title>React App</title>
 </head>
 

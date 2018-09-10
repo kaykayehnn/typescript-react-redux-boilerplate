@@ -1,5 +1,3 @@
-import 'core-js/fn/object/assign'
-
 import * as React from 'react'
 import * as ReactDOM from 'react-dom'
 
