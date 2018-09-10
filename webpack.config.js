@@ -1,61 +1,9 @@
-const path = require('path')
-const webpack = require('webpack')
-const CleanWebpackPlugin = require('clean-webpack-plugin')
-const CopyWebpackPlugin = require('copy-webpack-plugin')
-const HTMLWebpackPlugin = require('html-webpack-plugin')
-
-const basePath = __dirname
-const baseConfig = {
-  entry: './src/index.tsx',
-  output: {
-    filename: 'bundle.js',
-    path: path.join(basePath, 'dist')
-  },
-  devServer: {
-    port: 3000,
-    hot: true,
-    historyApiFallback: true,
-    proxy: {
-      '/api': {
-        target: 'http://localhost:9000'
-      }
-    }
-  },
-  resolve: {
-    extensions: ['.ts', '.tsx', '.js']
-  },
-  module: {
-    rules: [
-      { test: /\.tsx?$/, loader: 'awesome-typescript-loader' },
-      {
-        test: /\.css$/,
-        loader: [
-          'style-loader',
-          'css-loader'
-        ]
-      }
-    ]
-  },
-  plugins: [
-    new CopyWebpackPlugin([
-      { from: path.join(basePath, 'public/'), to: path.join(basePath, 'dist') }
-    ]),
-    new HTMLWebpackPlugin({ template: path.join(basePath, 'public/index.html') })
-  ]
-}
+const update = require('immutability-helper')
+const { baseConfig } = require('./config/webpack.config.base')
 
 module.exports = (env) => {
-  let config = baseConfig
+  let path = `./config/webpack.config.${env === 'production' ? 'prod' : 'dev'}`
+  let { modifications } = require(path)
 
-  if (env === 'production') {
-    config.mode = 'production'
-    config.devtool = 'source-map'
-    config.plugins.unshift(new CleanWebpackPlugin(['dist']))
-  } else {
-    config.mode = 'development'
-    config.devtool = 'inline-source-map'
-    config.plugins.unshift(new webpack.HotModuleReplacementPlugin())
-  }
-
-  return config
+  return update(baseConfig, modifications)
 }

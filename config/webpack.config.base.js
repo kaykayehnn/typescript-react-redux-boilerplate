@@ -1,0 +1,59 @@
+const path = require('path')
+const webpack = require('webpack')
+const CleanWebpackPlugin = require('clean-webpack-plugin')
+const CopyWebpackPlugin = require('copy-webpack-plugin')
+const HTMLWebpackPlugin = require('html-webpack-plugin')
+
+const basePath = exports.basePath = path.join(__dirname, '..')
+exports.baseConfig = {
+  context: basePath,
+  entry: {
+    main: './src/index.tsx',
+    polyfills: './src/polyfills.ts'
+  },
+  output: {
+    filename: '[name].[chunkhash].js',
+    path: path.join(basePath, 'dist')
+  },
+  resolve: {
+    extensions: ['.ts', '.tsx', '.js']
+  },
+  optimization: {
+    splitChunks: {
+      cacheGroups: {
+        name: '[name].[chunkhash].js',
+        vendor: {
+          // only include .js files which are not polyfills
+          test: /(?!.*(?:core-js|whatwg-fetch))[/\\]node_modules[/\\].*(?=\.js)/,
+          chunks: 'all'
+        }
+      }
+    }
+  },
+  module: {
+    rules: [
+      {
+        test: /\.tsx?$/,
+        loader: 'awesome-typescript-loader'
+      },
+      {
+        test: /\.css$/,
+        loader: [
+          'css-loader'
+        ]
+      },
+      {
+        test: /\.svg$/,
+        loader: 'svg-inline-loader'
+      }
+    ]
+  },
+  plugins: [
+    new CleanWebpackPlugin([`${basePath}/dist`], { root: basePath }),
+    new CopyWebpackPlugin([
+      { from: path.join(basePath, 'public/'), to: path.join(basePath, 'dist/') }
+    ]),
+    new webpack.ContextReplacementPlugin(/moment\/locale$/, /bg/),
+    new HTMLWebpackPlugin({ template: path.join(basePath, 'public/index.html') })
+  ]
+}
