@@ -53,6 +53,13 @@ exports.baseConfig = {
       { from: path.join(basePath, 'public/'), to: path.join(basePath, 'dist/') }
     ]),
     new webpack.ContextReplacementPlugin(/moment\/locale$/, /bg/),
-    new HTMLWebpackPlugin({ template: path.join(basePath, 'public/index.html') })
+    new HTMLWebpackPlugin({
+      template: path.join(basePath, 'public/index.html'),
+      minify: {
+        collapseWhitespace: true,
+        minifyJS: true
+      },
+      inject: false
+    })
   ]
 }

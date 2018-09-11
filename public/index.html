@@ -13,6 +13,11 @@
   <meta name="msapplication-TileColor" content="#774ab8">
   <meta name="msapplication-config" content="/icons/browserconfig.xml">
   <meta name="theme-color" content="#ffffff">
+  
+  <% for (var css in htmlWebpackPlugin.files.css) { %>
+    <link href="<%= htmlWebpackPlugin.files.css[css] %>" rel="stylesheet">
+  <% } %>
+
   <script>
     var modernBrowser = (
       'fetch' in window &&
@@ -20,11 +25,11 @@
     )
 
     if (!modernBrowser) {
-      var scriptElement = document.createElement('script');
+      var scriptElement = document.createElement('script')
 
-      scriptElement.async = false;
-      scriptElement.src = '/polyfills.bundle.js';
-      document.head.appendChild(scriptElement);
+      scriptElement.async = false
+      scriptElement.src = "<% print(htmlWebpackPlugin.files.chunks.polyfills.entry) %>"
+      document.head.appendChild(scriptElement)
     }
   </script>
   <title>React App</title>
@@ -32,6 +37,11 @@
 
 <body>
   <div id="root"></div>
+  <% for (var file of htmlWebpackPlugin.files.js) { %>
+    <% if(file.slice(0, 'polyfills'.length) !== 'polyfills') {%>
+      <script src="<%= file %>"></script>
+    <% } %>
+  <% } %>
 </body>
 
 </html>
