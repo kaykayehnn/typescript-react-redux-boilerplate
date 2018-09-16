@@ -1,5 +1,4 @@
 const path = require('path')
-const webpack = require('webpack')
 const CleanWebpackPlugin = require('clean-webpack-plugin')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
 const HTMLWebpackPlugin = require('html-webpack-plugin')
@@ -52,7 +51,6 @@ exports.baseConfig = {
     new CopyWebpackPlugin([
       { from: path.join(basePath, 'public/'), to: path.join(basePath, 'dist/') }
     ]),
-    new webpack.ContextReplacementPlugin(/moment\/locale$/, /bg/),
     new HTMLWebpackPlugin({
       template: path.join(basePath, 'public/index.html'),
       minify: {
