@@ -1,6 +1,0 @@
-/* prefer putting new styles in separate files */
-body {
-  font-size: 1.5em;
-  background: palegoldenrod;
-  user-select: none;
-}

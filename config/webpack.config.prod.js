@@ -14,9 +14,9 @@ exports.modifications = {
   },
   module: {
     rules: (rules) => {
-      let css = rules.find(r => r.test.exec('.css'))
-      css.loader.unshift(MiniCssExtractPlugin.loader)
-      css.loader.push({
+      let cssLoaders = rules.find(r => r.test.exec('.css')).use
+      cssLoaders.unshift(MiniCssExtractPlugin.loader)
+      cssLoaders.push({
         loader: 'postcss-loader',
         options: {
           config: {

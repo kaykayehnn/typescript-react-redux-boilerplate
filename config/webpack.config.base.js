@@ -35,8 +35,15 @@ exports.baseConfig = {
       },
       {
         test: /\.css$/,
-        loader: [
-          'css-loader'
+        use: [
+          {
+            loader: 'typings-for-css-modules-loader',
+            options: {
+              modules: true,
+              camelCase: 'only',
+              namedExport: true
+            }
+          }
         ]
       },
       {

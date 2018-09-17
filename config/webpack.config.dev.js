@@ -21,7 +21,7 @@ exports.modifications = {
   },
   module: {
     rules: (rules) => {
-      rules.find(r => r.test.exec('.css')).loader.unshift('style-loader')
+      rules.find(r => r.test.exec('.css')).use.unshift('style-loader')
 
       return rules
     }
