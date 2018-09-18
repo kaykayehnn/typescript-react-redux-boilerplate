@@ -6,6 +6,7 @@
 - React & Redux
 - Redux DevTools Chrome extension
 - Webpack configuration with Hot Module Replacement
+- CSS Modules
 
 ### Commands
 
