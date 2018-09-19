@@ -5,11 +5,18 @@ import { ThunkAction } from '../../types/ThunkAction'
 export const INCREMENT = 'INCREMENT'
 export const DECREMENT = 'DECREMENT'
 
-export function increment (): Action<string> {
+export interface IncrementAction extends Action<typeof INCREMENT> {
+}
+export interface DecrementAction extends Action<typeof DECREMENT> {
+}
+
+export type CounterActions = IncrementAction | DecrementAction
+
+export function increment (): IncrementAction {
   return { type: INCREMENT }
 }
 
-export function decrement (): Action<string> {
+export function decrement (): DecrementAction {
   return { type: DECREMENT }
 }
 

@@ -1,9 +1,9 @@
-import * as React from 'react'
+import React, { StatelessComponent } from 'react'
 
 import * as styles from './styles.css'
 import { CounterProps } from '../../containers/CounterContainer'
 
-export const Counter: React.StatelessComponent<CounterProps> =
+export const Counter: StatelessComponent<CounterProps> =
   ({ counter, increment, decrement, incrementAsync }) => (
     <div className={styles.counter}>
       <h1>{counter}</h1>

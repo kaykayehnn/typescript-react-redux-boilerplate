@@ -1,4 +1,4 @@
-import * as React from 'react'
+import React, { StatelessComponent } from 'react'
 import { Provider } from 'react-redux'
 import { Store } from 'redux'
 
@@ -9,7 +9,7 @@ interface RootProps {
   store: Store<AppState>
 }
 
-export const RootContainer: React.StatelessComponent<RootProps> =
+export const RootContainer: StatelessComponent<RootProps> =
   ({ store }) => (
     <Provider store={store}>
       <CounterContainer />
