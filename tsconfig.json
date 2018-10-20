@@ -5,8 +5,6 @@
     "moduleResolution": "node",
     "allowSyntheticDefaultImports": true,
     "noEmitOnError": true,
-    "noImplicitAny": true,
-    "strictNullChecks": true,
     "importHelpers": true,
     "module": "ESNext",
     "target": "es5",
