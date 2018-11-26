@@ -34,7 +34,7 @@ exports.baseConfig = {
         loader: 'awesome-typescript-loader'
       },
       {
-        test: /\.css$/,
+        test: /\.scss$/,
         use: [
           {
             loader: 'typings-for-css-modules-loader',
@@ -43,7 +43,8 @@ exports.baseConfig = {
               camelCase: 'only',
               namedExport: true
             }
-          }
+          },
+          'sass-loader'
         ]
       },
       {

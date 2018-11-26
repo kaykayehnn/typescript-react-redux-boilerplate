@@ -1,5 +1,7 @@
-:global(body) {
-  background: palegoldenrod;
+$background: #ABCDEF;
+
+body {
+  background: $background;
 }
 
 .counter {

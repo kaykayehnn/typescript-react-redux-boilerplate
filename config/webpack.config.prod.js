@@ -14,9 +14,9 @@ exports.modifications = {
   },
   module: {
     rules: (rules) => {
-      let cssLoaders = rules.find(r => r.test.exec('.css')).use
+      let cssLoaders = rules.find(r => r.test.exec('.scss')).use
       cssLoaders.unshift(MiniCssExtractPlugin.loader)
-      cssLoaders.push({
+      cssLoaders.splice(cssLoaders.length - 1, 0, { // executes after sass-loader
         loader: 'postcss-loader',
         options: {
           config: {

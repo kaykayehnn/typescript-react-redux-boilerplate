@@ -1,6 +1,6 @@
 import React, { StatelessComponent } from 'react'
 
-import * as styles from './styles.css'
+import * as styles from './styles.scss'
 import { CounterProps } from '../../containers/CounterContainer'
 
 export const Counter: StatelessComponent<CounterProps> =
