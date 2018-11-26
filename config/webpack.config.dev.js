@@ -5,7 +5,7 @@ exports.modifications = {
     $set: 'development'
   },
   devtool: {
-    $set: 'inline-source-map'
+    $set: 'eval-source-map'
   },
   devServer: {
     $set: {
