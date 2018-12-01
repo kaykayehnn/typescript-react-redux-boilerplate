@@ -6,13 +6,13 @@ import { RootContainer } from './containers/Root'
 
 const store = configureStore()
 
-mountApp(<RootContainer store={store}></RootContainer>)
+mountApp(<RootContainer store={store} />)
 
 if (module.hot) {
   module.hot.accept('./containers/Root', () => {
-    let NewRootContainer = require('./containers/Root').RootContainer
+    let { RootContainer } = require('./containers/Root')
 
-    mountApp(<NewRootContainer store={store} />)
+    mountApp(<RootContainer store={store} />)
   })
 }
 
