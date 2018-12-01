@@ -10,9 +10,9 @@ mountApp(<RootContainer store={store}></RootContainer>)
 
 if (module.hot) {
   module.hot.accept('./containers/Root', () => {
-    let newRootContainer = require('./containers/Root').RootContainer
+    let NewRootContainer = require('./containers/Root').RootContainer
 
-    mountApp(React.createElement(newRootContainer, { store }))
+    mountApp(<NewRootContainer store={store} />)
   })
 }
 
