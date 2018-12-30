@@ -5,21 +5,22 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  
+
   <% for (var css in htmlWebpackPlugin.files.css) { %>
-    <link href="<%= htmlWebpackPlugin.files.css[css] %>" rel="stylesheet">
+  <link href="<%= htmlWebpackPlugin.files.css[css] %>" rel="stylesheet">
   <% } %>
 
   <script>
     var modernBrowser = (
-      'fetch' in window &&
       'assign' in Object
+      // 'fetch' in window
     )
 
     if (!modernBrowser) {
       document.write('<script src="<% print(htmlWebpackPlugin.files.chunks.polyfills.entry) %>"><\/script>')
     }
   </script>
+  <!-- FIXME: Change title -->
   <title>React App</title>
 </head>
 
