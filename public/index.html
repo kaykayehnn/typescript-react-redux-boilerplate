@@ -25,11 +25,7 @@
     )
 
     if (!modernBrowser) {
-      var scriptElement = document.createElement('script')
-
-      scriptElement.async = false
-      scriptElement.src = "<% print(htmlWebpackPlugin.files.chunks.polyfills.entry) %>"
-      document.head.appendChild(scriptElement)
+      document.write('<script src="<% print(htmlWebpackPlugin.files.chunks.polyfills.entry) %>"><\/script>')
     }
   </script>
   <title>React App</title>
@@ -38,7 +34,7 @@
 <body>
   <div id="root"></div>
   <% for (var file of htmlWebpackPlugin.files.js) { %>
-    <% if(file.slice(0, 'polyfills'.length) !== 'polyfills') {%>
+    <% if(!file.startsWith('polyfills')) {%>
       <script src="<%= file %>"></script>
     <% } %>
   <% } %>
