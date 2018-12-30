@@ -10,7 +10,7 @@ mountApp(<RootContainer store={store} />)
 
 if (module.hot) {
   module.hot.accept('./containers/Root', () => {
-    let { RootContainer } = require('./containers/Root')
+    const { RootContainer } = require('./containers/Root')
 
     mountApp(<RootContainer store={store} />)
   })

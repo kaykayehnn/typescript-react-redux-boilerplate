@@ -21,7 +21,7 @@ export function configureStore (preloadedState?: AppState) {
 
   if (module.hot) {
     module.hot.accept('../reducers/', () => {
-      let { rootReducer } = require('../reducers/')
+      const { rootReducer } = require('../reducers/')
       store.replaceReducer(rootReducer)
     })
   }
