@@ -1,8 +1,15 @@
+import path from 'path'
+import ErrorOverlayPlugin from 'error-overlay-webpack-plugin'
 import { Configuration, HotModuleReplacementPlugin, RuleSetUse } from 'webpack'
 
 export const modifications: Configuration = {
   mode: 'development',
-  devtool: 'eval-source-map',
+  devtool: 'cheap-module-source-map', // E-O-P relies on this
+  output: {
+    devtoolModuleFilenameTemplate (info) {
+      return path.resolve(info.absoluteResourcePath).replace(/\\/g, '/')
+    }
+  },
   devServer: {
     port: 3000,
     hot: true,
@@ -15,6 +22,7 @@ export const modifications: Configuration = {
     }
   },
   plugins: [
+    new ErrorOverlayPlugin(),
     new HotModuleReplacementPlugin()
   ]
 }
