@@ -1,5 +1,8 @@
+import path from 'path'
 import MiniCssExtractPlugin from 'mini-css-extract-plugin'
+import CleanWebpackPlugin from 'clean-webpack-plugin'
 
+import { basePath } from './webpack.config.base'
 import { Configuration, RuleSetUse } from 'webpack'
 
 export const modifications: Configuration = {
@@ -9,6 +12,7 @@ export const modifications: Configuration = {
   },
   devtool: 'source-map',
   plugins: [
+    new CleanWebpackPlugin('dist', { root: basePath }),
     new MiniCssExtractPlugin({ filename: '[name].[contenthash].css' })
   ]
 }
