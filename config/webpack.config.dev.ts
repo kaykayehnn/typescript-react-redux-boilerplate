@@ -6,6 +6,7 @@ export const modifications: Configuration = {
   devServer: {
     port: 3000,
     hot: true,
+    open: true,
     historyApiFallback: true,
     proxy: {
       '/api': {
