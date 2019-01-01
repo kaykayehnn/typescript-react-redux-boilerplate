@@ -1,6 +1,10 @@
 import path from 'path'
 import ErrorOverlayPlugin from 'error-overlay-webpack-plugin'
+import openBrowser from 'react-dev-utils/openBrowser'
+
 import { Configuration, HotModuleReplacementPlugin, RuleSetUse } from 'webpack'
+
+const PORT = 3000
 
 export const modifications: Configuration = {
   mode: 'development',
@@ -11,14 +15,16 @@ export const modifications: Configuration = {
     }
   },
   devServer: {
-    port: 3000,
+    port: PORT,
     hot: true,
-    open: true,
     historyApiFallback: true,
     proxy: {
       '/api': {
         target: 'http://localhost:9000'
       }
+    },
+    after () {
+      openBrowser(`http://localhost:${PORT}/`)
     }
   },
   plugins: [
