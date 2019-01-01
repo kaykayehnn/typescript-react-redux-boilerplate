@@ -1,5 +1,6 @@
 import path from 'path'
 import ErrorOverlayPlugin from 'error-overlay-webpack-plugin'
+import getCSSModuleLocalIdent from 'react-dev-utils/getCSSModuleLocalIdent'
 import openBrowser from 'react-dev-utils/openBrowser'
 
 import { Configuration, HotModuleReplacementPlugin, RuleSetUse } from 'webpack'
@@ -42,7 +43,7 @@ export function applyConfig (config: Configuration): Configuration {
         modules: true,
         camelCase: 'only',
         namedExport: true,
-        localIdentName: '[local]__[hash:base64:5]'
+        getLocalIdent: getCSSModuleLocalIdent
       }
     },
     'sass-loader'
