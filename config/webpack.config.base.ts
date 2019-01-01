@@ -29,8 +29,6 @@ export function getAliases (): StringMap {
     aliases[aliasKey] = aliasPath
   }
 
-  console.log(JSON.stringify(aliases, null, 2))
-
   return aliases
 }
 
