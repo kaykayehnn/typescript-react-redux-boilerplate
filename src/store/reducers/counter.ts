@@ -1,5 +1,5 @@
 import { CounterState } from '../state/CounterState'
-import { CounterActions, INCREMENT, DECREMENT } from '../actions/counter'
+import { CounterActions, INCREMENT, DECREMENT } from 'Actions/counter'
 
 const initial: CounterState = 0
 

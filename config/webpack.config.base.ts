@@ -10,7 +10,7 @@ export interface StringMap {
 
 export function getAliases (): StringMap {
   const tsconfig = require('../tsconfig.json')
-  const pathGlobRgx = /(.+)\/\*/
+  const pathGlobRgx = /(.+)\/(\*)?/
 
   let aliases: StringMap = {}
 
@@ -20,11 +20,16 @@ export function getAliases (): StringMap {
   for (let i = 0; i < pathKeys.length; i++) {
     const k = pathKeys[i]
 
-    const alias = pathGlobRgx.exec(k)[1]
-    const aliasPath = path.join(basePath, 'src', pathGlobRgx.exec(paths[k])[1])
+    const [m, alias, exact] = pathGlobRgx.exec(k)
+    const [m2, relativePath] = pathGlobRgx.exec(paths[k])
 
-    aliases[alias] = aliasPath
+    const aliasKey = alias + (exact === null ? '$' : '')
+    const aliasPath = path.join(basePath, 'src', relativePath)
+
+    aliases[aliasKey] = aliasPath
   }
+
+  console.log(JSON.stringify(aliases, null, 2))
 
   return aliases
 }

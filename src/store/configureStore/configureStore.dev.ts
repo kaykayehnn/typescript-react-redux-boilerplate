@@ -4,7 +4,7 @@ import thunk from 'redux-thunk'
 
 import { rootReducer } from '../reducers/'
 import { AppState } from '../state/AppState'
-import { AppActions } from '../actions'
+import { AppActions } from 'Actions/'
 
 export function configureStore (preloadedState?: AppState) {
   let store: Store<AppState, AppActions>

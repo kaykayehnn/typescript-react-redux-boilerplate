@@ -22,6 +22,9 @@
       "Containers/*": [
         "./containers/*"
       ],
+      "Actions/": [
+        "./store/actions/index.ts"
+      ],
       "Actions/*": [
         "./store/actions/*"
       ]
