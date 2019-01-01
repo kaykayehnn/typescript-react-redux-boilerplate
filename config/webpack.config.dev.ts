@@ -19,6 +19,9 @@ export const modifications: Configuration = {
     port: PORT,
     hot: true,
     historyApiFallback: true,
+    watchOptions: {
+      ignored: /\/node_modules\//
+    },
     proxy: {
       '/api': {
         target: 'http://localhost:9000'
