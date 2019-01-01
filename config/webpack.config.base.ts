@@ -1,4 +1,5 @@
 import path from 'path'
+import CaseSensitivePathsPlugin from 'case-sensitive-paths-webpack-plugin'
 import CopyWebpackPlugin from 'copy-webpack-plugin'
 import HTMLWebpackPlugin from 'html-webpack-plugin'
 
@@ -85,6 +86,7 @@ export const baseConfig: Configuration = {
     ]
   },
   plugins: [
+    new CaseSensitivePathsPlugin(),
     new CopyWebpackPlugin([
       { from: path.join(basePath, 'public/'), to: path.join(basePath, 'dist/') }
     ]),
