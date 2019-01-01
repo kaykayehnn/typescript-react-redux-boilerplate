@@ -1,4 +1,4 @@
-import React, { StatelessComponent } from 'react'
+import React, { StrictMode, StatelessComponent } from 'react'
 import { Provider } from 'react-redux'
 import { Store } from 'redux'
 
@@ -11,7 +11,9 @@ interface RootProps {
 
 export const RootContainer: StatelessComponent<RootProps> =
   ({ store }) => (
-    <Provider store={store}>
-      <CounterContainer />
-    </Provider>
+    <StrictMode>
+      <Provider store={store}>
+        <CounterContainer />
+      </Provider>
+    </StrictMode>
   )
