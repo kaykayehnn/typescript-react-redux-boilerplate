@@ -3,16 +3,29 @@
     "outDir": "./dist/",
     "sourceMap": true,
     "moduleResolution": "node",
+    "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
     "noEmitOnError": true,
     "importHelpers": true,
-    "module": "ESNext",
+    "module": "esnext",
     "target": "es5",
     "lib": [
       "dom",
       "es6"
     ],
-    "jsx": "react"
+    "jsx": "react",
+    "baseUrl": "./src",
+    "paths": {
+      "Components/*": [
+        "./components/*"
+      ],
+      "Containers/*": [
+        "./containers/*"
+      ],
+      "Actions/*": [
+        "./store/actions/*"
+      ]
+    }
   },
   "include": [
     "./src/**/*"
