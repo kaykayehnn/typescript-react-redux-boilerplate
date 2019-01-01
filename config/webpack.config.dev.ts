@@ -20,7 +20,7 @@ export const modifications: Configuration = {
     hot: true,
     historyApiFallback: true,
     watchOptions: {
-      ignored: /\/node_modules\//
+      ignored: /[/\\]node_modules[/\\]/
     },
     proxy: {
       '/api': {

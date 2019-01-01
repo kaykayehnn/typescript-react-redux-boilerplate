@@ -53,10 +53,10 @@ export const baseConfig: Configuration = {
   optimization: {
     splitChunks: {
       cacheGroups: {
-        vendor: {
+        vendors: {
           chunks: 'all',
           // only include .js files which are not polyfills
-          test: /(?!.*(?:core-js))[/\\]node_modules[/\\].*(?=\.js)/
+          test: /(?!.*(?:core-js))[/\\]node_modules[/\\]/
         }
       }
     }
