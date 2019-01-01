@@ -4,8 +4,8 @@
   "description": "React boilerplate with webpack",
   "scripts": {
     "start": "TS_NODE_PROJECT=config/tsconfig-webpack.json webpack-dev-server",
-    "prebuild": "rimraf dist/",
-    "build": "TS_NODE_PROJECT=config/tsconfig-webpack.json webpack --env=production"
+    "build": "TS_NODE_PROJECT=config/tsconfig-webpack.json webpack --env=production",
+    "lint": "tslint --fix -p ."
   },
   "keywords": [
     "react",
@@ -42,7 +42,9 @@
     "cssnano": "^4.1.0",
     "deepmerge": "^3.0.0",
     "html-webpack-plugin": "^3.2.0",
+    "husky": "^1.3.1",
     "is-plain-object": "^2.0.4",
+    "lint-staged": "^8.1.0",
     "mini-css-extract-plugin": "^0.4.2",
     "node-sass": "^4.10.0",
     "postcss-loader": "^3.0.0",
@@ -58,5 +60,16 @@
     "webpack": "^4.17.1",
     "webpack-cli": "^3.1.0",
     "webpack-dev-server": "^3.1.7"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx}": [
+      "tslint --fix -c tslint.json",
+      "git add"
+    ]
   }
 }
