@@ -6,6 +6,7 @@
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
     "noEmitOnError": true,
+    "strictNullChecks": true,
     "importHelpers": true,
     "module": "esnext",
     "target": "es5",
