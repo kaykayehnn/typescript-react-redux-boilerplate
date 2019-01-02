@@ -42,8 +42,10 @@ export const baseConfig: Configuration = {
     polyfills: './src/polyfills.ts'
   },
   output: {
-    path: path.join(basePath, 'dist'),
-    chunkFilename: '[name].[contenthash].js'
+    path: path.join(basePath, 'dist/'),
+    publicPath: '/',
+    filename: 'static/js/[name].[contenthash].js',
+    chunkFilename: 'static/js/[name].[contenthash].js'
   },
   resolve: {
     // aliases are resolved from tsconfig
