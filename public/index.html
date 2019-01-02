@@ -6,9 +6,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
+  <!-- Styles -->
   <% for (var css in htmlWebpackPlugin.files.css) { %>
   <link href="<%= htmlWebpackPlugin.files.css[css] %>" rel="stylesheet">
   <% } %>
+
+  <!-- Runtime chunk -->
+  <script src="<% print(htmlWebpackPlugin.files.js.find(f => f.includes('runtime'))) %>"></script>
 
   <script>
     var modernBrowser = (
@@ -17,7 +21,8 @@
     )
 
     if (!modernBrowser) {
-      document.write('<script src="<% print(htmlWebpackPlugin.files.chunks.polyfills.entry) %>"><\/script>')
+      // Polyfills chunk
+      document.write('<script src="<% print(htmlWebpackPlugin.files.js.find(f => f.includes("polyfills"))) %>"><\/script>')
     }
   </script>
   <!-- FIXME: Change title -->
@@ -25,9 +30,11 @@
 </head>
 
 <body>
+  <noscript>You need to enable JavaScript to run this app.</noscript>
   <div id="root"></div>
+  <!-- Vendors, Main, etc. -->
   <% for (var file of htmlWebpackPlugin.files.js) { %>
-    <% if(!file.startsWith('polyfills')) {%>
+    <% if(!file.match(/runtime|polyfills/)) {%>
       <script src="<%= file %>"></script>
     <% } %>
   <% } %>

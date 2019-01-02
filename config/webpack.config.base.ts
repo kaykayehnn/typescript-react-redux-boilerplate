@@ -52,14 +52,15 @@ export const baseConfig: Configuration = {
   },
   optimization: {
     splitChunks: {
+      chunks: 'all',
       cacheGroups: {
         vendors: {
-          chunks: 'all',
           // only include .js files which are not polyfills
           test: /(?!.*(?:core-js))[/\\]node_modules[/\\]/
         }
       }
-    }
+    },
+    runtimeChunk: 'single'
   },
   module: {
     rules: [
@@ -93,8 +94,16 @@ export const baseConfig: Configuration = {
     new HTMLWebpackPlugin({
       template: path.join(basePath, 'public/index.html'),
       minify: {
+        removeComments: true,
         collapseWhitespace: true,
-        minifyJS: true
+        removeRedundantAttributes: true,
+        useShortDoctype: true,
+        removeEmptyAttributes: true,
+        removeStyleLinkTypeAttributes: true,
+        keepClosingSlash: true,
+        minifyJS: true,
+        minifyCSS: true,
+        minifyURLs: true
       },
       inject: false
     })
