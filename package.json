@@ -5,7 +5,8 @@
   "scripts": {
     "start": "TS_NODE_PROJECT=config/tsconfig-webpack.json webpack-dev-server",
     "build": "TS_NODE_PROJECT=config/tsconfig-webpack.json webpack --env=production",
-    "lint": "tslint --fix -p ."
+    "lint": "tslint --fix -p .",
+    "test": "npm run build"
   },
   "keywords": [
     "react",
@@ -67,7 +68,8 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "lint-staged"
+      "pre-commit": "lint-staged",
+      "pre-push": "npm test"
     }
   },
   "lint-staged": {
