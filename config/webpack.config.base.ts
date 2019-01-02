@@ -43,9 +43,7 @@ export const baseConfig: Configuration = {
   },
   output: {
     path: path.join(basePath, 'dist/'),
-    publicPath: '/',
-    filename: 'static/js/[name].[contenthash].js',
-    chunkFilename: 'static/js/[name].[contenthash].js'
+    publicPath: '/'
   },
   resolve: {
     // aliases are resolved from tsconfig
@@ -54,11 +52,14 @@ export const baseConfig: Configuration = {
   },
   optimization: {
     splitChunks: {
-      chunks: 'all',
+      // Excludes polyfills from chunk deduplication, that way all other chunks
+      // remain independent and assumptions in html template remain true.
+      chunks (chunk) {
+        return chunk.name !== 'polyfills'
+      },
       cacheGroups: {
         vendors: {
-          // only include .js files which are not polyfills
-          test: /(?!.*(?:core-js))[/\\]node_modules[/\\]/
+          test: /[/\\]node_modules[/\\]/
         }
       }
     },

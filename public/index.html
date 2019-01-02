@@ -22,6 +22,8 @@
 
     if (!modernBrowser) {
       // Polyfills chunk
+      // It is obligatory that only one file matches 'polyfills', otherwise chunks
+      // will le be left out. For this reason deduplication is disabled for polyfills entry.
       document.write('<script src="<% print(htmlWebpackPlugin.files.js.find(f => f.includes("polyfills"))) %>"><\/script>')
     }
   </script>

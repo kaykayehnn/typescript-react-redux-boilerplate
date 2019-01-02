@@ -7,7 +7,8 @@ import { Configuration, RuleSetUse } from 'webpack'
 export const modifications: Configuration = {
   mode: 'production',
   output: {
-    filename: '[name].[contenthash].js'
+    filename: 'static/js/[name].[contenthash].js',
+    chunkFilename: 'static/js/[name].[contenthash].js'
   },
   devtool: 'source-map',
   plugins: [
