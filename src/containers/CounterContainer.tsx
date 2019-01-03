@@ -2,8 +2,8 @@ import { connect } from 'react-redux'
 
 import { Counter } from 'Components/Counter'
 import { increment, decrement, incrementAsync } from 'Actions/counter'
-import { MapStateToProps } from '../types/MapStateToProps'
-import { MapDispatchToProps } from '../types/MapDispatchToProps'
+import { MapStateToProps } from 'types/MapStateToProps'
+import { MapDispatchToProps } from 'types/MapDispatchToProps'
 
 interface PropsFromState {
   counter: number

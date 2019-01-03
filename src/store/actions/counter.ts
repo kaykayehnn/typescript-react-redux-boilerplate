@@ -1,26 +1,30 @@
 import { Action } from 'redux'
 
-import { ThunkAction } from '../../types/ThunkAction'
+import { ThunkAction } from 'types/ThunkAction'
 
-export const INCREMENT = 'INCREMENT'
-export const DECREMENT = 'DECREMENT'
+export enum CounterTypes {
+  INCREMENT = 'INCREMENT',
+  DECREMENT = 'DECREMENT'
+}
 
-export interface IncrementAction extends Action<typeof INCREMENT> {
-}
-export interface DecrementAction extends Action<typeof DECREMENT> {
-}
+type IncrementAction = Action<CounterTypes.INCREMENT>
+type DecrementAction = Action<CounterTypes.DECREMENT>
 
 export type CounterActions = IncrementAction | DecrementAction
 
 export function increment (): IncrementAction {
-  return { type: INCREMENT }
+  return {
+    type: CounterTypes.INCREMENT
+  }
 }
 
 export function decrement (): DecrementAction {
-  return { type: DECREMENT }
+  return {
+    type: CounterTypes.DECREMENT
+  }
 }
 
-export function incrementAsync (): ThunkAction<void> {
+export function incrementAsync (): ThunkAction<void, CounterActions> {
   return (dispatch) => {
     setTimeout(() => dispatch(increment()), 1000)
   }
