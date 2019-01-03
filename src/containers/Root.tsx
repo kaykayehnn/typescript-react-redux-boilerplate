@@ -3,7 +3,7 @@ import { Provider } from 'react-redux'
 import { Store } from 'redux'
 
 import { CounterContainer } from './CounterContainer'
-import { AppState } from '../store/state/AppState'
+import { AppState } from '@Store/state/AppState'
 
 interface RootProps {
   store: Store<AppState>

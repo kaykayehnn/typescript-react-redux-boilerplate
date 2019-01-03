@@ -1,7 +1,7 @@
 import { connect } from 'react-redux'
 
-import { Counter } from 'Components/Counter'
-import { increment, decrement, incrementAsync } from 'Actions/counter'
+import { Counter } from '@Components/Counter'
+import { increment, decrement, incrementAsync } from '@Store/actions/counter'
 import { MapStateToProps } from 'types/MapStateToProps'
 import { MapDispatchToProps } from 'types/MapDispatchToProps'
 

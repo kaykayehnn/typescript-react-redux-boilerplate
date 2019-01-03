@@ -1,5 +1,5 @@
-import { CounterState } from '../state/CounterState'
-import { CounterActions, CounterTypes } from 'Actions/counter'
+import { CounterState } from '@Store/state/CounterState'
+import { CounterActions, CounterTypes } from '@Store/actions/counter'
 
 const initial: CounterState = 0
 

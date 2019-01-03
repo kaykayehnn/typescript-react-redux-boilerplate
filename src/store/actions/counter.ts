@@ -13,7 +13,9 @@ export interface IncrementAction extends Action<CounterTypes.INCREMENT> {
 export interface DecrementAction extends Action<CounterTypes.DECREMENT> {
 }
 
-export type CounterActions = IncrementAction | DecrementAction
+export type CounterActions =
+  | IncrementAction
+  | DecrementAction
 
 export function increment (): IncrementAction {
   return { type: CounterTypes.INCREMENT }

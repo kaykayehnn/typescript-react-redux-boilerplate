@@ -17,17 +17,14 @@
     "jsx": "react",
     "baseUrl": "./src",
     "paths": {
-      "Components/*": [
+      "@Components/*": [
         "./components/*"
       ],
-      "Containers/*": [
+      "@Containers/*": [
         "./containers/*"
       ],
-      "Actions/": [
-        "./store/actions/index.ts"
-      ],
-      "Actions/*": [
-        "./store/actions/*"
+      "@Store/*": [
+        "./store/*"
       ]
     }
   },
