@@ -7,8 +7,11 @@ export enum CounterTypes {
   DECREMENT = 'DECREMENT'
 }
 
-type IncrementAction = Action<CounterTypes.INCREMENT>
-type DecrementAction = Action<CounterTypes.DECREMENT>
+export interface IncrementAction extends Action<CounterTypes.INCREMENT> {
+}
+
+export interface DecrementAction extends Action<CounterTypes.DECREMENT> {
+}
 
 export type CounterActions = IncrementAction | DecrementAction
 
