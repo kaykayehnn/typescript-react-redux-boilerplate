@@ -1,7 +1,7 @@
 {
-  "name": "react-boilerplate",
+  "name": "typescript-react-redux-boilerplate",
   "version": "1.0.0",
-  "description": "React boilerplate with webpack",
+  "description": "React-Redux boilerplate with TypeScript and Webpack",
   "scripts": {
     "start": "TS_NODE_PROJECT=config/tsconfig-webpack.json webpack-dev-server",
     "build": "TS_NODE_PROJECT=config/tsconfig-webpack.json webpack --env=production",
@@ -9,7 +9,10 @@
     "test": "npm run build"
   },
   "keywords": [
+    "typescript",
     "react",
+    "redux",
+    "css modules",
     "boilerplate",
     "webpack"
   ],
