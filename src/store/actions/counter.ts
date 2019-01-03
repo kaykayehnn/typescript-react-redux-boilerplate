@@ -13,15 +13,11 @@ type DecrementAction = Action<CounterTypes.DECREMENT>
 export type CounterActions = IncrementAction | DecrementAction
 
 export function increment (): IncrementAction {
-  return {
-    type: CounterTypes.INCREMENT
-  }
+  return { type: CounterTypes.INCREMENT }
 }
 
 export function decrement (): DecrementAction {
-  return {
-    type: CounterTypes.DECREMENT
-  }
+  return { type: CounterTypes.DECREMENT }
 }
 
 export function incrementAsync (): ThunkAction<void, CounterActions> {
