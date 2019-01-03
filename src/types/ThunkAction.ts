@@ -1,8 +1,6 @@
-import { Action } from 'redux'
 import { ThunkAction } from 'redux-thunk'
 
 import { AppState } from '../store/state/AppState'
+import { AppActions } from 'Actions/'
 
-// Action
-export type ThunkAction<R, A extends Action<string> =
-  Action<string>> = ThunkAction<R, AppState, undefined, A>
+export type ThunkAction<R> = ThunkAction<R, AppState, undefined, AppActions>

@@ -23,7 +23,7 @@ export function decrement (): DecrementAction {
   return { type: CounterTypes.DECREMENT }
 }
 
-export function incrementAsync (): ThunkAction<void, CounterActions> {
+export function incrementAsync (): ThunkAction<void> {
   return (dispatch) => {
     setTimeout(() => dispatch(increment()), 1000)
   }
