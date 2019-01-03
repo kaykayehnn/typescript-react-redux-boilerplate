@@ -20,6 +20,7 @@ export function configureStore (preloadedState?: AppState) {
     )
   }
 
+  /* istanbul ignore if */
   if (module.hot) {
     module.hot.accept('./reducers/', () => {
       const { rootReducer } = require('./reducers/')
