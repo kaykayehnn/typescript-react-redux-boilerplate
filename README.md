@@ -1,5 +1,7 @@
 # Typescript React Redux boilerplate
 
+[![Build Status](https://travis-ci.org/kayKayEhnn/typescript-react-redux-boilerplate.svg?branch=master)](https://travis-ci.org/kayKayEhnn/typescript-react-redux-boilerplate)
+
 ### What's included:
 
 - Typescript
