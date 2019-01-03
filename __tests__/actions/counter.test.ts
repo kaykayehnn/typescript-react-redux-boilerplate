@@ -1,7 +1,11 @@
-import { createMockStore } from '../__mocks__/store'
+import { mockStore } from '../__mocks__/store'
 import { increment, CounterTypes, IncrementAction, DecrementAction, decrement, incrementAsync } from '@Store/actions/counter'
 
-const mockStore = createMockStore()
+let store = mockStore()
+
+afterEach(function () {
+  store.clearActions()
+})
 
 test('increment works', function () {
   const expected: IncrementAction = {
