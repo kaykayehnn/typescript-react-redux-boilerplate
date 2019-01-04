@@ -1,4 +1,4 @@
-import React, { StrictMode, StatelessComponent } from 'react'
+import React, { StrictMode, FunctionComponent } from 'react'
 import { Provider } from 'react-redux'
 
 import { Store } from 'redux'
@@ -9,7 +9,7 @@ export interface AppProps {
   store: Store<AppState>
 }
 
-export const App: StatelessComponent<AppProps> =
+export const App: FunctionComponent<AppProps> =
   ({ store }) => (
     <StrictMode>
       <Provider store={store}>
