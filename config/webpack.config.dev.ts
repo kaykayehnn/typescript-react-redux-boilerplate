@@ -1,7 +1,7 @@
 import path from 'path'
-import ErrorOverlayPlugin from 'error-overlay-webpack-plugin'
-import getCSSModuleLocalIdent from 'react-dev-utils/getCSSModuleLocalIdent'
 import openBrowser from 'react-dev-utils/openBrowser'
+import errorOverlayMiddleware from 'react-dev-utils/errorOverlayMiddleware'
+import getCSSModuleLocalIdent from 'react-dev-utils/getCSSModuleLocalIdent'
 
 import { Configuration, HotModuleReplacementPlugin, RuleSetUse } from 'webpack'
 
@@ -9,7 +9,13 @@ const PORT = 3000
 
 export const modifications: Configuration = {
   mode: 'development',
-  devtool: 'cheap-module-source-map', // E-O-P relies on this
+  entry: {
+    main: [
+      'react-dev-utils/webpackHotDevClient',
+      './src/index.tsx'
+    ]
+  },
+  devtool: 'cheap-module-source-map', // E-O-P relies on this FIXME: ?
   output: {
     devtoolModuleFilenameTemplate (info) {
       return path.resolve(info.absoluteResourcePath).replace(/\\/g, '/')
@@ -27,12 +33,14 @@ export const modifications: Configuration = {
         target: 'http://localhost:9000'
       }
     },
+    before (app) {
+      app.use(errorOverlayMiddleware())
+    },
     after () {
       openBrowser(`http://localhost:${PORT}/`)
     }
   },
   plugins: [
-    new ErrorOverlayPlugin(),
     new HotModuleReplacementPlugin()
   ]
 }

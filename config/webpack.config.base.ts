@@ -69,7 +69,10 @@ export const baseConfig: Configuration = {
     rules: [
       {
         test: /\.tsx?$/,
-        loader: 'awesome-typescript-loader'
+        loader: 'awesome-typescript-loader',
+        options: {
+          silent: true
+        }
       },
       {
         test: /\.(sc|sa|c)ss$/,

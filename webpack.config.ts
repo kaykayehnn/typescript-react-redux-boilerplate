@@ -13,13 +13,15 @@ import {
 
 import { Configuration } from 'webpack'
 
-export default function config (env?: string): Configuration {
+export default function config (env: string = 'development'): Configuration {
   const isProduction = env === 'production'
   const mergeOptions: deepMerge.Options = {
     isMergeableObject (value) {
       return Array.isArray(value) || isPlainObject(value)
     }
   }
+
+  process.env.NODE_ENV = env
 
   let modifications = isProduction ? modificationsProd : modificationsDev
   let applyConfig = isProduction ? applyConfigProd : applyConfigDev

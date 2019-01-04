@@ -1,11 +1,11 @@
 import React, { StrictMode, StatelessComponent } from 'react'
 import { Provider } from 'react-redux'
+
 import { Store } from 'redux'
-
-import { CounterContainer } from './CounterContainer'
 import { AppState } from '@Store/state/AppState'
+import { CounterContainer } from './CounterContainer'
 
-interface RootProps {
+export interface RootProps {
   store: Store<AppState>
 }
 
