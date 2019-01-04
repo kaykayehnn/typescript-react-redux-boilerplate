@@ -1,4 +1,4 @@
-import { mockStore } from '../__mocks__/store'
+import { mockStore } from '../helpers'
 import { increment, CounterTypes, IncrementAction, DecrementAction, decrement, incrementAsync } from '@Store/actions/counter'
 
 let store = mockStore()
