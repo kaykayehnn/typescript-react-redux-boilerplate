@@ -1,4 +1,5 @@
 import CleanWebpackPlugin from 'clean-webpack-plugin'
+import HardSourceWebpackPlugin from 'hard-source-webpack-plugin'
 import MiniCssExtractPlugin from 'mini-css-extract-plugin'
 
 import { basePath } from './webpack.config.base'
@@ -13,6 +14,12 @@ export const modifications: Configuration = {
   devtool: 'source-map',
   plugins: [
     new CleanWebpackPlugin('dist/', { root: basePath }),
+    new HardSourceWebpackPlugin({
+      info: {
+        mode: 'none',
+        level: 'warn'
+      }
+    }),
     new MiniCssExtractPlugin({
       filename: 'static/css/[name].[contenthash].css'
     })

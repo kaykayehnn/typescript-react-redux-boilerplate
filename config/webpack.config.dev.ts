@@ -15,7 +15,7 @@ export const modifications: Configuration = {
       './src/index.tsx'
     ]
   },
-  devtool: 'cheap-module-source-map', // E-O-P relies on this FIXME: ?
+  devtool: 'cheap-module-source-map', // E-O-P relies on this
   output: {
     devtoolModuleFilenameTemplate (info) {
       return path.resolve(info.absoluteResourcePath).replace(/\\/g, '/')

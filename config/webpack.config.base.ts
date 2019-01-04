@@ -1,37 +1,10 @@
 import path from 'path'
+import { TsConfigPathsPlugin } from 'awesome-typescript-loader'
 import CaseSensitivePathsPlugin from 'case-sensitive-paths-webpack-plugin'
 import CopyWebpackPlugin from 'copy-webpack-plugin'
 import HTMLWebpackPlugin from 'html-webpack-plugin'
 
 import { Configuration } from 'webpack'
-
-export interface StringMap {
-  [key: string]: string
-}
-
-export function getAliases (): StringMap {
-  const tsconfig = require('../tsconfig.json')
-  const pathGlobRgx = /(.+)\/(\*)?/
-
-  let aliases: StringMap = {}
-
-  const paths = tsconfig.compilerOptions.paths
-  const pathKeys = Object.keys(paths)
-
-  for (let i = 0; i < pathKeys.length; i++) {
-    const k = pathKeys[i]
-
-    const [m, alias, exact] = pathGlobRgx.exec(k)
-    const [m2, relativePath] = pathGlobRgx.exec(paths[k])
-
-    const aliasKey = alias + (exact === null ? '$' : '')
-    const aliasPath = path.join(basePath, 'src', relativePath)
-
-    aliases[aliasKey] = aliasPath
-  }
-
-  return aliases
-}
 
 export const basePath = path.join(__dirname, '..')
 
@@ -46,9 +19,10 @@ export const baseConfig: Configuration = {
     publicPath: '/'
   },
   resolve: {
-    // aliases are resolved from tsconfig
-    alias: getAliases(),
-    extensions: ['.ts', '.tsx', '.js']
+    extensions: ['.ts', '.tsx', '.js'],
+    plugins: [
+      new TsConfigPathsPlugin()
+    ]
   },
   optimization: {
     splitChunks: {
