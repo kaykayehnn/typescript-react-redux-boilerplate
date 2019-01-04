@@ -1,34 +1,19 @@
-import React, { StatelessComponent } from 'react'
-import { hot } from 'react-hot-loader/root'
+import React, { StrictMode, StatelessComponent } from 'react'
+import { Provider } from 'react-redux'
 
-import { configureStore } from './store/configureStore'
-import { RootContainer } from './containers/Root'
+import { Store } from 'redux'
+import { AppState } from '@Store/state/AppState'
+import { CounterContainer } from '@Containers/CounterContainer'
 
-const store = configureStore()
-
-export const App: StatelessComponent = () => <RootContainer store={store} />
-
-if (module.hot) {
-  // Hardcoded in react-error-overlay
-  const ERROR_OVERLAY_ZINDEX = 2147483647 + ''
-
-  module.hot.addStatusHandler(status => {
-    if (status !== 'apply') return
-
-    // When we receive a hot update check if error overlay is visible
-    const isOverlayVisible = Array.from(document.querySelectorAll('iframe'))
-      .some(e => e.style.zIndex === ERROR_OVERLAY_ZINDEX)
-
-    // If is, reload browser to restore possibly corrupted application state.
-    if (isOverlayVisible) {
-      window.location.reload()
-    }
-  })
+export interface AppProps {
+  store: Store<AppState>
 }
 
-export default process.env.NODE_ENV === 'production'
-  ? App
-  : hot(App, {
-    errorBoundary: false,
-    errorReporter: () => null
-  })
+export const App: StatelessComponent<AppProps> =
+  ({ store }) => (
+    <StrictMode>
+      <Provider store={store}>
+        <CounterContainer />
+      </Provider>
+    </StrictMode>
+  )

@@ -1,6 +1,21 @@
-import React from 'react'
+import React, { FunctionComponent } from 'react'
 import ReactDOM from 'react-dom'
 
-import App from './App'
+import { configureStore } from './store/configureStore'
+import { App, AppProps } from './App'
 
-ReactDOM.render(<App />, document.getElementById('root'))
+const store = configureStore()
+
+mountApp(App)
+
+if (module.hot) {
+  module.hot.accept('./App', () => {
+    const { App } = require('./App')
+
+    mountApp(App)
+  })
+}
+
+function mountApp (App: FunctionComponent<AppProps>) {
+  ReactDOM.render(<App store={store} />, document.getElementById('root'))
+}
