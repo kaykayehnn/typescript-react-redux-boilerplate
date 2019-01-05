@@ -1,1 +1,3 @@
-export type CounterState = number
+type CounterState = number
+
+export default CounterState

@@ -1,3 +1,3 @@
-export interface AppState {
+export default interface AppState {
   readonly counter: number
 }

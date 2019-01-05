@@ -1,5 +1,5 @@
-import { MapDispatchToProps } from 'react-redux'
-import { ThunkAction } from './ThunkAction'
+import { MapDispatchToProps as MapDispatchToPropsOriginal } from 'react-redux'
+import ThunkAction from './ThunkAction'
 
 // If matches signature (...args) => Thunk => R, returns a function with
 // following signature: (...args) => R. Else is identity.
@@ -11,5 +11,7 @@ export type DispatchifyKeys<T> = {
   [K in keyof T]: Dispatchify<T[K]>
 }
 
-export type MapDispatchToProps<TDispatchProps, TOwnProps = {}> =
-  MapDispatchToProps<DispatchifyKeys<TDispatchProps>, TOwnProps>
+type MapDispatchToProps<TDispatchProps, TOwnProps = {}> =
+  MapDispatchToPropsOriginal<DispatchifyKeys<TDispatchProps>, TOwnProps>
+
+export default MapDispatchToProps

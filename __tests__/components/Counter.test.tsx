@@ -1,7 +1,7 @@
 import React from 'react'
 import { shallow } from 'enzyme'
 
-import { Counter } from '@Components/Counter'
+import Counter from '@Components/Counter'
 import { CounterProps } from '@Containers/CounterContainer'
 
 let props: CounterProps

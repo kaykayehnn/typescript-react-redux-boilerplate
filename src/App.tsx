@@ -2,14 +2,14 @@ import React, { StrictMode, FunctionComponent } from 'react'
 import { Provider } from 'react-redux'
 
 import { Store } from 'redux'
-import { AppState } from '@Store/state/AppState'
-import { CounterContainer } from '@Containers/CounterContainer'
+import AppState from '@Store/state/AppState'
+import CounterContainer from '@Containers/CounterContainer'
 
 export interface AppProps {
   store: Store<AppState>
 }
 
-export const App: FunctionComponent<AppProps> =
+const App: FunctionComponent<AppProps> =
   ({ store }) => (
     <StrictMode>
       <Provider store={store}>
@@ -17,3 +17,5 @@ export const App: FunctionComponent<AppProps> =
       </Provider>
     </StrictMode>
   )
+
+export default App

@@ -1,6 +1,6 @@
-import { configureStore } from '@Store/configureStore'
+import configureStore from '@Store/configureStore'
 
-import { AppState } from '@Store/state/AppState'
+import AppState from '@Store/state/AppState'
 
 test('works without preloaded state', function () {
   const store = configureStore()

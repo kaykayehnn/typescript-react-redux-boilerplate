@@ -1,8 +1,10 @@
 import { combineReducers } from 'redux'
 
-import { counterReducer } from './counter'
-import { AppState } from '@Store/state/AppState'
+import counterReducer from './counter'
+import AppState from '@Store/state/AppState'
 
-export const rootReducer = combineReducers<AppState>({
+const rootReducer = combineReducers<AppState>({
   counter: counterReducer
 })
+
+export default rootReducer

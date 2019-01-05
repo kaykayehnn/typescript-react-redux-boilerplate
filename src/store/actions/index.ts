@@ -1,3 +1,5 @@
 import { CounterActions } from './counter'
 
-export type AppActions = CounterActions
+type AppActions = CounterActions
+
+export default AppActions

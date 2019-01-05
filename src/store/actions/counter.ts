@@ -1,6 +1,6 @@
 import { Action } from 'redux'
 
-import { ThunkAction } from 'types/ThunkAction'
+import ThunkAction from 'types/ThunkAction'
 
 export enum CounterTypes {
   INCREMENT = 'INCREMENT',

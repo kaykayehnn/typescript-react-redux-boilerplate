@@ -1,6 +1,6 @@
 import { increment, decrement, incrementAsync } from '@Store/actions/counter'
-import { configureStore } from '@Store/configureStore'
-import { counterReducer } from '@Store/reducers/counter'
+import configureStore from '@Store/configureStore'
+import counterReducer from '@Store/reducers/counter'
 
 test('increment works', function () {
   const initialState = 0

@@ -1,5 +1,7 @@
-import { MapStateToProps } from 'react-redux'
-import { AppState } from '../store/state/AppState'
+import { MapStateToProps as MapStateToPropsOriginal } from 'react-redux'
+import AppState from '@Store/state/AppState'
 
-export type MapStateToProps<TStateProps, TOwnProps = {}> =
-  MapStateToProps<TStateProps, TOwnProps, AppState>
+type MapStateToProps<TStateProps, TOwnProps = {}> =
+  MapStateToPropsOriginal<TStateProps, TOwnProps, AppState>
+
+export default MapStateToProps

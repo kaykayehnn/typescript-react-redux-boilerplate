@@ -1,6 +1,8 @@
-import { ThunkAction } from 'redux-thunk'
+import { ThunkAction as ThunkActionOriginal } from 'redux-thunk'
 
-import { AppState } from '@Store/state/AppState'
-import { AppActions } from '@Store/actions'
+import AppState from '@Store/state/AppState'
+import AppActions from '@Store/actions'
 
-export type ThunkAction<R> = ThunkAction<R, AppState, undefined, AppActions>
+type ThunkAction<R> = ThunkActionOriginal<R, AppState, undefined, AppActions>
+
+export default ThunkAction

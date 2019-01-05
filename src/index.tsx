@@ -1,8 +1,8 @@
 import React, { FunctionComponent } from 'react'
 import ReactDOM from 'react-dom'
 
-import { configureStore } from './store/configureStore'
-import { App, AppProps } from './App'
+import configureStore from '@Store/configureStore'
+import App, { AppProps } from './App'
 
 const store = configureStore()
 
@@ -10,7 +10,7 @@ mountApp(App)
 
 if (module.hot) {
   module.hot.accept('./App', () => {
-    const { App } = require('./App')
+    const App = require('./App').default
 
     mountApp(App)
   })
