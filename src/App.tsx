@@ -1,7 +1,7 @@
 import React, { StrictMode, FunctionComponent } from 'react'
 import { Provider } from 'react-redux'
 
-import { Store } from 'redux'
+import Store from 'types/Store'
 import AppState from '@Store/state/AppState'
 import CounterContainer from '@Containers/CounterContainer'
 
