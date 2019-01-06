@@ -12,6 +12,7 @@ export const modifications: Configuration = {
   entry: {
     main: [
       'react-dev-utils/webpackHotDevClient',
+      require.resolve('./hot-error-reload'),
       './src/index.tsx'
     ]
   },
