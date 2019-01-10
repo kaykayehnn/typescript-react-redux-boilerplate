@@ -7,6 +7,7 @@ import HTMLWebpackPlugin from 'html-webpack-plugin'
 import { Configuration } from 'webpack'
 
 export const basePath = path.join(__dirname, '..')
+export const cssTest = /\.(sc|sa|c)ss$/
 
 export const baseConfig: Configuration = {
   context: basePath,
@@ -49,16 +50,24 @@ export const baseConfig: Configuration = {
         }
       },
       {
-        test: /\.(sc|sa|c)ss$/,
+        test: cssTest,
         use: [
-          // these settings are overriden in dev/prod configs,
-          // they only show the least common ancestor in both envs
           {
             loader: 'typings-for-css-modules-loader',
             options: {
               modules: true,
               camelCase: 'only',
               namedExport: true
+              // Sass deals with @import directives, so postcss-loader
+              // is fine below css-loader, contrary to their docs
+            }
+          },
+          {
+            loader: 'postcss-loader',
+            options: {
+              config: {
+                path: __dirname
+              }
             }
           },
           'sass-loader'
