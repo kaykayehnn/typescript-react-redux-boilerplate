@@ -7,6 +7,8 @@ import HTMLWebpackPlugin from 'html-webpack-plugin'
 import { Configuration } from 'webpack'
 
 export const basePath = path.join(__dirname, '..')
+export const outputPath = path.join(basePath, 'dist')
+
 export const cssTest = /\.(sc|sa|c)ss$/
 
 export const baseConfig: Configuration = {
@@ -16,7 +18,7 @@ export const baseConfig: Configuration = {
     polyfills: './src/polyfills.ts'
   },
   output: {
-    path: path.join(basePath, 'dist/'),
+    path: outputPath,
     publicPath: '/'
   },
   resolve: {
@@ -78,7 +80,7 @@ export const baseConfig: Configuration = {
   plugins: [
     new CaseSensitivePathsPlugin(),
     new CopyWebpackPlugin([
-      { from: path.join(basePath, 'public/'), to: path.join(basePath, 'dist/') }
+      { from: path.join(basePath, 'public/'), to: outputPath }
     ]),
     new HTMLWebpackPlugin({
       template: path.join(basePath, 'public/index.html'),

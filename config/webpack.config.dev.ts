@@ -6,7 +6,7 @@ import getCSSModuleLocalIdent from 'react-dev-utils/getCSSModuleLocalIdent'
 import { cssTest } from './webpack.config.base'
 import { Configuration, HotModuleReplacementPlugin } from 'webpack'
 
-const PORT = 3000
+const PORT = +process.env.PORT || 3000
 
 export const modifications: Configuration = {
   mode: 'development',

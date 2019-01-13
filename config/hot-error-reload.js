@@ -1,13 +1,13 @@
 if (module.hot) {
   // Hardcoded in react-error-overlay.
-  var ERROR_OVERLAY_ZINDEX = '2147483647'
+  let ERROR_OVERLAY_ZINDEX = '2147483647'
 
   module.hot.addStatusHandler(function (status) {
-    var isOverlayVisible = false
-    var iframes = document.querySelectorAll('iframe')
+    let isOverlayVisible = false
+    let iframes = document.querySelectorAll('iframe')
 
     // Check if any of the iframes is react-error-overlay
-    for (var i = 0; i < iframes.length && !isOverlayVisible; i++) {
+    for (let i = 0; i < iframes.length && !isOverlayVisible; i++) {
       isOverlayVisible = iframes[i].style.zIndex === ERROR_OVERLAY_ZINDEX
     }
 
