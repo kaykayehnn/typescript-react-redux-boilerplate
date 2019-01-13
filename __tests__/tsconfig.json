@@ -1,0 +1,10 @@
+{
+  "extends": "../tsproject.json",
+  "compilerOptions": {
+    "baseUrl": "../src"
+  },
+  "include": [
+    "./",
+    "../src"
+  ]
+}

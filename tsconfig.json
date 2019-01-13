@@ -1,34 +1,9 @@
 {
+  "extends": "./tsproject.json",
   "compilerOptions": {
-    "outDir": "./dist/",
-    "sourceMap": true,
-    "moduleResolution": "node",
-    "esModuleInterop": true,
-    "allowSyntheticDefaultImports": true,
-    "noEmitOnError": true,
-    "strictNullChecks": true,
-    "importHelpers": true,
-    "module": "esnext",
-    "target": "es5",
-    "lib": [
-      "dom",
-      "es6"
-    ],
-    "jsx": "react",
-    "baseUrl": "./src",
-    "paths": {
-      "@Components/*": [
-        "./components/*"
-      ],
-      "@Containers/*": [
-        "./containers/*"
-      ],
-      "@Store/*": [
-        "./store/*"
-      ]
-    }
+    "baseUrl": "./src"
   },
   "include": [
-    "./src/**/*"
+    "./src"
   ]
 }

@@ -2,7 +2,7 @@
 // https://jestjs.io/docs/en/configuration.html
 const { pathsToModuleNameMapper } = require('ts-jest/utils')
 
-const { compilerOptions } = require('./tsconfig')
+const { compilerOptions } = require('./tsproject')
 
 module.exports = {
   // All imported modules in your tests should be mocked automatically
@@ -60,7 +60,7 @@ module.exports = {
   // A set of global variables that need to be available in all test environments
   globals: {
     'ts-jest': {
-      'tsConfig': './__tests__/tsconfig-jest.json'
+      'tsConfig': './__tests__/tsconfig.json'
     }
   },
 
