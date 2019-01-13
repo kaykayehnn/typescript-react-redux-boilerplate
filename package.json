@@ -1,6 +1,6 @@
 {
   "name": "typescript-react-redux-boilerplate",
-  "version": "1.0.0",
+  "version": "0.1.0",
   "description": "React-Redux boilerplate with TypeScript and Webpack",
   "scripts": {
     "start": "cross-env TS_NODE_PROJECT=config/tsconfig.json webpack-dev-server",
@@ -17,7 +17,7 @@
     "boilerplate",
     "webpack"
   ],
-  "author": "KN",
+  "author": "Krasimir Nedelchev <kaykayehnn@outlook.com> (https://github.com/kaykayehnn)",
   "license": "MIT",
   "dependencies": {
     "core-js": "^2.6.1",
@@ -90,6 +90,7 @@
   "lint-staged": {
     "*.{js,jsx,ts,tsx}": [
       "tslint --fix -c tslint.json",
+      "jest --bail --findRelatedTests",
       "git add"
     ]
   }
