@@ -3,8 +3,8 @@
   "version": "1.0.0",
   "description": "React-Redux boilerplate with TypeScript and Webpack",
   "scripts": {
-    "start": "TS_NODE_PROJECT=config/tsconfig-webpack.json webpack-dev-server",
-    "build": "TS_NODE_PROJECT=config/tsconfig-webpack.json webpack --env=production",
+    "start": "cross-env TS_NODE_PROJECT=config/tsconfig.json webpack-dev-server",
+    "build": "cross-env TS_NODE_PROJECT=config/tsconfig.json webpack --env=production",
     "lint": "tslint --fix -p .",
     "test": "jest --verbose",
     "test:watch": "npm test -- --watch"
@@ -52,6 +52,7 @@
     "case-sensitive-paths-webpack-plugin": "^2.1.2",
     "clean-webpack-plugin": "^1.0.0",
     "copy-webpack-plugin": "^4.6.0",
+    "cross-env": "^5.2.0",
     "css-loader": "^0.28.11",
     "cssnano": "^4.1.8",
     "enzyme": "^3.8.0",
