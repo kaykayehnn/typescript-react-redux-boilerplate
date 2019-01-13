@@ -20,6 +20,8 @@ git clone https://github.com/kayKayEhnn/typescript-react-redux-boilerplate.git
 
 Find all lines (<kbd>Cmd</kbd>+<kbd>Shift</kbd>+<kbd>F</kbd> / <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>F</kbd> :wink:) annotated with "FIXME:" and change where needed if defaults don't suit your use case.
 
+See [Commands](#commands) for more information.
+
 ---
 
 ### Folder Structure
@@ -128,6 +130,11 @@ npm start
 Build for production:
 ```bash
 npm run build
+```
+
+Run tests:
+```bash
+npm test
 ```
 
 ### Credits
