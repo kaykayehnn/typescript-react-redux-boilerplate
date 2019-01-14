@@ -2,23 +2,21 @@
 [![Build Status](https://travis-ci.org/kayKayEhnn/typescript-react-redux-boilerplate.svg?branch=master)](https://travis-ci.org/kayKayEhnn/typescript-react-redux-boilerplate)
 
 ### What's included:
-- Typescript
+- TypeScript
 - TSLint configured with Standard Style settings
 - React & Redux
 - Redux DevTools via Chrome extension
 - SASS & CSS Modules
 - Webpack configuration with Hot Module Replacement
-- Jest setup
+- Jest setup for TypeScript
 - An example architecture for building scalable applications
 
 ### Usage
-Clone the project
-
-```bash
-git clone https://github.com/kayKayEhnn/typescript-react-redux-boilerplate.git
-```
-
-Find all lines (<kbd>Cmd</kbd>+<kbd>Shift</kbd>+<kbd>F</kbd> / <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>F</kbd> :wink:) annotated with "FIXME:" and change where needed if defaults don't suit your use case.
+- Clone the project
+- ```rm -rf .git```
+- ```git init```
+- Update ```package.json``` with relevant settings (name, description, keywords, etc.)
+- Find all lines (<kbd>Cmd</kbd>+<kbd>Shift</kbd>+<kbd>F</kbd> / <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>F</kbd> :wink:) annotated with "FIXME:" and change where needed if defaults don't suit your use case.
 
 See [Commands](#commands) for more information.
 
