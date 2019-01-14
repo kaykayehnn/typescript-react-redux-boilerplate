@@ -15,18 +15,14 @@ beforeEach(function () {
   }
 })
 
-test('it should render self', function () {
+test('renders self', function () {
   const wrapper = shallow(<Counter {...props} />)
-
-  expect(wrapper.find('h1').text()).toEqual(props.value.toString())
-
-  expect(wrapper.find('button')).toHaveLength(3)
 })
 
 test('increment button works', function () {
-  const node = shallow(<Counter {...props} />)
+  const wrapper = shallow(<Counter {...props} />)
 
-  const button = node.find('button').at(0)
+  const button = wrapper.find('button').at(0)
 
   expect(props.increment).not.toBeCalled()
 
