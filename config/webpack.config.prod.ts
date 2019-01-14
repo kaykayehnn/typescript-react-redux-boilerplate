@@ -2,7 +2,7 @@ import CleanWebpackPlugin from 'clean-webpack-plugin'
 import HardSourceWebpackPlugin from 'hard-source-webpack-plugin'
 import MiniCssExtractPlugin from 'mini-css-extract-plugin'
 
-import { cssTest, outputPath } from './webpack.config.base'
+import { cssTest, outputPath, basePath } from './webpack.config.base'
 import { Configuration } from 'webpack'
 
 export const modifications: Configuration = {
@@ -29,7 +29,7 @@ export const modifications: Configuration = {
     ]
   },
   plugins: [
-    new CleanWebpackPlugin(outputPath),
+    new CleanWebpackPlugin(outputPath, { root: basePath }),
     new HardSourceWebpackPlugin({
       info: {
         mode: 'none',
