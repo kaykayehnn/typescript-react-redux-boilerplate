@@ -19,17 +19,17 @@ const App: FunctionComponent<AppProps> =
   ({ store }) => (
     <StrictMode>
       <Provider store={store}>
-        <Suspense fallback={null}>
-          <BrowserRouter>
-            <Navigation />
-            <Switch>
+        <BrowserRouter>
+          <Navigation />
+          <Switch>
+            <Suspense fallback={null}>
               {/* Home component is always loaded as it is most likely
                   going to be needed at some point during the user's visit. */}
               <Route exact path={'/'} component={CounterContainer} />
               <Route exact path={'/fancy'} component={FancyCounter} />
-            </Switch>
-          </BrowserRouter>
-        </Suspense>
+            </Suspense>
+          </Switch>
+        </BrowserRouter>
       </Provider>
     </StrictMode>
   )
