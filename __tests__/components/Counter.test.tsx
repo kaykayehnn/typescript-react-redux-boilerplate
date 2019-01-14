@@ -8,7 +8,7 @@ let props: CounterProps
 
 beforeEach(function () {
   props = {
-    counter: 0,
+    value: 0,
     increment: jest.fn(),
     decrement: jest.fn(),
     incrementAsync: jest.fn()
@@ -18,7 +18,7 @@ beforeEach(function () {
 test('it should render self', function () {
   const wrapper = shallow(<Counter {...props} />)
 
-  expect(wrapper.find('h1').text()).toEqual(props.counter.toString())
+  expect(wrapper.find('h1').text()).toEqual(props.value.toString())
 
   expect(wrapper.find('button')).toHaveLength(3)
 })

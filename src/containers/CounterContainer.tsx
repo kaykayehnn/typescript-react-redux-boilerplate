@@ -3,22 +3,23 @@ import { connect } from 'react-redux'
 import Counter from '@Components/Counter'
 import { increment, decrement, incrementAsync } from '@Store/actions/counter'
 import MapStateToProps from 'types/MapStateToProps'
+import DisconnectAction from 'types/DisconnectAction'
 import MapDispatchToProps from 'types/MapDispatchToProps'
 
-interface PropsFromState {
-  counter: number
+export interface PropsFromState {
+  value: number
 }
 
-interface PropsFromDispatch {
-  increment: typeof increment,
-  decrement: typeof decrement,
-  incrementAsync: typeof incrementAsync
+export interface PropsFromDispatch {
+  increment: DisconnectAction<typeof increment>
+  decrement: DisconnectAction<typeof decrement>
+  incrementAsync: DisconnectAction<typeof incrementAsync>
 }
 
 export type CounterProps = PropsFromState & PropsFromDispatch
 
 const mapStateToProps: MapStateToProps<PropsFromState> =
-  (state) => ({ counter: state.counter })
+  (state) => ({ value: state.counter })
 
 const mapDispatchToProps: MapDispatchToProps<PropsFromDispatch> = {
   increment,
