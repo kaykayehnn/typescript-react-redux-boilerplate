@@ -28,17 +28,19 @@ See [Commands](#commands) for more information.
 ├── __tests__
 ├──── {test_directories}
 ├────── {test_files.test.ts}
+├──── tsconfig.json
 ├
 ├── config
 ├──── postscss.config.js
 ├──── webpack.config.{base,dev,prod}.ts
-├──── tsconfig-webpack.json
+├──── tsconfig.json
 ├
 ├── public
 ├──── index.html
 ├──── static
 ├────── images
 ├────── fonts
+├────── icons
 ├────── etc.
 ├
 ├── src
@@ -49,7 +51,7 @@ See [Commands](#commands) for more information.
 ├──────── {component.scss}
 ├──────── {component.scss.d.ts}
 ├──── containers
-├────── {containerContainer.tsx}
+├────── {ContainerContainer.tsx}
 ├──── declarations
 ├────── styles.d.ts
 ├──── store
@@ -64,6 +66,7 @@ See [Commands](#commands) for more information.
 ├────────── {state_part}State.ts
 ├──────── configureStore.ts
 ├──── types
+├────── DisconnectAction.ts
 ├────── MapDispatchToProps.ts
 ├────── MapStateToProps.ts
 ├────── Store.ts
@@ -75,6 +78,7 @@ See [Commands](#commands) for more information.
 ├── package.json
 ├── tsconfig.json
 ├── tslint.json
+├── tsproject.json
 ├── webpack.config.ts
 ```
 
