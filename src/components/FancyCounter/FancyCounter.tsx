@@ -11,7 +11,7 @@ export interface FancyCounterState {
 }
 
 export default class FancyCounter extends Component<FancyCounterProps, FancyCounterState> {
-  constructor (props) {
+  constructor (props: FancyCounterProps) {
     super(props)
 
     this.state = {
