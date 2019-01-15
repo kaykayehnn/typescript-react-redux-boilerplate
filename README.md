@@ -66,13 +66,12 @@ See [Commands](#commands) for more information.
 ├────────── {state_part}State.ts
 ├──────── configureStore.ts
 ├──── types
-├────── DisconnectAction.ts
-├────── MapDispatchToProps.ts
-├────── MapStateToProps.ts
-├────── Store.ts
-├────── ThunkAction.ts
+├────── Redux.ts
+├────── {Model}.ts
 ├──── index.tsx
 ├──── polyfills.ts
+├──── style.scss
+├──── style.scss.d.ts
 ├
 ├── jest.config.js
 ├── package.json
@@ -102,18 +101,26 @@ Component folders consist of 4 files for ease of navigation in editor (Quick Ope
 **Declarations** serve for defining usage of miscellaneous file types, which get processed by webpack loaders, e.g. styles, vectors, graphql etc.
 
 #### Store
-**Actions** define the action types and action creators. They also export a union of their action types, which is then used for strongly typing `dispatch` calls.
+**Actions** define action types and action creators. They also export a union of their action types, which is then used in reducers.
+**Actions** define action types and action creators. Each state piece also exports a union of its action types, which are later merged in AppActions.ts.
 
 **Reducers'** signatures are defined using State and ActionType types and by using `switch..case` branches for each action we get strong typing, courtesy of [Discriminated Types](https://www.typescriptlang.org/docs/handbook/advanced-types.html#discriminated-unions).
 
 **State** holds shape definitions of the different pieces of data the reducers manage. AppState shows the shape of the whole state tree.
 
 #### Types
-**Types** holds overridden definitions of intrinsic redux and react-redux types. They serve mainly for brevity when defining containers and actions but they also solve type definitions problems with redux-thunk middleware.
 
-#### Index and Polyfills
-**Index** is the main entry point. It takes care of bootstrapping the application and shouldn't hold any program logic.
+**Types** hold application-specific contracts (models, enums, etc.) . The Redux types specify overridden definitions of intrinsic redux and react-redux types. They serve for brevity when defining containers and actions but they also solve type definitions problems with defining props for container components.
+
+#### Top level files
+
+**Index** is the bundle entry point. It renders ```<App />``` and shouldn't hold any program logic.
+
+**App** is the root component. It renders wrapper components and specifies app routes.
+
 **Polyfills** is an entry point containing polyfills for older browsers. It gets processed in a separate bundle and is loaded conditionally by a test in [index.html](https://github.com/kayKayEhnn/typescript-react-redux-boilerplate/blob/318ca1247e1446a95f43e6410f4764159fb77a49/public/index.html#L18-L27).
+
+**Style** is the entry point for global styles and importing CSS frameworks.
 
 ---
 
