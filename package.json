@@ -1,15 +1,6 @@
 {
   "name": "typescript-react-redux-boilerplate",
-  "version": "0.1.0",
   "description": "React-Redux boilerplate with TypeScript and Webpack",
-  "scripts": {
-    "start": "cross-env TS_NODE_PROJECT=config/tsconfig.json webpack-dev-server",
-    "build": "cross-env TS_NODE_PROJECT=config/tsconfig.json webpack --env=production",
-    "postbuild": "cp dist/index.html dist/404.html",
-    "lint": "tslint --fix -p .",
-    "test": "jest --verbose",
-    "test:watch": "npm test -- --watch"
-  },
   "keywords": [
     "typescript",
     "react",
@@ -18,8 +9,21 @@
     "boilerplate",
     "webpack"
   ],
+  "version": "0.1.0",
   "author": "Krasimir Nedelchev <kaykayehnn@outlook.com> (https://github.com/kaykayehnn)",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kayKayEhnn/typescript-react-redux-boilerplate.git"
+  },
   "license": "MIT",
+  "scripts": {
+    "start": "cross-env TS_NODE_PROJECT=config/tsconfig.json webpack-dev-server",
+    "build": "cross-env TS_NODE_PROJECT=config/tsconfig.json webpack --env=production",
+    "postbuild": "cp dist/index.html dist/404.html",
+    "lint": "tslint --fix -p .",
+    "test": "jest --verbose",
+    "test:watch": "npm test -- --watch"
+  },
   "dependencies": {
     "core-js": "^2.6.1",
     "normalize.css": "^8.0.1",
