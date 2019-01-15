@@ -1,6 +1,6 @@
 import configureMockStore, { MockStoreEnhanced } from 'redux-mock-store'
-
 import thunk, { ThunkDispatch } from 'redux-thunk'
+
 import AppState from '@Store/state/AppState'
 import AppActions from '@Store/actions'
 

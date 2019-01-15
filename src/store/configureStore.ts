@@ -3,8 +3,8 @@ import { composeWithDevTools } from 'redux-devtools-extension'
 import thunk from 'redux-thunk'
 
 import rootReducer from './reducers/'
+import { Store } from 'types/Redux'
 import AppState from './state/AppState'
-import Store from 'types/Store'
 import AppActions from './actions'
 
 export default function configureStore (preloadedState?: AppState) {

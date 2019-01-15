@@ -6,7 +6,7 @@ import './style.scss'
 import Navigation from '@Components/Navigation'
 import CounterContainer from '@Containers/CounterContainer'
 
-import Store from 'types/Store'
+import { Store } from 'types/Redux'
 import AppActions from '@Store/actions'
 import AppState from '@Store/state/AppState'
 

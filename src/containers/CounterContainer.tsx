@@ -2,9 +2,7 @@ import { connect } from 'react-redux'
 
 import Counter from '@Components/Counter'
 import { increment, decrement, incrementAsync } from '@Store/actions/counter'
-import MapStateToProps from 'types/MapStateToProps'
-import DisconnectAction from 'types/DisconnectAction'
-import MapDispatchToProps from 'types/MapDispatchToProps'
+import { DisconnectAction, MapStateToProps, MapDispatchToProps } from 'types/Redux'
 
 export interface PropsFromState {
   value: number

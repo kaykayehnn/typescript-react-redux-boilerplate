@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+
 import styles from './fancyCounter.scss'
 import Counter from '@Components/Counter'
 
