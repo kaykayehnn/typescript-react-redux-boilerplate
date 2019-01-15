@@ -1,9 +1,10 @@
 import React, { Suspense, lazy, StrictMode, FunctionComponent } from 'react'
+import { BrowserRouter, Route, Switch } from 'react-router-dom'
 import { Provider } from 'react-redux'
 
+import './style.scss'
 import Navigation from '@Components/Navigation'
 import CounterContainer from '@Containers/CounterContainer'
-import { BrowserRouter, Route, Switch } from 'react-router-dom'
 
 import Store from 'types/Store'
 import AppActions from '@Store/actions'
