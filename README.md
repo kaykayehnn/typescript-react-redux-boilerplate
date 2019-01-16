@@ -13,10 +13,11 @@
 
 ### Usage
 - Clone the project
-- ```rm -rf .git```
-- ```git init```
-- Update ```package.json``` with relevant settings (name, description, keywords, etc.)
-- Find all lines (<kbd>Cmd</kbd>+<kbd>Shift</kbd>+<kbd>F</kbd> / <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>F</kbd> :wink:) annotated with "FIXME:" and change where needed if defaults don't suit your use case.
+- `rm -rf .git`
+- `git init`
+- Update `package.json` with relevant settings (name, description, keywords, etc.)
+- Update `LICENSE`
+- Review all lines (<kbd>Cmd</kbd>+<kbd>Shift</kbd>+<kbd>F</kbd> / <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>F</kbd> :wink:) annotated with "FIXME:" and change where needed if defaults don't suit your use case.
 
 See [Commands](#commands) for more information.
 
@@ -114,7 +115,7 @@ Component folders consist of 4 files for ease of navigation in editor (Quick Ope
 
 #### Top level files
 
-**Index** is the bundle entry point. It renders ```<App />``` and shouldn't hold any program logic.
+**Index** is the bundle entry point. It renders `<App />` and shouldn't hold any program logic.
 
 **App** is the root component. It renders wrapper components and specifies app routes.
 
