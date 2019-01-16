@@ -1,1 +1,1 @@
-export const link: string
+export const link: string;

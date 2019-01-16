@@ -100,6 +100,9 @@
       "tslint --fix -c tslint.json",
       "jest --bail --findRelatedTests",
       "git add"
+    ],
+    "ignore": [
+      "*.scss.d.ts"
     ]
   }
 }

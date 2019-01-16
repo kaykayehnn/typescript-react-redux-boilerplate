@@ -1,1 +1,1 @@
-export const fancyButton: string
+export const fancyButton: string;
