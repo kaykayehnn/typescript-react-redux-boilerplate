@@ -19,6 +19,8 @@
 - Update `LICENSE`
 - Review all lines (<kbd>Cmd</kbd>+<kbd>Shift</kbd>+<kbd>F</kbd> / <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>F</kbd> :wink:) annotated with "FIXME:" and change where needed if defaults don't suit your use case.
 
+If you want to remove all example files run `node clean.js`. It will delete all counter-related files and won't modify anything else. Be warned that any changes to them will **be lost irreversibly**.
+
 See [Commands](#commands) for more information.
 
 ---
