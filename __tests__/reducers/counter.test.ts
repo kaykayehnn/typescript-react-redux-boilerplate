@@ -2,37 +2,39 @@ import { increment, decrement, incrementAsync } from '@Store/actions/counter'
 import configureStore from '@Store/configureStore'
 import counterReducer from '@Store/reducers/counter'
 
-test('increment works', function () {
-  const initialState = 0
-  const expected = 1
+describe('Counter Reducer', () => {
+  it('increment works', () => {
+    const initialState = 0
+    const expected = 1
 
-  const result = counterReducer(initialState, increment())
+    const result = counterReducer(initialState, increment())
 
-  expect(result).toEqual(expected)
-})
+    expect(result).toEqual(expected)
+  })
 
-test('decrement works', function () {
-  const initialState = 0
-  const expected = -1
+  it('decrement works', () => {
+    const initialState = 0
+    const expected = -1
 
-  const result = counterReducer(initialState, decrement())
+    const result = counterReducer(initialState, decrement())
 
-  expect(result).toEqual(expected)
-})
+    expect(result).toEqual(expected)
+  })
 
-test('incrementAsync works', function () {
-  const store = configureStore()
-  const callback = jest.fn()
+  it('incrementAsync works', () => {
+    const store = configureStore()
+    const callback = jest.fn()
 
-  const unsubscribe = store.subscribe(callback)
+    const unsubscribe = store.subscribe(callback)
 
-  store.dispatch(incrementAsync())
+    store.dispatch(incrementAsync())
 
-  jest.advanceTimersByTime(999)
-  expect(callback).not.toBeCalled()
+    jest.advanceTimersByTime(999)
+    expect(callback).not.toBeCalled()
 
-  jest.advanceTimersByTime(1)
-  expect(callback).toBeCalled()
+    jest.advanceTimersByTime(1)
+    expect(callback).toBeCalled()
 
-  unsubscribe()
+    unsubscribe()
+  })
 })

@@ -11,23 +11,25 @@ import {
 
 let store = mockStore()
 
-afterEach(function () {
+afterEach(()=> {
   store.clearActions()
 })
 
-test('incrementAsync works', function () {
-  const expected = [{
-    type: CounterTypes.INCREMENT
-  }]
+describe('Counter Actions', () => {
+  it('incrementAsync works', () => {
+    const expected = [{
+      type: CounterTypes.INCREMENT
+    }]
 
-  const store = mockStore()
-  store.dispatch(incrementAsync())
+    const store = mockStore()
+    store.dispatch(incrementAsync())
 
-  jest.advanceTimersByTime(999)
-  expect(store.getActions()).toEqual([])
+    jest.advanceTimersByTime(999)
+    expect(store.getActions()).toEqual([])
 
-  jest.advanceTimersByTime(1)
-  const actual = store.getActions()
+    jest.advanceTimersByTime(1)
+    const actual = store.getActions()
 
-  expect(actual).toEqual(expected)
+    expect(actual).toEqual(expected)
+  })
 })

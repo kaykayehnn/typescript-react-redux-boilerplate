@@ -6,7 +6,7 @@ import { CounterProps } from '@Containers/CounterContainer'
 
 let props: CounterProps
 
-beforeEach(function () {
+beforeEach(() => {
   props = {
     value: 0,
     increment: jest.fn(),
@@ -15,18 +15,20 @@ beforeEach(function () {
   }
 })
 
-test('renders self', function () {
-  const wrapper = shallow(<Counter {...props} />)
-})
+describe('Counter Component', () => {
+  it('renders self', () => {
+    const wrapper = shallow(<Counter {...props} />)
+  })
 
-test('increment button works', function () {
-  const wrapper = shallow(<Counter {...props} />)
+  it('increment button works', () => {
+    const wrapper = shallow(<Counter {...props} />)
 
-  const button = wrapper.find('button').at(0)
+    const button = wrapper.find('button').at(0)
 
-  expect(props.increment).not.toBeCalled()
+    expect(props.increment).not.toBeCalled()
 
-  button.simulate('click')
+    button.simulate('click')
 
-  expect(props.increment).toBeCalled()
+    expect(props.increment).toBeCalled()
+  })
 })
