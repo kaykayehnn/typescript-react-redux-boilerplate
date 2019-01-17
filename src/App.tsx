@@ -3,7 +3,7 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom'
 import { Provider } from 'react-redux'
 
 import './style.scss'
-import Navigation from '@Components/Navigation'
+import Layout from '@Components/Layout'
 import CounterContainer from '@Containers/CounterContainer'
 
 import { Store } from 'types/Redux'
@@ -21,15 +21,16 @@ const App: FunctionComponent<AppProps> =
     <StrictMode>
       <Provider store={store}>
         <BrowserRouter>
-          <Navigation />
-          <Switch>
-            <Suspense fallback={null}>
-              {/* Home component is always loaded as it is most likely
+          <Layout>
+            <Switch>
+              <Suspense fallback={null}>
+                {/* Home component is always loaded as it is most likely
                   going to be needed at some point during the user's visit. */}
-              <Route exact path={'/'} component={CounterContainer} />
-              <Route exact path={'/fancy'} component={FancyCounter} />
-            </Suspense>
-          </Switch>
+                <Route exact path={'/'} component={CounterContainer} />
+                <Route exact path={'/fancy'} component={FancyCounter} />
+              </Suspense>
+            </Switch>
+          </Layout>
         </BrowserRouter>
       </Provider>
     </StrictMode>
