@@ -1,17 +1,10 @@
 import { mockStore } from '../helpers'
 
-import {
-  increment,
-  CounterTypes,
-  IncrementAction,
-  DecrementAction,
-  decrement,
-  incrementAsync
-} from '@Store/actions/counter'
+import { CounterTypes, incrementAsync } from '@Store/actions/counter'
 
 let store = mockStore()
 
-afterEach(()=> {
+afterEach(() => {
   store.clearActions()
 })
 
