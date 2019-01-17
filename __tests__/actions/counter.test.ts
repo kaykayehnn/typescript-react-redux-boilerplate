@@ -15,28 +15,8 @@ afterEach(function () {
   store.clearActions()
 })
 
-test('increment works', function () {
-  const expected: IncrementAction = {
-    type: CounterTypes.INCREMENT
-  }
-
-  const actual = increment()
-
-  expect(actual).toEqual(expected)
-})
-
-test('decrement works', function () {
-  const expected: DecrementAction = {
-    type: CounterTypes.DECREMENT
-  }
-
-  const actual = decrement()
-
-  expect(actual).toEqual(expected)
-})
-
 test('incrementAsync works', function () {
-  const expected: [IncrementAction] = [{
+  const expected = [{
     type: CounterTypes.INCREMENT
   }]
 
