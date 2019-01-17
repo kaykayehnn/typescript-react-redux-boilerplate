@@ -65,3 +65,6 @@ dist/
 
 # macOS system file for folder settings
 .DS_STORE
+
+# VS Code settings
+.vscode
