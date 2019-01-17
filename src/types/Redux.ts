@@ -1,9 +1,6 @@
 import { Store as StoreOriginal, Action, AnyAction, ActionCreator } from 'redux'
 import { ThunkDispatch, ThunkAction as ThunkActionOriginal } from 'redux-thunk'
-import {
-  MapStateToProps as MapStateToPropsOriginal,
-  MapDispatchToProps as MapDispatchToPropsOriginal
-} from 'react-redux'
+import { MapDispatchToProps as MapDispatchToPropsOriginal } from 'react-redux'
 
 import AppState from '@Store/state/AppState'
 import AppActions from '@Store/actions'
@@ -13,7 +10,7 @@ export interface Store<S, A extends Action = AnyAction> extends StoreOriginal<S,
 }
 
 export type MapStateToProps<TStateProps, TOwnProps = {}> =
-  MapStateToPropsOriginal<TStateProps, TOwnProps, AppState>
+  (state: AppState, ownProps?: TOwnProps) => TStateProps
 
 export type MapDispatchToProps<TDispatchProps, TOwnProps = {}> =
   MapDispatchToPropsOriginal<TDispatchProps, TOwnProps>

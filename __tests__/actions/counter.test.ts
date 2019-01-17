@@ -14,15 +14,11 @@ describe('Counter Actions', () => {
       type: CounterTypes.INCREMENT
     }]
 
-    const store = mockStore()
     store.dispatch(incrementAsync())
-
     jest.advanceTimersByTime(999)
     expect(store.getActions()).toEqual([])
 
     jest.advanceTimersByTime(1)
-    const actual = store.getActions()
-
-    expect(actual).toEqual(expected)
+    expect(store.getActions()).toEqual(expected)
   })
 })

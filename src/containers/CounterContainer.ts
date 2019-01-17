@@ -16,10 +16,10 @@ export interface PropsFromDispatch {
 
 export type CounterProps = PropsFromState & PropsFromDispatch
 
-const mapStateToProps: MapStateToProps<PropsFromState> =
+export const mapStateToProps: MapStateToProps<PropsFromState> =
   (state) => ({ value: state.counter })
 
-const mapDispatchToProps: MapDispatchToProps<PropsFromDispatch> = {
+export const mapDispatchToProps: MapDispatchToProps<PropsFromDispatch> = {
   increment,
   decrement,
   incrementAsync
