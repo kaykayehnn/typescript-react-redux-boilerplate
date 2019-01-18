@@ -1,1 +1,1 @@
-export { default } from './FancyCounter'
+export { default } from './FancyCounter.component'

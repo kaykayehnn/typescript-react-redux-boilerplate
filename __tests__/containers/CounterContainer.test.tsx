@@ -1,4 +1,4 @@
-import { mapStateToProps, PropsFromState } from '@Containers/CounterContainer'
+import { mapStateToProps, PropsFromState } from '@Containers/Counter.container'
 
 describe('Counter Container', () => {
   it('mapStateToProps works', () => {

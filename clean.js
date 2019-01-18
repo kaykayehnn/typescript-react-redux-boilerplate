@@ -11,10 +11,12 @@ const rimraf = require('rimraf')
 const patternsToRemove = [
   '__tests__/{actions,reducers}/counter.test.ts',
   '__tests__/components/{Counter,FancyCounter}.test.tsx',
+  '__tests__/containers/CounterContainer.test.tsx',
   'src/components/{Counter,FancyCounter}/*',
-  'src/containers/CounterContainer.ts',
-  'src/store/{actions,reducers}/counter.ts',
-  'src/store/state/CounterState.ts',
+  'src/containers/Counter.container.ts',
+  'src/store/actions/counter.actions.ts',
+  'src/store/reducers/counter.reducer.ts',
+  'src/store/state/Counter.state.ts',
   __filename
 ]
 

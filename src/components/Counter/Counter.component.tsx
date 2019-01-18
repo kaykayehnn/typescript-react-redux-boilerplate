@@ -1,7 +1,7 @@
 import React, { FunctionComponent } from 'react'
 
-import styles from './counter.scss'
-import { CounterProps } from '@Containers/CounterContainer'
+import styles from './Counter.style.scss'
+import { CounterProps } from '@Containers/Counter.container'
 
 const Counter: FunctionComponent<CounterProps> =
   ({ value, increment, decrement, incrementAsync }) => (

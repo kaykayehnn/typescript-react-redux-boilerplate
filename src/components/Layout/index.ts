@@ -1,2 +1,2 @@
-export * from './Layout'
-export { default } from './Layout'
+export * from './Layout.component'
+export { default } from './Layout.component'

@@ -1,4 +1,4 @@
-import { CounterActions } from './counter'
+import { CounterActions } from './counter.actions'
 
 // This union is used when defining ThunkActions.
 type AppActions = CounterActions

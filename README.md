@@ -9,7 +9,7 @@
 - SASS & CSS Modules
 - Webpack configuration with Hot Module Replacement
 - Jest setup for TypeScript
-- An example architecture for building scalable applications
+- An example architecture for building scalable web applications
 
 ### Usage
 - Clone the project
@@ -26,6 +26,9 @@ See [Commands](#commands) for more information.
 ---
 
 ### Folder Structure
+
+The example folder structure is inspired by Angular and offers the ability to group files both by feature and by type. As the React docs say, [don't overthink it](https://reactjs.org/docs/faq-structure.html#dont-overthink-it). Folder structures have their advantages and disadvantages and pondering over it is just a waste of time.
+
 ```
 .
 ├── __tests__
@@ -50,23 +53,23 @@ See [Commands](#commands) for more information.
 ├──── components
 ├────── {Component}
 ├──────── {index.ts}
-├──────── {component.ts}
-├──────── {component.scss}
-├──────── {component.scss.d.ts}
+├──────── {Component.component.ts}
+├──────── {Component.style.scss}
+├──────── {Component.style.scss.d.ts}
 ├──── containers
-├────── {ContainerContainer.tsx}
+├────── {Container.container.tsx}
 ├──── declarations
 ├────── styles.d.ts
 ├──── store
 ├────── actions
-├──────── {action}.ts
+├──────── {state}.action.ts
 ├──────── index.ts
 ├────── reducers
-├──────── {reducer}.ts
+├──────── {state}.reducer.ts
 ├──────── index.ts
 ├──────── state
-├────────── AppState.ts
-├────────── {state_part}State.ts
+├────────── App.state.ts
+├────────── {state}.state.ts
 ├──────── configureStore.ts
 ├──── types
 ├────── Redux.ts
@@ -95,7 +98,7 @@ All presentational components reside here. They can be split in two types:
 
 These components are either stateless or hold only UI state. Props shape is defined in a container as the union of MapStateFromProps and MapDispatchFromProps for views and as an interface in the same file for subcomponents. State shape is always defined next to the component where applicable.
 
-Component folders consist of 4 files for ease of navigation in editor (Quick Open behaves as expected when searching by component name) and brevity when importing (@Components/Component instead of @Components/Component/Component). This approach also allows splitting components in multiple files, which further improves maintainability.
+Component folders consist of 4 files for ease of navigation in editor (Quick Open is useful when searching by component name) and brevity when importing (@Components/Component instead of @Components/Component/Component). This approach also allows splitting components in multiple files, which further improves maintainability.
 
 #### Containers
 **Containers** export higher-order components, connecting views to the Redux store. They define the data passed to components via MapStateToProps and the actions they can trigger via MapDispatchToProps. Those mappings use modified interfaces (`types`) which enforce certain restrictions and simplify the usage of built-in types in redux and react-redux.

@@ -4,11 +4,11 @@ import { Provider } from 'react-redux'
 
 import './style.scss'
 import Layout from '@Components/Layout'
-import CounterContainer from '@Containers/CounterContainer'
+import CounterContainer from '@Containers/Counter.container'
 
 import { Store } from 'types/Redux'
 import AppActions from '@Store/actions'
-import AppState from '@Store/state/AppState'
+import AppState from '@Store/state/App.state'
 
 export interface AppProps {
   store: Store<AppState, AppActions>

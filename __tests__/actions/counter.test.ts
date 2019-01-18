@@ -1,6 +1,6 @@
 import { mockStore } from '../helpers'
 
-import { CounterTypes, incrementAsync } from '@Store/actions/counter'
+import { CounterTypes, incrementAsync } from '@Store/actions/counter.actions'
 
 let store = mockStore()
 

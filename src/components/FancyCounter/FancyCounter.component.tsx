@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 
-import styles from './fancyCounter.scss'
+import styles from './FancyCounter.style.scss'
 import Counter from '@Components/Counter'
 
 export interface FancyCounterProps {
