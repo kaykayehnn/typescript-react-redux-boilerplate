@@ -2,8 +2,9 @@ import path from 'path'
 import openBrowser from 'react-dev-utils/openBrowser'
 import errorOverlayMiddleware from 'react-dev-utils/errorOverlayMiddleware'
 import getCSSModuleLocalIdent from 'react-dev-utils/getCSSModuleLocalIdent'
+import HTMLWebpackPlugin from 'html-webpack-plugin'
 
-import { cssTest } from './webpack.config.base'
+import { cssTest, htmlPluginOptions } from './webpack.config.base'
 import { Configuration, HotModuleReplacementPlugin } from 'webpack'
 
 const PORT = +process.env.PORT || 3000
@@ -59,6 +60,7 @@ export const modifications: Configuration = {
     }
   },
   plugins: [
-    new HotModuleReplacementPlugin()
+    new HotModuleReplacementPlugin(),
+    new HTMLWebpackPlugin(htmlPluginOptions)
   ]
 }

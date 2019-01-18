@@ -1,9 +1,26 @@
 import CleanWebpackPlugin from 'clean-webpack-plugin'
 import HardSourceWebpackPlugin from 'hard-source-webpack-plugin'
 import MiniCssExtractPlugin from 'mini-css-extract-plugin'
+import HTMLWebpackPlugin from 'html-webpack-plugin'
 
-import { cssTest, outputPath, basePath } from './webpack.config.base'
+import { cssTest, outputPath, basePath, htmlPluginOptions } from './webpack.config.base'
 import { Configuration } from 'webpack'
+
+const htmlPluginProdOptions: HTMLWebpackPlugin.Options = {
+  ...htmlPluginOptions,
+  minify: {
+    removeComments: true,
+    collapseWhitespace: true,
+    removeRedundantAttributes: true,
+    useShortDoctype: true,
+    removeEmptyAttributes: true,
+    removeStyleLinkTypeAttributes: true,
+    keepClosingSlash: true,
+    minifyJS: true,
+    minifyCSS: true,
+    minifyURLs: true
+  }
+}
 
 export const modifications: Configuration = {
   mode: 'production',
@@ -38,6 +55,12 @@ export const modifications: Configuration = {
     }),
     new MiniCssExtractPlugin({
       filename: 'static/css/[name].[contenthash].css'
+    }),
+    new HTMLWebpackPlugin(htmlPluginProdOptions),
+    // 404 page for static file hosts
+    new HTMLWebpackPlugin({
+      ...htmlPluginProdOptions,
+      filename: '404.html'
     })
   ]
 }

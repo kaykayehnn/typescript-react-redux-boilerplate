@@ -11,6 +11,11 @@ export const outputPath = path.join(basePath, 'dist')
 
 export const cssTest = /\.(sc|sa|c)ss$/
 
+export const htmlPluginOptions: HTMLWebpackPlugin.Options = {
+  template: path.join(basePath, 'public', 'index.html'),
+  inject: false
+}
+
 export const baseConfig: Configuration = {
   context: basePath,
   entry: {
@@ -81,22 +86,6 @@ export const baseConfig: Configuration = {
     new CaseSensitivePathsPlugin(),
     new CopyWebpackPlugin([
       { from: path.join(basePath, 'public/'), to: outputPath }
-    ]),
-    new HTMLWebpackPlugin({
-      template: path.join(basePath, 'public/index.html'),
-      minify: {
-        removeComments: true,
-        collapseWhitespace: true,
-        removeRedundantAttributes: true,
-        useShortDoctype: true,
-        removeEmptyAttributes: true,
-        removeStyleLinkTypeAttributes: true,
-        keepClosingSlash: true,
-        minifyJS: true,
-        minifyCSS: true,
-        minifyURLs: true
-      },
-      inject: false
-    })
+    ])
   ]
 }

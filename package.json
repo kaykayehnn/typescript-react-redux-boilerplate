@@ -19,7 +19,6 @@
   "scripts": {
     "start": "cross-env TS_NODE_PROJECT=config/tsconfig.json webpack-dev-server",
     "build": "cross-env TS_NODE_PROJECT=config/tsconfig.json webpack --env=production",
-    "postbuild": "cp dist/index.html dist/404.html",
     "lint": "tslint --fix -p .",
     "test": "jest",
     "test:watch": "npm test -- --watch"
