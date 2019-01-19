@@ -2,13 +2,15 @@
 [![Build Status](https://travis-ci.org/kayKayEhnn/typescript-react-redux-boilerplate.svg?branch=master)](https://travis-ci.org/kayKayEhnn/typescript-react-redux-boilerplate)
 
 ### What's included:
-- TypeScript
-- TSLint configured with Standard Style settings
+
 - React & Redux
-- Redux DevTools via Chrome extension
+- React Router
+- TypeScript
 - SASS & CSS Modules
-- Webpack configuration with Hot Module Replacement
 - Jest setup for TypeScript
+- Webpack configuration with Hot Module Replacement
+- Redux DevTools via Chrome extension
+- TSLint configured with Standard Style settings
 - An example architecture for building scalable web applications
 
 ### Usage
@@ -34,6 +36,8 @@ The example folder structure is inspired by Angular and offers the ability to gr
 ├── __tests__
 ├──── {test_directories}
 ├────── {test_files.test.ts}
+├──── helpers.ts
+├──── setup.ts
 ├──── tsconfig.json
 ├
 ├── config
