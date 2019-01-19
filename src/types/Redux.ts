@@ -21,7 +21,6 @@ export type MapDispatchToProps<TDispatchProps, TOwnProps = {}> =
 // The reason we do this is because bound action creators return the action object,
 // which is usually not relevant to the component (the exceptions are thunks which
 // return promises but even then it is still uncommon).
-// type DisconnectAction<T extends ActionCreator<any>> = (...args: Parameters<T>) => any
 export type DisconnectAction<T extends ActionCreator<any>> = (...args: Parameters<T>) => any
 
 export type ThunkAction<R> = ThunkActionOriginal<R, AppState, undefined, AppActions>
