@@ -1,7 +1,7 @@
 import React, { FunctionComponent } from 'react'
 import { Link } from 'react-router-dom'
 
-import styles from './layout.style.scss'
+import styles from './Layout.style.scss'
 
 const Layout: FunctionComponent = ({ children }) => (
   <>
