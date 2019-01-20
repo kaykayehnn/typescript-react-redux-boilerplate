@@ -23,9 +23,6 @@
   <link href="<%= htmlWebpackPlugin.files.css[css] %>" rel="stylesheet">
   <% } %>
 
-  <!-- Runtime chunk -->
-  <script src="<% print(htmlWebpackPlugin.files.js.find(f => f.includes('runtime'))) %>"></script>
-
   <script>
     var modernBrowser = (
       'assign' in Object
@@ -48,7 +45,7 @@
   <div id="root"></div>
   <!-- Vendors, Main, etc. -->
   <% for (var file of htmlWebpackPlugin.files.js) { %>
-    <% if(!file.match(/runtime|polyfills/)) {%>
+    <% if(!file.match(/polyfills/)) {%>
       <script src="<%= file %>"></script>
     <% } %>
   <% } %>
