@@ -1,9 +1,9 @@
 import CounterState from '@Store/state/Counter.state'
-import { CounterActions, CounterTypes } from '@Store/actions/counter.actions'
+import { CounterActions, CounterTypes } from '@Store/actions/Counter.actions'
 
 const initial: CounterState = 0
 
-export default function counterReducer (state: CounterState = initial, action: CounterActions) {
+export default function counterReducer (state = initial, action: CounterActions) {
   switch (action.type) {
     case CounterTypes.INCREMENT:
       return state + 1

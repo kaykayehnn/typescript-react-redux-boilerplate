@@ -1,6 +1,6 @@
-import { increment, decrement, incrementAsync } from '@Store/actions/counter.actions'
+import { increment, decrement, incrementAsync } from '@Store/actions/Counter.actions'
 import configureStore from '@Store/configureStore'
-import counterReducer from '@Store/reducers/counter.reducer'
+import counterReducer from '@Store/reducers/Counter.reducer'
 
 describe('Counter Reducer', () => {
   it('increment works', () => {
