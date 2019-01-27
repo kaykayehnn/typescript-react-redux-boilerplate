@@ -1,10 +1,7 @@
 import { combineReducers } from 'redux'
 
-import counterReducer from './Counter.reducer'
 import AppState from '@Store/state/App.state'
 
-const rootReducer = combineReducers<AppState>({
-  counter: counterReducer
-})
+const rootReducer = combineReducers<AppState>({})
 
 export default rootReducer

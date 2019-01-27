@@ -29,6 +29,8 @@ See [Commands](#commands) for more information.
 
 The example folder structure is inspired by Angular and offers the ability to group files both by feature and by type. As the React docs say, [don't overthink it](https://reactjs.org/docs/faq-structure.html#dont-overthink-it). Folder structures have their advantages and disadvantages and pondering over it is just a waste of time.
 
+The master branch contains only a minimal subset of the folder structure in order to allow faster setup. For a full look of the folder structure check out the [example branch](https://github.com/kayKayEhnn/typescript-react-redux-boilerplate/tree/example).
+
 ```
 .
 ├── __tests__
