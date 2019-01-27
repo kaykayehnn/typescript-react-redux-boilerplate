@@ -26,8 +26,8 @@ const App: FunctionComponent<AppProps> =
               <Suspense fallback={null}>
                 {/* Home component is always loaded as it is most likely
                   going to be needed at some point during the user's visit. */}
-                <Route exact path={'/'} component={CounterContainer} />
-                <Route exact path={'/fancy'} component={FancyCounter} />
+                <Route exact path='/' component={CounterContainer} />
+                <Route exact path='/fancy' component={FancyCounter} />
               </Suspense>
             </Switch>
           </Layout>
