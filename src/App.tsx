@@ -1,5 +1,5 @@
-import React, { Suspense, lazy, StrictMode, FunctionComponent } from 'react'
-import { BrowserRouter, Route, Switch } from 'react-router-dom'
+import React, { lazy, StrictMode, Suspense, FunctionComponent } from 'react'
+import { BrowserRouter, Switch, Route } from 'react-router-dom'
 import { Provider } from 'react-redux'
 
 import './style.scss'
