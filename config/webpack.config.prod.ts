@@ -2,6 +2,7 @@ import CleanWebpackPlugin from 'clean-webpack-plugin'
 import HardSourceWebpackPlugin from 'hard-source-webpack-plugin'
 import MiniCssExtractPlugin from 'mini-css-extract-plugin'
 import HTMLWebpackPlugin from 'html-webpack-plugin'
+import InlineChunkHtmlPlugin from 'react-dev-utils/InlineChunkHtmlPlugin'
 
 import { cssTest, outputPath, basePath, htmlPluginOptions } from './webpack.config.base'
 import { Configuration } from 'webpack'
@@ -61,6 +62,7 @@ export const modifications: Configuration = {
     new HTMLWebpackPlugin({
       ...htmlPluginProdOptions,
       filename: '404.html'
-    })
+    }),
+    new InlineChunkHtmlPlugin(HTMLWebpackPlugin, [/runtime/])
   ]
 }

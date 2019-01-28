@@ -12,8 +12,7 @@ export const outputPath = path.join(basePath, 'dist')
 export const cssTest = /\.(sc|sa|c)ss$/
 
 export const htmlPluginOptions: HTMLWebpackPlugin.Options = {
-  template: path.join(basePath, 'public', 'index.html'),
-  inject: false
+  template: path.join(basePath, 'public', 'index.html')
 }
 
 export const baseConfig: Configuration = {
@@ -34,8 +33,7 @@ export const baseConfig: Configuration = {
   },
   optimization: {
     splitChunks: {
-      // Excludes polyfills from chunk deduplication, that way all other chunks
-      // remain independent and assumptions in html template remain true.
+      // Excludes polyfills from chunk deduplication.
       chunks (chunk) {
         return chunk.name !== 'polyfills'
       },
@@ -86,6 +84,7 @@ export const baseConfig: Configuration = {
     new CaseSensitivePathsPlugin(),
     new CopyWebpackPlugin([
       { from: path.join(basePath, 'public/'), to: outputPath }
-    ])
+    ]),
+    new HTMLWebpackPlugin(htmlPluginOptions)
   ]
 }

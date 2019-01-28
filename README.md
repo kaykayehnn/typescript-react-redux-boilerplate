@@ -19,7 +19,7 @@
 - `git init`
 - Update `package.json` with relevant settings (name, description, keywords, etc.)
 - Update `LICENSE`
-- Review all lines (<kbd>Cmd</kbd>+<kbd>Shift</kbd>+<kbd>F</kbd> / <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>F</kbd> :wink:) annotated with "FIXME:" and change where needed if defaults don't suit your use case.
+- Review all lines (<kbd>Cmd</kbd>+<kbd>Shift</kbd>+<kbd>F</kbd> / <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>F</kbd>) annotated with "FIXME:" and change where needed if defaults don't suit your use case
 
 See [Commands](#commands) for more information.
 
@@ -128,7 +128,7 @@ Component folders consist of 4 files for ease of navigation in editor (Quick Ope
 
 **App** is the root component. It renders wrapper components and specifies app routes.
 
-**Polyfills** is an entry point containing polyfills for older browsers. It gets processed in a separate bundle and is loaded conditionally by a test in [index.html](https://github.com/kayKayEhnn/typescript-react-redux-boilerplate/blob/318ca1247e1446a95f43e6410f4764159fb77a49/public/index.html#L18-L27).
+**Polyfills** is an entry point containing polyfills for older browsers. They get processed in a separate bundle for better long-term caching and are loaded unconditionally as their size tends to be negligible comprared to other assets.
 
 **Style** is the entry point for global styles and importing CSS frameworks.
 

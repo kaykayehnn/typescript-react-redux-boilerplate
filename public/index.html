@@ -18,24 +18,6 @@
   <meta name="msapplication-config" content="/static/icons/browserconfig.xml">
   <meta name="theme-color" content="#ffffff">
 
-  <!-- Styles -->
-  <% for (var css in htmlWebpackPlugin.files.css) { %>
-  <link href="<%= htmlWebpackPlugin.files.css[css] %>" rel="stylesheet">
-  <% } %>
-
-  <script>
-    var modernBrowser = (
-      'assign' in Object
-      // 'fetch' in window
-    )
-
-    if (!modernBrowser) {
-      // Polyfills chunk
-      // It is obligatory that only one file matches 'polyfills', otherwise chunks
-      // will le be left out. For this reason deduplication is disabled for polyfills entry.
-      document.write('<script src="<% print(htmlWebpackPlugin.files.js.find(f => f.includes("polyfills"))) %>"><\/script>')
-    }
-  </script>
   <!-- FIXME: Change title -->
   <title>React App</title>
 </head>
@@ -43,12 +25,6 @@
 <body>
   <noscript>You need to enable JavaScript to run this app.</noscript>
   <div id="root"></div>
-  <!-- Vendors, Main, etc. -->
-  <% for (var file of htmlWebpackPlugin.files.js) { %>
-    <% if(!file.match(/polyfills/)) {%>
-      <script src="<%= file %>"></script>
-    <% } %>
-  <% } %>
 </body>
 
 </html>
