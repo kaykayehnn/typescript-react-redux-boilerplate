@@ -18,7 +18,7 @@ module.exports = {
   // cacheDirectory: "/var/folders/59/kftpglc561v5hz6wv5gnpjk40000gq/T/jest_dz",
 
   // Automatically clear mock calls and instances between every test
-  clearMocks: true,
+  // clearMocks: true,
 
   // Indicates whether the coverage information should be collected while executing the test
   // collectCoverage: process.env.CI === 'true',
@@ -166,7 +166,7 @@ module.exports = {
   // testURL: "http://localhost",
 
   // Setting this value to "fake" allows the use of fake timers for functions such as "setTimeout"
-  timers: 'fake',
+  // timers: 'fake',
 
   // A map from regular expressions to paths to transformers
   transform: {
