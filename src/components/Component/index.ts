@@ -1,2 +1,2 @@
-export * from './Component'
-export { default } from './Component'
+export * from './Component.component'
+export { default } from './Component.component'
