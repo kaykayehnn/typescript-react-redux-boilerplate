@@ -1,8 +1,7 @@
-import React, { StrictMode, Suspense, FunctionComponent } from 'react'
-import { BrowserRouter, Switch } from 'react-router-dom'
+import React, { StrictMode, FunctionComponent } from 'react'
+import { BrowserRouter, Route } from 'react-router-dom'
 import { Provider } from 'react-redux'
 
-import './style.scss'
 import Component from '@Components/Component'
 
 import { Store } from 'types/Redux'
@@ -18,11 +17,7 @@ const App: FunctionComponent<AppProps> =
     <StrictMode>
       <Provider store={store}>
         <BrowserRouter>
-          <Switch>
-            <Suspense fallback={null}>
-              <Component />
-            </Suspense>
-          </Switch>
+          <Route exact path='/' component={Component} />
         </BrowserRouter>
       </Provider>
     </StrictMode>
