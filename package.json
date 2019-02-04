@@ -92,11 +92,13 @@
     }
   },
   "lint-staged": {
-    "*.{js,jsx,ts,tsx}": [
-      "tslint --fix -c tslint.json",
-      "jest --findRelatedTests",
-      "git add"
-    ],
+    "linters": {
+      "*.{js,jsx,ts,tsx}": [
+        "tslint --fix -c tslint.json",
+        "jest --findRelatedTests",
+        "git add"
+      ]
+    },
     "ignore": [
       "*.scss.d.ts"
     ]
