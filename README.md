@@ -1,6 +1,8 @@
 # Typescript React Redux Boilerplate
 [![Build Status](https://travis-ci.org/kayKayEhnn/typescript-react-redux-boilerplate.svg?branch=master)](https://travis-ci.org/kayKayEhnn/typescript-react-redux-boilerplate)
 
+<img src="https://user-images.githubusercontent.com/19822240/52233118-ef9a1900-28c6-11e9-9cb2-a81e9b34df09.png" alt="TRRB Logo" width="150">
+
 ### What's included:
 
 - React & Redux
