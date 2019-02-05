@@ -5,11 +5,11 @@ import { Provider } from 'react-redux'
 import Component from '@Components/Component'
 
 import { Store } from 'types/Redux'
-import AppActions from '@Store/actions'
+import AppActionTypes from '@Store/actions'
 import AppState from '@Store/state/App.state'
 
 export interface AppProps {
-  store: Store<AppState, AppActions>
+  store: Store<AppState, AppActionTypes>
 }
 
 const App: FunctionComponent<AppProps> =

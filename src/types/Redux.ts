@@ -3,7 +3,7 @@ import { ThunkDispatch, ThunkAction as ThunkActionOriginal } from 'redux-thunk'
 import { MapDispatchToProps as MapDispatchToPropsOriginal } from 'react-redux'
 
 import AppState from '@Store/state/App.state'
-import AppActions from '@Store/actions'
+import AppActionTypes from '@Store/actions'
 
 export interface Store<S, A extends Action = AnyAction> extends StoreOriginal<S, A> {
   dispatch: ThunkDispatch<S, never, A>
@@ -23,4 +23,4 @@ export type MapDispatchToProps<TDispatchProps, TOwnProps = {}> =
 // return promises but even then it is still uncommon).
 export type DisconnectAction<T extends ActionCreator<any>> = (...args: Parameters<T>) => any
 
-export type ThunkAction<R> = ThunkActionOriginal<R, AppState, undefined, AppActions>
+export type ThunkAction<R> = ThunkActionOriginal<R, AppState, undefined, AppActionTypes>

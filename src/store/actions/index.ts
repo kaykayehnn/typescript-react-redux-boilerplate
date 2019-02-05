@@ -1,6 +1,7 @@
 import { AnyAction } from 'redux'
 
 // This union is used when defining ThunkActions.
-type AppActions = AnyAction
+type AppActionTypes =
+  | AnyAction
 
-export default AppActions
+export default AppActionTypes
