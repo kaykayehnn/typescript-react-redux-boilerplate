@@ -23,6 +23,8 @@
 - Update `LICENSE`
 - Review all lines (<kbd>Cmd</kbd>+<kbd>Shift</kbd>+<kbd>F</kbd> / <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>F</kbd>) annotated with "FIXME:" and change where needed if defaults don't suit your use case
 
+**ADVICE:** Check out [trrb-cli](https://github.com/kayKayEhnn/trrb-cli)
+
 See [Commands](#commands) for more information.
 
 ---
