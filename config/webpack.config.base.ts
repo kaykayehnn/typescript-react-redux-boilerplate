@@ -1,18 +1,57 @@
 import path from 'path'
 import { TsConfigPathsPlugin } from 'awesome-typescript-loader'
+import { smart } from 'webpack-merge'
 import CaseSensitivePathsPlugin from 'case-sensitive-paths-webpack-plugin'
 import CopyWebpackPlugin from 'copy-webpack-plugin'
 import HTMLWebpackPlugin from 'html-webpack-plugin'
 
-import { Configuration } from 'webpack'
+import { Configuration, RuleSetUse } from 'webpack'
 
 export const basePath = path.join(__dirname, '..')
 export const outputPath = path.join(basePath, 'dist')
 
-export const cssTest = /\.(sc|sa|c)ss$/
-
 export const htmlPluginOptions: HTMLWebpackPlugin.Options = {
   template: path.join(basePath, 'public', 'index.html')
+}
+
+export const cssTest = /\.css$/
+export const scssTest = /\.(sc|sa)ss$/
+
+const cssLoaders = [
+  {
+    loader: 'css-loader',
+    options: {
+      importLoaders: 1
+    }
+  },
+  {
+    loader: 'postcss-loader',
+    options: {
+      config: {
+        path: __dirname
+      }
+    }
+  },
+  // Sass-loader resolves @import statements by inlining the files, while css-loader
+  // makes require calls which are then split in chunks, which is not the desired behaviour.
+  'sass-loader'
+]
+
+const scssLoaders: RuleSetUse = [
+  'dts-css-modules-loader?namedExport',
+  {
+    loader: 'css-loader',
+    options: {
+      modules: true,
+      camelCase: 'only'
+    }
+  }
+]
+
+function mergeRules (a: RuleSetUse, b: RuleSetUse): RuleSetUse {
+  const toConfig = (rules: RuleSetUse) => ({ module: { rules: [{ use: rules }] } })
+
+  return smart(toConfig(a), toConfig(b)).module.rules[0].use
 }
 
 export const baseConfig: Configuration = {
@@ -39,7 +78,7 @@ export const baseConfig: Configuration = {
       },
       cacheGroups: {
         vendors: {
-          test: /[/\\]node_modules[/\\]/
+          test: /[/\\]node_modules[/\\](?!\.css&)/
         }
       }
     },
@@ -48,35 +87,20 @@ export const baseConfig: Configuration = {
   module: {
     rules: [
       {
+        test: cssTest,
+        use: cssLoaders
+      },
+      {
+        test: scssTest,
+        use: mergeRules(cssLoaders, scssLoaders)
+      },
+      {
+        // ATS loader is ran last to allow css type definitions to be generated
         test: /\.tsx?$/,
         loader: 'awesome-typescript-loader',
         options: {
           silent: true
         }
-      },
-      {
-        test: cssTest,
-        use: [
-          {
-            loader: 'typings-for-css-modules-loader',
-            options: {
-              modules: true,
-              camelCase: 'only',
-              namedExport: true
-              // Sass deals with @import directives, so postcss-loader
-              // is fine below css-loader, contrary to their docs
-            }
-          },
-          {
-            loader: 'postcss-loader',
-            options: {
-              config: {
-                path: __dirname
-              }
-            }
-          },
-          'sass-loader'
-        ]
       }
     ]
   },

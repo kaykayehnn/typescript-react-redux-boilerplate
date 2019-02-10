@@ -1,7 +1,7 @@
 import React, { FunctionComponent } from 'react'
 import ReactDOM from 'react-dom'
 
-import './style.scss'
+import './style.css'
 import configureStore from '@Store/configureStore'
 import App, { AppProps } from './App'
 

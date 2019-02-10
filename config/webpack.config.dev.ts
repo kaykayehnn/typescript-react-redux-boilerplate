@@ -3,7 +3,7 @@ import openBrowser from 'react-dev-utils/openBrowser'
 import errorOverlayMiddleware from 'react-dev-utils/errorOverlayMiddleware'
 import getCSSModuleLocalIdent from 'react-dev-utils/getCSSModuleLocalIdent'
 
-import { cssTest } from './webpack.config.base'
+import { cssTest, scssTest } from './webpack.config.base'
 import { Configuration, HotModuleReplacementPlugin } from 'webpack'
 
 const PORT = +process.env.PORT || 3000
@@ -28,8 +28,16 @@ export const modifications: Configuration = {
         test: cssTest,
         use: [
           'style-loader',
+          'css-loader'
+        ]
+      },
+      {
+        test: scssTest,
+        use: [
+          'style-loader',
+          'dts-css-modules-loader?namedExport',
           {
-            loader: 'typings-for-css-modules-loader',
+            loader: 'css-loader',
             options: {
               getLocalIdent: getCSSModuleLocalIdent
             }

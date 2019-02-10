@@ -1,11 +1,11 @@
-@import '~normalize.css';
+@import "~normalize.css";
 
-// Removes rounded corners on mobile
+/* Removes rounded corners on mobile */
 textarea, input {
   border-radius: 0px;
 }
 
 body {
-  // FIXME: Change font
+  /* FIXME: Change font */
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }

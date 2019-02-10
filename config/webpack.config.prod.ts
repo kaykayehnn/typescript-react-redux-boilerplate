@@ -3,7 +3,7 @@ import MiniCssExtractPlugin from 'mini-css-extract-plugin'
 import HTMLWebpackPlugin from 'html-webpack-plugin'
 import InlineChunkHtmlPlugin from 'react-dev-utils/InlineChunkHtmlPlugin'
 
-import { cssTest, outputPath, basePath, htmlPluginOptions } from './webpack.config.base'
+import { htmlPluginOptions, cssTest, scssTest, outputPath, basePath } from './webpack.config.base'
 import { Configuration } from 'webpack'
 
 const htmlPluginProdOptions: HTMLWebpackPlugin.Options = {
@@ -35,8 +35,15 @@ export const modifications: Configuration = {
         test: cssTest,
         use: [
           MiniCssExtractPlugin.loader,
+          'css-loader'
+        ]
+      },
+      {
+        test: scssTest,
+        use: [
+          MiniCssExtractPlugin.loader,
           {
-            loader: 'typings-for-css-modules-loader',
+            loader: 'css-loader',
             options: {
               localIdentName: '[hash:base64:5]'
             }
