@@ -1,22 +1,18 @@
-import React, { FunctionComponent } from 'react'
+import React from 'react'
 import ReactDOM from 'react-dom'
 
 import './style.css'
 import configureStore from '@Store/configureStore'
-import App, { AppProps } from './App'
+import App from './App'
 
 const store = configureStore()
 
-mountApp(App)
+mountApp()
 
 if (module.hot) {
-  module.hot.accept('./App', () => {
-    const App = require('./App').default
-
-    mountApp(App)
-  })
+  module.hot.accept('./App', mountApp)
 }
 
-function mountApp (App: FunctionComponent<AppProps>) {
+function mountApp () {
   ReactDOM.render(<App store={store} />, document.getElementById('root'))
 }
