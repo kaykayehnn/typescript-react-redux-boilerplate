@@ -68,3 +68,6 @@ dist/
 
 # VS Code settings
 .vscode
+
+# generated css type definitions
+*.scss.d.ts
