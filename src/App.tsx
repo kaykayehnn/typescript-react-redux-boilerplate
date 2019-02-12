@@ -2,17 +2,17 @@ import React, { StrictMode, FunctionComponent } from 'react'
 import { BrowserRouter, Route } from 'react-router-dom'
 import { Provider } from 'react-redux'
 
-import Component from '@Components/Component'
+import { Component } from '@Components/Component'
 
 import { Store } from 'types/Redux'
-import AppActionTypes from '@Store/actions'
-import AppState from '@Store/state/App.state'
+import { AppActionTypes } from '@Store/actions'
+import { AppState } from '@Store/state/App.state'
 
 export interface AppProps {
   store: Store<AppState, AppActionTypes>
 }
 
-const App: FunctionComponent<AppProps> =
+export const App: FunctionComponent<AppProps> =
   ({ store }) => (
     <StrictMode>
       <Provider store={store}>
@@ -22,5 +22,3 @@ const App: FunctionComponent<AppProps> =
       </Provider>
     </StrictMode>
   )
-
-export default App

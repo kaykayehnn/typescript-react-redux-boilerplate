@@ -2,8 +2,8 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 
 import './style.css'
-import configureStore from '@Store/configureStore'
-import App from './App'
+import { configureStore } from '@Store/configureStore'
+import { App } from './App'
 
 const store = configureStore()
 
