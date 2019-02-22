@@ -49,6 +49,7 @@ export const modifications: Configuration = {
   devServer: {
     port: PORT,
     hot: true,
+    // Prevents injecting of default webpackHotDevClient
     inline: false,
     historyApiFallback: true,
     watchOptions: {
