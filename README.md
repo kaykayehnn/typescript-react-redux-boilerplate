@@ -84,8 +84,7 @@ The master branch contains only a minimal subset of the folder structure in orde
 ├────── {Model}.ts
 ├──── index.tsx
 ├──── polyfills.ts
-├──── style.scss
-├──── style.scss.d.ts
+├──── style.css
 ├
 ├── jest.config.js
 ├── package.json
