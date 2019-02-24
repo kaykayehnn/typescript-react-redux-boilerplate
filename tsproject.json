@@ -10,6 +10,7 @@
     "noFallthroughCasesInSwitch": true,
     "forceConsistentCasingInFileNames": true,
     "importHelpers": true,
+    "downlevelIteration": true,
     "lib": [
       "dom",
       "es6"
