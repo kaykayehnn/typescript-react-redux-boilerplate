@@ -18,7 +18,7 @@
   "license": "MIT",
   "scripts": {
     "start": "cross-env TS_NODE_PROJECT=config/tsconfig.json webpack-dev-server",
-    "build": "cross-env TS_NODE_PROJECT=config/tsconfig.json webpack --env=production",
+    "build": "cross-env TS_NODE_PROJECT=config/tsconfig.json webpack --env=production --progress",
     "test": "jest --passWithNoTests",
     "test:watch": "npm test -- --watch"
   },
