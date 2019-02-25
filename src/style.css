@@ -5,6 +5,15 @@ textarea, input {
   border-radius: 0px;
 }
 
+/* Overrides box-sizing */
+html {
+  box-sizing: border-box;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
 body {
   /* FIXME: Change font */
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
