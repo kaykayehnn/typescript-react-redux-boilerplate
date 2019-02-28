@@ -2,6 +2,7 @@ import CleanWebpackPlugin from 'clean-webpack-plugin'
 import MiniCssExtractPlugin from 'mini-css-extract-plugin'
 import HTMLWebpackPlugin from 'html-webpack-plugin'
 import InlineChunkHtmlPlugin from 'react-dev-utils/InlineChunkHtmlPlugin'
+import { GenerateSW } from 'workbox-webpack-plugin'
 
 import { htmlPluginOptions, cssTest, scssTest, outputPath, basePath } from './webpack.config.base'
 import { Configuration } from 'webpack'
@@ -63,6 +64,23 @@ export const modifications: Configuration = {
       ...htmlPluginProdOptions,
       filename: '404.html'
     }),
-    new InlineChunkHtmlPlugin(HTMLWebpackPlugin, [/runtime/])
+    new InlineChunkHtmlPlugin(HTMLWebpackPlugin, [/runtime/]),
+    new GenerateSW({
+      // FIXME: change cache id
+      cacheId: 'react-app-v1',
+      skipWaiting: true,
+      clientsClaim: true,
+      navigateFallback: '/index.html',
+      include: [
+        /^index\.html$/,
+        /\.(js|css)$/,
+        /icons/
+      ],
+      exclude: [
+        /\.map$/,
+        /^manifest.*\.js(?:on)?$/,
+        /runtime.*\.js$/
+      ]
+    })
   ]
 }

@@ -11,6 +11,7 @@
 - SASS & CSS Modules
 - Jest setup for TypeScript
 - Webpack configuration with Hot Module Replacement
+- Service Worker support
 - Redux DevTools via Chrome extension
 - TSLint configured with Standard Style settings
 - An example architecture for building scalable web applications
