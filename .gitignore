@@ -71,3 +71,6 @@ dist/
 
 # generated css type definitions
 *.scss.d.ts
+
+# Netlify config directory
+.netlify/
