@@ -47,6 +47,7 @@ export const modifications: Configuration = {
     ]
   },
   devServer: {
+    host: '0.0.0.0',
     port: PORT,
     contentBase: path.join(basePath, 'public'),
     watchContentBase: true,
