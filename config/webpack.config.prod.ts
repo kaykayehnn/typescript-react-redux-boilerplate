@@ -101,18 +101,20 @@ export const modifications: Configuration = {
     new GenerateSW({
       // FIXME: change cache id
       cacheId: 'react-app-v1',
+      // skipWaiting could cause issues with more advanced service worker features.
+      // See https://goo.gl/eKVrTU
       skipWaiting: true,
       clientsClaim: true,
       navigateFallback: '/index.html',
       include: [
         /^index\.html$/,
-        /\.(js|css)$/,
-        /icons/
+        /static/
       ],
       exclude: [
         /\.map$/,
         /^manifest.*\.js(?:on)?$/,
-        /runtime.*\.js$/
+        /runtime.*\.js$/,
+        /\.DS_STORE$/i
       ]
     })
   ]
