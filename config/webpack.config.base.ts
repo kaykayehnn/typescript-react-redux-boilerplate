@@ -2,7 +2,6 @@ import path from 'path'
 import { TsConfigPathsPlugin } from 'awesome-typescript-loader'
 import { smart } from 'webpack-merge'
 import CaseSensitivePathsPlugin from 'case-sensitive-paths-webpack-plugin'
-import CopyWebpackPlugin from 'copy-webpack-plugin'
 import HTMLWebpackPlugin from 'html-webpack-plugin'
 
 import { Configuration, RuleSetUse } from 'webpack'
@@ -106,9 +105,6 @@ export const baseConfig: Configuration = {
   },
   plugins: [
     new CaseSensitivePathsPlugin(),
-    new CopyWebpackPlugin([
-      { from: path.join(basePath, 'public/'), to: outputPath }
-    ]),
     new HTMLWebpackPlugin(htmlPluginOptions)
   ]
 }

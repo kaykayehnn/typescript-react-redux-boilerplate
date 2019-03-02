@@ -1,5 +1,7 @@
+import path from 'path'
 import TerserPlugin from 'terser-webpack-plugin'
 import CleanWebpackPlugin from 'clean-webpack-plugin'
+import CopyWebpackPlugin from 'copy-webpack-plugin'
 import MiniCssExtractPlugin from 'mini-css-extract-plugin'
 import HTMLWebpackPlugin from 'html-webpack-plugin'
 import InlineChunkHtmlPlugin from 'react-dev-utils/InlineChunkHtmlPlugin'
@@ -83,6 +85,9 @@ export const modifications: Configuration = {
   },
   plugins: [
     new CleanWebpackPlugin(outputPath, { root: basePath }),
+    new CopyWebpackPlugin([
+      path.join(basePath, 'public/')
+    ]),
     new MiniCssExtractPlugin({
       filename: 'static/css/[name].[contenthash].css'
     }),

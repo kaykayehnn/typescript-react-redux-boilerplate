@@ -3,7 +3,7 @@ import openBrowser from 'react-dev-utils/openBrowser'
 import errorOverlayMiddleware from 'react-dev-utils/errorOverlayMiddleware'
 import getCSSModuleLocalIdent from 'react-dev-utils/getCSSModuleLocalIdent'
 
-import { cssTest, scssTest } from './webpack.config.base'
+import { cssTest, scssTest, basePath } from './webpack.config.base'
 import { Configuration, HotModuleReplacementPlugin } from 'webpack'
 
 const PORT = +process.env.PORT || 3000
@@ -48,6 +48,8 @@ export const modifications: Configuration = {
   },
   devServer: {
     port: PORT,
+    contentBase: path.join(basePath, 'public'),
+    watchContentBase: true,
     hot: true,
     // Prevents injecting of default webpackHotDevClient
     inline: false,
