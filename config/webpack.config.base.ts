@@ -56,8 +56,9 @@ function mergeRules (a: RuleSetUse, b: RuleSetUse): RuleSetUse {
 export const baseConfig: Configuration = {
   context: basePath,
   entry: {
-    main: './src/index.tsx',
-    polyfills: './src/polyfills.ts'
+    // This order ensures polyfills are loaded before application source.
+    polyfills: './src/polyfills.ts',
+    main: './src/index.tsx'
   },
   output: {
     path: outputPath,
