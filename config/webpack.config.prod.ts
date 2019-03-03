@@ -100,7 +100,7 @@ export const modifications: Configuration = {
     new InlineChunkHtmlPlugin(HTMLWebpackPlugin, [/runtime/]),
     new GenerateSW({
       // FIXME: change cache id
-      cacheId: 'react-app-v1',
+      cacheId: 'react-app',
       // skipWaiting could cause issues with more advanced service worker features.
       // See https://goo.gl/eKVrTU
       skipWaiting: true,
