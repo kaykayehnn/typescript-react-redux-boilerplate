@@ -30,13 +30,15 @@ module.exports = {
   rules: {
     // Prettier rule
     'prettier/prettier': ['error', prettierConfig],
+    // React hooks rules
+    'react-hooks/rules-of-hooks': 'error',
+    'react-hooks/exhaustive-deps': 'warn',
     // Disabled rules from presets
     '@typescript-eslint/explicit-function-return-type': 'off',
     '@typescript-eslint/no-use-before-define': 'off',
     '@typescript-eslint/no-explicit-any': 'off',
-    'react/prop-types': 'off',
-    // React hooks rules
-    'react-hooks/rules-of-hooks': 'error',
-    'react-hooks/exhaustive-deps': 'warn'
+    '@typescript-eslint/explicit-member-accessibility': 'off',
+    '@typescript-eslint/no-non-null-assertion': 'off',
+    'react/prop-types': 'off'
   }
 }
