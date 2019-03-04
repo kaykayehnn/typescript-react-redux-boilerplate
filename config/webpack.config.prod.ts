@@ -103,9 +103,6 @@ export const modifications: Configuration = {
     new GenerateSW({
       // FIXME: change cache id
       cacheId: 'react-app',
-      // skipWaiting could cause issues with in some cases.
-      // See https://goo.gl/eKVrTU
-      skipWaiting: true,
       clientsClaim: true,
       navigateFallback: '/index.html',
       include: [/^index\.html$/, /static/],
