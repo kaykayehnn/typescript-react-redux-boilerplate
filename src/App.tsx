@@ -12,13 +12,12 @@ export interface AppProps {
   store: Store<AppState, AppActionTypes>
 }
 
-export const App: FunctionComponent<AppProps> =
-  ({ store }) => (
-    <StrictMode>
-      <Provider store={store}>
-        <BrowserRouter>
-          <Route exact path='/' component={Component} />
-        </BrowserRouter>
-      </Provider>
-    </StrictMode>
-  )
+export const App: FunctionComponent<AppProps> = ({ store }) => (
+  <StrictMode>
+    <Provider store={store}>
+      <BrowserRouter>
+        <Route exact path='/' component={Component} />
+      </BrowserRouter>
+    </Provider>
+  </StrictMode>
+)

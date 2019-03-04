@@ -11,13 +11,10 @@ const PORT = +process.env.PORT || 3000
 export const modifications: Configuration = {
   mode: 'development',
   entry: {
-    main: [
-      'react-dev-utils/webpackHotDevClient',
-      './src/index.tsx'
-    ]
+    main: ['react-dev-utils/webpackHotDevClient', './src/index.tsx']
   },
   output: {
-    devtoolModuleFilenameTemplate (info) {
+    devtoolModuleFilenameTemplate(info) {
       return path.resolve(info.absoluteResourcePath).replace(/\\/g, '/')
     }
   },
@@ -26,10 +23,7 @@ export const modifications: Configuration = {
     rules: [
       {
         test: cssTest,
-        use: [
-          'style-loader',
-          'css-loader'
-        ]
+        use: ['style-loader', 'css-loader']
       },
       {
         test: scssTest,
@@ -63,14 +57,12 @@ export const modifications: Configuration = {
         target: 'http://localhost:9000'
       }
     },
-    before (app) {
+    before(app) {
       app.use(errorOverlayMiddleware())
     },
-    after () {
+    after() {
       openBrowser(`http://localhost:${PORT}/`)
     }
   },
-  plugins: [
-    new HotModuleReplacementPlugin()
-  ]
+  plugins: [new HotModuleReplacementPlugin()]
 }

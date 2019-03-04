@@ -5,8 +5,9 @@ import thunk from 'redux-thunk'
 import { rootReducer } from './reducers/'
 import { AppState } from './state/App.state'
 
-export function configureStore (preloadedState?: AppState) {
-  let store = createStore(rootReducer,
+export function configureStore(preloadedState?: AppState) {
+  let store = createStore(
+    rootReducer,
     preloadedState,
     composeWithDevTools(applyMiddleware(thunk))
   )

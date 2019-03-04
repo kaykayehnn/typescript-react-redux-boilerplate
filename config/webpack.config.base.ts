@@ -47,8 +47,10 @@ const scssLoaders: RuleSetUse = [
   }
 ]
 
-function mergeRules (a: RuleSetUse, b: RuleSetUse): RuleSetUse {
-  const toConfig = (rules: RuleSetUse) => ({ module: { rules: [{ use: rules }] } })
+function mergeRules(a: RuleSetUse, b: RuleSetUse): RuleSetUse {
+  const toConfig = (rules: RuleSetUse) => ({
+    module: { rules: [{ use: rules }] }
+  })
 
   return smart(toConfig(a), toConfig(b)).module.rules[0].use
 }
@@ -66,14 +68,12 @@ export const baseConfig: Configuration = {
   },
   resolve: {
     extensions: ['.ts', '.tsx', '.js'],
-    plugins: [
-      new TsConfigPathsPlugin()
-    ]
+    plugins: [new TsConfigPathsPlugin()]
   },
   optimization: {
     splitChunks: {
       // Excludes polyfills from chunk deduplication.
-      chunks (chunk) {
+      chunks(chunk) {
         return chunk.name !== 'polyfills'
       },
       cacheGroups: {

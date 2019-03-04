@@ -13,6 +13,6 @@ if (module.hot) {
   module.hot.accept('./App', mountApp)
 }
 
-function mountApp () {
+function mountApp() {
   ReactDOM.render(<App store={store} />, document.getElementById('root'))
 }

@@ -7,7 +7,13 @@ import HTMLWebpackPlugin from 'html-webpack-plugin'
 import InlineChunkHtmlPlugin from 'react-dev-utils/InlineChunkHtmlPlugin'
 import { GenerateSW } from 'workbox-webpack-plugin'
 
-import { htmlPluginOptions, cssTest, scssTest, outputPath, basePath } from './webpack.config.base'
+import {
+  htmlPluginOptions,
+  cssTest,
+  scssTest,
+  outputPath,
+  basePath
+} from './webpack.config.base'
 import { Configuration } from 'webpack'
 
 const htmlPluginProdOptions: HTMLWebpackPlugin.Options = {
@@ -37,10 +43,7 @@ export const modifications: Configuration = {
     rules: [
       {
         test: cssTest,
-        use: [
-          MiniCssExtractPlugin.loader,
-          'css-loader'
-        ]
+        use: [MiniCssExtractPlugin.loader, 'css-loader']
       },
       {
         test: scssTest,
@@ -74,6 +77,7 @@ export const modifications: Configuration = {
           output: {
             ecma: 5,
             comments: false,
+            // eslint-disable-next-line @typescript-eslint/camelcase
             ascii_only: true
           }
         },
@@ -85,9 +89,7 @@ export const modifications: Configuration = {
   },
   plugins: [
     new CleanWebpackPlugin(outputPath, { root: basePath }),
-    new CopyWebpackPlugin([
-      path.join(basePath, 'public/')
-    ]),
+    new CopyWebpackPlugin([path.join(basePath, 'public/')]),
     new MiniCssExtractPlugin({
       filename: 'static/css/[name].[contenthash].css'
     }),
@@ -106,10 +108,7 @@ export const modifications: Configuration = {
       skipWaiting: true,
       clientsClaim: true,
       navigateFallback: '/index.html',
-      include: [
-        /^index\.html$/,
-        /static/
-      ],
+      include: [/^index\.html$/, /static/],
       exclude: [
         /\.map$/,
         /^manifest.*\.js(?:on)?$/,
