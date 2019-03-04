@@ -1,4 +1,5 @@
 # Typescript React Redux Boilerplate
+
 [![Build Status](https://travis-ci.org/kaykayehnn/typescript-react-redux-boilerplate.svg?branch=master)](https://travis-ci.org/kaykayehnn/typescript-react-redux-boilerplate)
 
 <img src="https://user-images.githubusercontent.com/19822240/52233118-ef9a1900-28c6-11e9-9cb2-a81e9b34df09.png" alt="TRRB Logo" width="150">
@@ -9,14 +10,15 @@
 - React Router
 - TypeScript
 - SASS & CSS Modules
+- ESLint
 - Jest setup for TypeScript
 - Webpack configuration with Hot Module Replacement
 - Service Worker support
 - Redux DevTools via Chrome extension
-- TSLint configured with Standard Style settings
 - An example architecture for building scalable web applications
 
 ### Usage
+
 - Clone the project
 - `rm -rf .git`
 - `git init`
@@ -98,7 +100,9 @@ The master branch contains only a minimal subset of the folder structure in orde
 ### The src folder
 
 #### Components
+
 All presentational components reside here. They can be split in two types:
+
 - **Views** - views are usually passed to connect function and later serve as app routes.
 - **Subcomponents** - subcomponents are smaller and serve as building blocks for the views.
 
@@ -109,12 +113,15 @@ These components are either stateless or hold only UI state. Props shape is defi
 Component folders consist of 4 files for ease of navigation in editor (Quick Open is useful when searching by component name) and brevity when importing (@Components/Component instead of @Components/Component/Component). This approach also allows splitting components in multiple files, which further improves maintainability.
 
 #### Containers
+
 **Containers** export higher-order components, connecting views to the Redux store. They define the data passed to components via MapStateToProps and the actions they can trigger via MapDispatchToProps. Those mappings use modified interfaces (`types`) which enforce certain restrictions and simplify the usage of built-in types in redux and react-redux.
 
 #### Declarations
+
 **Declarations** serve for defining usage of miscellaneous file types, which get processed by webpack loaders, e.g. styles, vectors, graphql etc.
 
 #### Store
+
 **Actions** define action types and action creators. They also export a union of their action types, which is then used in reducers.
 **Actions** define action types and action creators. Each state piece also exports a union of its action types, which are later merged in AppActions.ts.
 
@@ -141,24 +148,29 @@ Component folders consist of 4 files for ease of navigation in editor (Quick Ope
 ### Commands
 
 Install dependencies
+
 ```bash
 npm install
 ```
 
 Run development server
+
 ```bash
 npm start
 ```
 
 Build for production:
+
 ```bash
 npm run build
 ```
 
 Run tests:
+
 ```bash
 npm test
 ```
 
 ### Credits
- - [Create React App](https://github.com/facebook/create-react-app) This project is heavily inspired by CRA.
+
+- [Create React App](https://github.com/facebook/create-react-app) This project is heavily inspired by CRA.
