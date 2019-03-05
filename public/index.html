@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
 
     <!-- Icons -->
-    <!-- FIXME: Add icons and related meta tags -->
+    <!-- FIXME: Add icons and web manifest (https://realfavicongenerator.net) -->
     <link rel="shortcut icon" href="/static/icons/favicon.ico" />
 
     <!-- FIXME: Change title -->
@@ -17,13 +17,17 @@
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="root"></div>
 
+    <!-- Service worker -->
+    <% if (process.env.NODE_ENV === 'production') { %>
     <script>
-      if ('serviceWorker' in navigator && location.hostname !== 'localhost') {
+      if ('serviceWorker' in navigator) {
         window.addEventListener('load', function() {
           navigator.serviceWorker.register('/service-worker.js')
         })
       }
     </script>
+    <% } %>
+
     <!-- FIXME: Add analytics -->
   </body>
 </html>
