@@ -6,11 +6,7 @@ import { rootReducer } from './reducers/'
 import { AppState } from './state/App.state'
 
 export function configureStore(preloadedState?: AppState) {
-  let store = createStore(
-    rootReducer,
-    preloadedState,
-    composeWithDevTools(applyMiddleware(thunk))
-  )
+  let store = createStore(rootReducer, preloadedState, composeWithDevTools(applyMiddleware(thunk)))
 
   if (module.hot) {
     module.hot.accept('./reducers/', () => {

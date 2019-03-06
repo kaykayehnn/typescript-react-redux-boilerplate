@@ -11,21 +11,12 @@
     "forceConsistentCasingInFileNames": true,
     "importHelpers": true,
     "downlevelIteration": true,
-    "lib": [
-      "dom",
-      "es6"
-    ],
+    "lib": ["dom", "es6"],
     "jsx": "react",
     "paths": {
-      "@Components/*": [
-        "./components/*"
-      ],
-      "@Containers/*": [
-        "./containers/*"
-      ],
-      "@Store/*": [
-        "./store/*"
-      ]
+      "@Components/*": ["./components/*"],
+      "@Containers/*": ["./containers/*"],
+      "@Store/*": ["./store/*"]
     }
   }
 }
