@@ -67,7 +67,7 @@ dist/
 .DS_STORE
 
 # VS Code settings
-.vscode
+.vscode/
 
 # generated css type definitions
 *.scss.d.ts
