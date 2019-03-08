@@ -49,6 +49,7 @@ module.exports = {
     '@typescript-eslint/explicit-member-accessibility': 'off',
     '@typescript-eslint/no-non-null-assertion': 'off',
     '@typescript-eslint/no-empty-interface': 'off',
-    'react/prop-types': 'off'
+    'react/prop-types': 'off',
+    'no-console': 'off'
   }
 }
