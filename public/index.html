@@ -18,6 +18,10 @@
     <div id="root"></div>
 
     <!-- Service worker -->
+    <!-- Due to the cache-first strategy new builds will not be visible to -->
+    <!-- users until after all tabs have been closed. One solution to this -->
+    <!-- is showing an "Update available" notification on sw update. Check -->
+    <!-- out http://bit.ly/2Tzxr18 -->
     <% if (process.env.NODE_ENV === 'production') { %>
     <script>
       if ('serviceWorker' in navigator) {
