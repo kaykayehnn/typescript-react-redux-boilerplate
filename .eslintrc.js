@@ -28,14 +28,6 @@ module.exports = {
     'prettier/@typescript-eslint',
     'prettier/react'
   ],
-  overrides: [
-    {
-      files: ['*.config.js'],
-      rules: {
-        '@typescript-eslint/no-var-requires': 'off'
-      }
-    }
-  ],
   rules: {
     // Prettier rule
     'prettier/prettier': ['error', prettierConfig],
