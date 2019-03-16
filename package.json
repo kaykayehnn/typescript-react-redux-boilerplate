@@ -17,7 +17,7 @@
   },
   "license": "MIT",
   "scripts": {
-    "start": "cross-env TS_NODE_PROJECT=config/tsconfig.json webpack-dev-server",
+    "start": "cross-env TS_NODE_PROJECT=config/tsconfig.json webpack-dev-server --env=development",
     "build": "cross-env TS_NODE_PROJECT=config/tsconfig.json webpack --env=production --progress",
     "lint": "eslint \"{src,__tests__}/**\"",
     "format": "prettier --write \"__tests__/**\", \"src/**\"",

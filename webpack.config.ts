@@ -6,8 +6,9 @@ import { modifications as modificationsProd } from './config/webpack.config.prod
 
 import { Configuration } from 'webpack'
 
-export default function config (env: string = 'development'): Configuration {
+export default function config(env: string): Configuration {
   process.env.NODE_ENV = env
+
   const isProduction = env === 'production'
 
   let modifications = isProduction ? modificationsProd : modificationsDev
