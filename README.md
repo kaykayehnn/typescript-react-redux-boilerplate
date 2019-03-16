@@ -10,7 +10,7 @@
 - React Router
 - TypeScript
 - SASS & CSS Modules
-- ESLint
+- ESLint & Prettier
 - Jest setup for TypeScript
 - Webpack configuration with Hot Module Replacement
 - Service Worker support
@@ -41,8 +41,8 @@ The master branch contains only a minimal subset of the folder structure in orde
 ```
 .
 ├── __tests__
-├──── {test_directories}
-├────── {test_files.test.ts}
+├──── {test_directory}
+├────── {test_file}.test.ts
 ├──── helpers.ts
 ├──── setup.ts
 ├──── tsconfig.json
@@ -63,24 +63,24 @@ The master branch contains only a minimal subset of the folder structure in orde
 ├── src
 ├──── components
 ├────── {Component}
-├──────── {index.ts}
-├──────── {Component.component.ts}
-├──────── {Component.style.scss}
-├──────── {Component.style.scss.d.ts}
+├──────── index.ts
+├──────── {Component}.component.ts
+├──────── {Component}.style.scss
+├──────── {Component}.style.scss.d.ts
 ├──── containers
-├────── {Container.container.tsx}
+├────── {Container}.container.tsx
 ├──── declarations
 ├────── styles.d.ts
 ├──── store
 ├────── actions
-├──────── {state}.action.ts
+├──────── {State}.action.ts
 ├──────── index.ts
 ├────── reducers
-├──────── {state}.reducer.ts
+├──────── {State}.reducer.ts
 ├──────── index.ts
 ├──────── state
 ├────────── App.state.ts
-├────────── {state}.state.ts
+├────────── {State}.state.ts
 ├──────── configureStore.ts
 ├──── types
 ├────── Redux.ts
@@ -106,9 +106,7 @@ All presentational components reside here. They can be split in two types:
 - **Views** - views are usually passed to connect function and later serve as app routes.
 - **Subcomponents** - subcomponents are smaller and serve as building blocks for the views.
 
-<!--- (TODO: Add links to all types of props/state definitions) --->
-
-These components are either stateless or hold only UI state. Props shape is defined in a container as the union of MapStateFromProps and MapDispatchFromProps for views and as an interface in the same file for subcomponents. State shape is always defined next to the component where applicable.
+These components should receive any app state through props, their stateful concerns are limited to UI state. Props shape is defined in a container as the union of MapStateFromProps and MapDispatchFromProps for views and as an interface in the same file for subcomponents.
 
 Component folders consist of 4 files for ease of navigation in editor (Quick Open is useful when searching by component name) and brevity when importing (@Components/Component instead of @Components/Component/Component). This approach also allows splitting components in multiple files, which further improves maintainability.
 
@@ -125,7 +123,7 @@ Component folders consist of 4 files for ease of navigation in editor (Quick Ope
 **Actions** define action types and action creators. They also export a union of their action types, which is then used in reducers.
 **Actions** define action types and action creators. Each state piece also exports a union of its action types, which are later merged in AppActions.ts.
 
-**Reducers'** signatures are defined using State and ActionType types and by using `switch..case` branches for each action we get strong typing, courtesy of [Discriminated Types](https://www.typescriptlang.org/docs/handbook/advanced-types.html#discriminated-unions).
+**Reducers'** signatures are defined using State and ActionType types and by using `switch..case` branches for each action we get strong typing via [Discriminated Types](https://www.typescriptlang.org/docs/handbook/advanced-types.html#discriminated-unions).
 
 **State** holds shape definitions of the different pieces of data the reducers manage. AppState shows the shape of the whole state tree.
 
