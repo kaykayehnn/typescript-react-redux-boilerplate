@@ -1,8 +1,8 @@
 // For a detailed explanation regarding each configuration property, visit:
 // https://jestjs.io/docs/en/configuration.html
 
-/* eslint-disable */ 
 const createPathMapper = require('./path-mapper')
+const { basePath } = require('./webpack.config.base')
 
 module.exports = {
   // All imported modules in your tests should be mocked automatically
@@ -71,7 +71,7 @@ module.exports = {
 
   // A map from regular expressions to module names that allow to stub out resources with a single module
   moduleNameMapper: {
-    ...createPathMapper('<rootDir>/src/'),
+    ...createPathMapper('<rootDir>/src/', true),
     '\\.(sc|sa|c)ss$': 'identity-obj-proxy'
   },
 
@@ -106,12 +106,10 @@ module.exports = {
   // restoreMocks: false,
 
   // The root directory that Jest should scan for tests and modules within
-  rootDir: '../',
+  rootDir: basePath,
 
   // A list of paths to directories that Jest should use to search for files in
-  // roots: [
-  //   "<rootDir>"
-  // ],
+  roots: ['<rootDir>/src', '<rootDir>/__tests__'],
 
   // Allows you to use a custom runner instead of Jest's default test runner
   // runner: "jest-runner",
@@ -135,7 +133,7 @@ module.exports = {
   // testLocationInResults: false,
 
   // The glob patterns Jest uses to detect test files
-  testMatch: ['<rootDir>/__tests__/**/*.test.(ts|tsx|js)'],
+  testMatch: ['<rootDir>/__tests__/**/*.test.(ts|tsx|js)']
 
   // An array of regexp pattern strings that are matched against all test paths, matched tests are skipped
   // testPathIgnorePatterns: [

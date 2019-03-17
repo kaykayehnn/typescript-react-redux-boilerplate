@@ -1,10 +1,9 @@
-/* eslint-disable */
 const path = require('path')
 const { compilerOptions } = require('../tsconfig')
 
 const { paths } = compilerOptions
 
-module.exports = function createPathMapper(prefix) {
+module.exports = function createPathMapper(prefix, isJest) {
   const pathKeys = Object.keys(paths)
 
   const mapper = {}
@@ -20,6 +19,10 @@ module.exports = function createPathMapper(prefix) {
     if (key.slice(-2) === '/*' && value.slice(-2) === '/*') {
       key = key.slice(0, -2)
       value = value.slice(0, -2)
+    }
+    if (isJest) {
+      key += '/(.*)$'
+      value += '/$1'
     }
 
     mapper[key] = path.join(prefix, value)
