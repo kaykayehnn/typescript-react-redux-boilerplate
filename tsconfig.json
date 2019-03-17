@@ -1,9 +1,22 @@
 {
-  "extends": "./tsproject.json",
   "compilerOptions": {
-    "baseUrl": "./src"
+    "baseUrl": "./src",
+    "noEmit": true,
+    "module": "esnext",
+    "moduleResolution": "node",
+    "isolatedModules": true,
+    "allowSyntheticDefaultImports": true,
+    "resolveJsonModule": true,
+    "strict": true,
+    "noFallthroughCasesInSwitch": true,
+    "forceConsistentCasingInFileNames": true,
+    "lib": ["dom", "es6"],
+    "jsx": "preserve",
+    "paths": {
+      "@Components/*": ["./components/*"],
+      "@Containers/*": ["./containers/*"],
+      "@Store/*": ["./store/*"]
+    }
   },
-  "include": [
-    "./src"
-  ]
+  "include": ["./src", "./__tests__"]
 }

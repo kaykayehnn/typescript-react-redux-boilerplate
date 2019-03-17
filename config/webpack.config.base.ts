@@ -1,9 +1,10 @@
 import path from 'path'
-import { TsConfigPathsPlugin } from 'awesome-typescript-loader'
 import { smart } from 'webpack-merge'
 import CaseSensitivePathsPlugin from 'case-sensitive-paths-webpack-plugin'
+import ForkTsCheckerWebpackPlugin from 'fork-ts-checker-webpack-plugin'
 import HTMLWebpackPlugin from 'html-webpack-plugin'
 
+import createPathsMapper from './path-mapper'
 import { Configuration, RuleSetUse } from 'webpack'
 
 export const basePath = path.join(__dirname, '..')
@@ -31,8 +32,8 @@ const cssLoaders = [
       }
     }
   },
-  // Sass-loader resolves @import statements by inlining the files, while css-loader
-  // makes require calls which are then split in chunks, which is not the desired behaviour.
+  // Sass-loader resolves @import statements by inlining the files, while css-loader makes require
+  // calls which are then split in chunks, which is not the desired behaviour.
   'sass-loader'
 ]
 
@@ -68,18 +69,13 @@ export const baseConfig: Configuration = {
   },
   resolve: {
     extensions: ['.ts', '.tsx', '.js'],
-    plugins: [new TsConfigPathsPlugin()]
+    alias: createPathsMapper(path.join(basePath, 'src'))
   },
   optimization: {
     splitChunks: {
       // Excludes polyfills from chunk deduplication.
       chunks(chunk) {
         return chunk.name !== 'polyfills'
-      },
-      cacheGroups: {
-        vendors: {
-          test: /[/\\]node_modules[/\\](?!\.css&)/
-        }
       }
     },
     runtimeChunk: 'single'
@@ -87,25 +83,30 @@ export const baseConfig: Configuration = {
   module: {
     rules: [
       {
+        test: /\.tsx?$/,
+        loader: 'babel-loader',
+        options: {
+          extends: path.join(__dirname, '..', 'babel.config.js'),
+          cacheDirectory: true
+        }
+      },
+      {
         test: cssTest,
         use: cssLoaders
       },
       {
         test: scssTest,
         use: mergeRules(cssLoaders, scssLoaders)
-      },
-      {
-        // ATS loader is ran last to allow css type definitions to be generated
-        test: /\.tsx?$/,
-        loader: 'awesome-typescript-loader',
-        options: {
-          silent: true
-        }
       }
     ]
   },
   plugins: [
     new CaseSensitivePathsPlugin(),
+    new ForkTsCheckerWebpackPlugin({
+      async: false,
+      silent: true,
+      watch: [path.join(basePath, 'src')]
+    }),
     new HTMLWebpackPlugin(htmlPluginOptions)
   ]
 }

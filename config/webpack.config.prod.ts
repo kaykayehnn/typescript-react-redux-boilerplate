@@ -7,13 +7,7 @@ import HTMLWebpackPlugin from 'html-webpack-plugin'
 import InlineChunkHtmlPlugin from 'react-dev-utils/InlineChunkHtmlPlugin'
 import { GenerateSW } from 'workbox-webpack-plugin'
 
-import {
-  htmlPluginOptions,
-  cssTest,
-  scssTest,
-  outputPath,
-  basePath
-} from './webpack.config.base'
+import { htmlPluginOptions, cssTest, scssTest, outputPath, basePath } from './webpack.config.base'
 import { Configuration } from 'webpack'
 
 const htmlPluginProdOptions: HTMLWebpackPlugin.Options = {
@@ -106,12 +100,7 @@ export const modifications: Configuration = {
       clientsClaim: true,
       navigateFallback: '/index.html',
       include: [/^index\.html$/, /static/],
-      exclude: [
-        /\.map$/,
-        /^manifest.*\.js(?:on)?$/,
-        /runtime.*\.js$/,
-        /\.DS_STORE$/i
-      ]
+      exclude: [/\.map$/, /^manifest.*\.js(?:on)?$/, /runtime.*\.js$/, /\.DS_STORE$/i]
     })
   ]
 }

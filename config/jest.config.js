@@ -1,8 +1,8 @@
 // For a detailed explanation regarding each configuration property, visit:
 // https://jestjs.io/docs/en/configuration.html
-const { pathsToModuleNameMapper } = require('ts-jest/utils')
 
-const { compilerOptions } = require('./tsproject')
+/* eslint-disable */ 
+const createPathMapper = require('./path-mapper')
 
 module.exports = {
   // All imported modules in your tests should be mocked automatically
@@ -58,11 +58,8 @@ module.exports = {
   // globalTeardown: null,
 
   // A set of global variables that need to be available in all test environments
-  globals: {
-    'ts-jest': {
-      tsConfig: './__tests__/tsconfig.json'
-    }
-  },
+  // globals: {
+  // },
 
   // An array of directory names to be searched recursively up from the requiring module's location
   // moduleDirectories: [
@@ -74,9 +71,7 @@ module.exports = {
 
   // A map from regular expressions to module names that allow to stub out resources with a single module
   moduleNameMapper: {
-    ...pathsToModuleNameMapper(compilerOptions.paths, {
-      prefix: '<rootDir>/src/'
-    }),
+    ...createPathMapper('<rootDir>/src/'),
     '\\.(sc|sa|c)ss$': 'identity-obj-proxy'
   },
 
@@ -111,7 +106,7 @@ module.exports = {
   // restoreMocks: false,
 
   // The root directory that Jest should scan for tests and modules within
-  // rootDir: 'src',
+  rootDir: '../',
 
   // A list of paths to directories that Jest should use to search for files in
   // roots: [
@@ -163,9 +158,8 @@ module.exports = {
   // timers: 'fake',
 
   // A map from regular expressions to paths to transformers
-  transform: {
-    '^.+\\.(ts|tsx)$': 'ts-jest'
-  }
+  // transform: {
+  // }
 
   // An array of regexp pattern strings that are matched against all source file paths, matched files will skip transformation
   // transformIgnorePatterns: [
