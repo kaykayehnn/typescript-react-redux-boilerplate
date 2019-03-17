@@ -1,21 +1,20 @@
-import path from 'path'
-import { smart } from 'webpack-merge'
-import CaseSensitivePathsPlugin from 'case-sensitive-paths-webpack-plugin'
-import ForkTsCheckerWebpackPlugin from 'fork-ts-checker-webpack-plugin'
-import HTMLWebpackPlugin from 'html-webpack-plugin'
+const path = require('path')
+const { smart } = require('webpack-merge')
+const CaseSensitivePathsPlugin = require('case-sensitive-paths-webpack-plugin')
+const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin')
+const HTMLWebpackPlugin = require('html-webpack-plugin')
 
-import createPathsMapper from './path-mapper'
-import { Configuration, RuleSetUse } from 'webpack'
+const createPathsMapper = require('./path-mapper')
 
-export const basePath = path.join(__dirname, '..')
-export const outputPath = path.join(basePath, 'dist')
+const basePath = path.join(__dirname, '..')
+const outputPath = path.join(basePath, 'dist')
 
-export const htmlPluginOptions: HTMLWebpackPlugin.Options = {
+const htmlPluginOptions = {
   template: path.join(basePath, 'public', 'index.html')
 }
 
-export const cssTest = /\.css$/
-export const scssTest = /\.(sc|sa)ss$/
+const cssTest = /\.css$/
+const scssTest = /\.(sc|sa)ss$/
 
 const cssLoaders = [
   {
@@ -37,7 +36,7 @@ const cssLoaders = [
   'sass-loader'
 ]
 
-const scssLoaders: RuleSetUse = [
+const scssLoaders = [
   'dts-css-modules-loader?namedExport',
   {
     loader: 'css-loader',
@@ -48,15 +47,15 @@ const scssLoaders: RuleSetUse = [
   }
 ]
 
-function mergeRules(a: RuleSetUse, b: RuleSetUse): RuleSetUse {
-  const toConfig = (rules: RuleSetUse) => ({
+function mergeRules(a, b) {
+  const toConfig = rules => ({
     module: { rules: [{ use: rules }] }
   })
 
   return smart(toConfig(a), toConfig(b)).module.rules[0].use
 }
 
-export const baseConfig: Configuration = {
+const baseConfig = {
   context: basePath,
   entry: {
     // This order ensures polyfills are loaded before application source.
@@ -113,3 +112,5 @@ export const baseConfig: Configuration = {
     new HTMLWebpackPlugin(htmlPluginOptions)
   ]
 }
+
+module.exports = { basePath, outputPath, htmlPluginOptions, cssTest, scssTest, baseConfig }

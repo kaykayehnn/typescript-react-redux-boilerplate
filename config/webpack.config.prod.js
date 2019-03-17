@@ -1,16 +1,21 @@
-import path from 'path'
-import TerserPlugin from 'terser-webpack-plugin'
-import CleanWebpackPlugin from 'clean-webpack-plugin'
-import CopyWebpackPlugin from 'copy-webpack-plugin'
-import MiniCssExtractPlugin from 'mini-css-extract-plugin'
-import HTMLWebpackPlugin from 'html-webpack-plugin'
-import InlineChunkHtmlPlugin from 'react-dev-utils/InlineChunkHtmlPlugin'
-import { GenerateSW } from 'workbox-webpack-plugin'
+const path = require('path')
+const TerserPlugin = require('terser-webpack-plugin')
+const CleanWebpackPlugin = require('clean-webpack-plugin')
+const CopyWebpackPlugin = require('copy-webpack-plugin')
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+const HTMLWebpackPlugin = require('html-webpack-plugin')
+const InlineChunkHtmlPlugin = require('react-dev-utils/InlineChunkHtmlPlugin')
+const { GenerateSW } = require('workbox-webpack-plugin')
 
-import { htmlPluginOptions, cssTest, scssTest, outputPath, basePath } from './webpack.config.base'
-import { Configuration } from 'webpack'
+const {
+  htmlPluginOptions,
+  cssTest,
+  scssTest,
+  outputPath,
+  basePath
+} = require('./webpack.config.base')
 
-const htmlPluginProdOptions: HTMLWebpackPlugin.Options = {
+const htmlPluginProdOptions = {
   ...htmlPluginOptions,
   minify: {
     removeComments: true,
@@ -26,7 +31,7 @@ const htmlPluginProdOptions: HTMLWebpackPlugin.Options = {
   }
 }
 
-export const modifications: Configuration = {
+const modifications = {
   mode: 'production',
   output: {
     filename: 'static/js/[name].[contenthash].js',
@@ -104,3 +109,5 @@ export const modifications: Configuration = {
     })
   ]
 }
+
+module.exports = { modifications }

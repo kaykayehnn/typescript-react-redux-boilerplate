@@ -19,6 +19,14 @@ module.exports = {
       version: 'detect'
     }
   },
+  overrides: [
+    {
+      files: ['*.js'],
+      rules: {
+        '@typescript-eslint/no-var-requires': 'off'
+      }
+    }
+  ],
   extends: [
     'eslint:recommended',
     'plugin:@typescript-eslint/recommended',

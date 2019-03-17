@@ -1,14 +1,13 @@
-import path from 'path'
-import openBrowser from 'react-dev-utils/openBrowser'
-import errorOverlayMiddleware from 'react-dev-utils/errorOverlayMiddleware'
-import getCSSModuleLocalIdent from 'react-dev-utils/getCSSModuleLocalIdent'
+const path = require('path')
+const openBrowser = require('react-dev-utils/openBrowser')
+const errorOverlayMiddleware = require('react-dev-utils/errorOverlayMiddleware')
 
-import { cssTest, scssTest, basePath } from './webpack.config.base'
-import { Configuration, HotModuleReplacementPlugin } from 'webpack'
+const { cssTest, scssTest, basePath } = require('./webpack.config.base')
+const { HotModuleReplacementPlugin } = require('webpack')
 
 const PORT = +process.env.PORT || 3000
 
-export const modifications: Configuration = {
+const modifications = {
   mode: 'development',
   entry: {
     main: ['react-dev-utils/webpackHotDevClient', './src/index.tsx']
@@ -33,7 +32,7 @@ export const modifications: Configuration = {
           {
             loader: 'css-loader',
             options: {
-              getLocalIdent: getCSSModuleLocalIdent
+              localIdentName: '[name]__[local]--[hash:base64:5]'
             }
           }
         ]
@@ -66,3 +65,5 @@ export const modifications: Configuration = {
   },
   plugins: [new HotModuleReplacementPlugin()]
 }
+
+module.exports = { modifications }
