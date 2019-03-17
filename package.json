@@ -34,6 +34,7 @@
     "react-redux": "^6.0.1",
     "react-router-dom": "^4.4.0",
     "redux": "^4.0.1",
+    "redux-starter-kit": "^0.4.3",
     "redux-thunk": "^2.3.0"
   },
   "devDependencies": {
