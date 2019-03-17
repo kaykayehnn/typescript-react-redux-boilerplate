@@ -104,6 +104,9 @@ export const baseConfig: Configuration = {
     new CaseSensitivePathsPlugin(),
     new ForkTsCheckerWebpackPlugin({
       async: false,
+      compilerOptions: {
+        isolatedModules: false
+      },
       silent: true,
       watch: [path.join(basePath, 'src')]
     }),
