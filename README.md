@@ -45,12 +45,8 @@ The master branch contains only a minimal subset of the folder structure in orde
 ├────── {test_file}.test.ts
 ├──── helpers.ts
 ├──── setup.ts
-├──── tsconfig.json
 ├
 ├── config
-├──── postscss.config.js
-├──── webpack.config.{base,dev,prod}.ts
-├──── tsconfig.json
 ├
 ├── public
 ├──── index.html
@@ -78,10 +74,10 @@ The master branch contains only a minimal subset of the folder structure in orde
 ├────── reducers
 ├──────── {State}.reducer.ts
 ├──────── index.ts
-├──────── state
-├────────── App.state.ts
-├────────── {State}.state.ts
-├──────── configureStore.ts
+├────── state
+├──────── App.state.ts
+├──────── {State}.state.ts
+├────── configureStore.ts
 ├──── types
 ├────── Redux.ts
 ├────── {Model}.ts
@@ -89,12 +85,8 @@ The master branch contains only a minimal subset of the folder structure in orde
 ├──── polyfills.ts
 ├──── style.css
 ├
-├── jest.config.js
 ├── package.json
 ├── tsconfig.json
-├── tslint.json
-├── tsproject.json
-├── webpack.config.ts
 ```
 
 ### The src folder
