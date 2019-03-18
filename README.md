@@ -7,13 +7,13 @@
 ### What's included:
 
 - React & Redux
-- React Router
 - TypeScript
+- Webpack
 - SASS & CSS Modules
-- ESLint & Prettier
-- Jest setup for TypeScript
-- Webpack configuration with Hot Module Replacement
 - Service Worker support
+- Jest
+- Hot Module Replacement
+- ESLint & Prettier
 - Redux DevTools via Chrome extension
 - An example architecture for building scalable web applications
 
