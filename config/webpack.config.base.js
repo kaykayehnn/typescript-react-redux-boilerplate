@@ -104,6 +104,7 @@ const baseConfig = {
     new ForkTsCheckerWebpackPlugin({
       async: false,
       compilerOptions: {
+        // When enabled causes very poor performance during development.
         isolatedModules: false
       },
       silent: true,
