@@ -7,13 +7,7 @@ const HTMLWebpackPlugin = require('html-webpack-plugin')
 const InlineChunkHtmlPlugin = require('react-dev-utils/InlineChunkHtmlPlugin')
 const { GenerateSW } = require('workbox-webpack-plugin')
 
-const {
-  htmlPluginOptions,
-  cssTest,
-  scssTest,
-  outputPath,
-  basePath
-} = require('./webpack.config.base')
+const { htmlPluginOptions, cssTest, scssTest, basePath } = require('./webpack.config.base')
 
 const htmlPluginProdOptions = {
   ...htmlPluginOptions,
@@ -87,7 +81,7 @@ const modifications = {
     ]
   },
   plugins: [
-    new CleanWebpackPlugin(outputPath, { root: basePath }),
+    new CleanWebpackPlugin(),
     new CopyWebpackPlugin([path.join(basePath, 'public/')]),
     new MiniCssExtractPlugin({
       filename: 'static/css/[name].[contenthash].css'
