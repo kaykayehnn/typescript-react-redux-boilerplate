@@ -16,7 +16,7 @@ module.exports = {
     ['@babel/preset-react', { development: !isProduction }]
   ],
   plugins: [
-    '@babel/plugin-transform-runtime',
+    ['@babel/plugin-transform-runtime', { useESModules: true }],
     '@babel/plugin-syntax-dynamic-import',
     isTest && 'dynamic-import-node'
   ].filter(Boolean)
