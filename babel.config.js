@@ -18,6 +18,6 @@ module.exports = {
   plugins: [
     ['@babel/plugin-transform-runtime', { useESModules: true }],
     '@babel/plugin-syntax-dynamic-import',
-    isTest && 'dynamic-import-node'
+    isTest && 'babel-plugin-dynamic-import-node'
   ].filter(Boolean)
 }
