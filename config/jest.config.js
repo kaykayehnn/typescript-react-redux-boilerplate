@@ -67,7 +67,7 @@ module.exports = {
   // ],
 
   // An array of file extensions your modules use
-  moduleFileExtensions: ['ts', 'tsx', 'js'],
+  moduleFileExtensions: ['ts', 'js'],
 
   // A map from regular expressions to module names that allow to stub out resources with a single module
   moduleNameMapper: {
@@ -115,10 +115,10 @@ module.exports = {
   // runner: "jest-runner",
 
   // The paths to modules that run some code to configure or set up the testing environment before each test
-  setupFiles: ['react-testing-library/cleanup-after-each'],
+  setupFiles: [],
 
   // The path to a module that runs some code to configure or set up the testing framework before each test
-  // setupTestFrameworkScriptFile: null,
+  setupFilesAfterEnv: ['react-testing-library/cleanup-after-each'],
 
   // A list of paths to snapshot serializer modules Jest should use for snapshot testing
   // snapshotSerializers: [],
@@ -133,7 +133,7 @@ module.exports = {
   // testLocationInResults: false,
 
   // The glob patterns Jest uses to detect test files
-  testMatch: ['<rootDir>/{__tests__,src}/**/*.test.([tj]sx?)']
+  testMatch: ['<rootDir>/{__tests__,src}/**/*.test.js']
 
   // An array of regexp pattern strings that are matched against all test paths, matched tests are skipped
   // testPathIgnorePatterns: [
