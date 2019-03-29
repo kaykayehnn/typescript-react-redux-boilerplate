@@ -1,5 +1,3 @@
-const prettierConfig = require('./.prettierrc.js')
-
 module.exports = {
   root: true,
   plugins: ['react-hooks'],
@@ -46,7 +44,7 @@ module.exports = {
   ],
   rules: {
     // Prettier rule
-    'prettier/prettier': ['error', prettierConfig],
+    'prettier/prettier': 'error',
     // React hooks rules
     'react-hooks/rules-of-hooks': 'error',
     'react-hooks/exhaustive-deps': 'warn',
