@@ -1,3 +1,5 @@
+const restrictedGlobals = require('confusing-browser-globals')
+
 module.exports = {
   root: true,
   plugins: ['react-hooks'],
@@ -48,6 +50,8 @@ module.exports = {
     // React hooks rules
     'react-hooks/rules-of-hooks': 'error',
     'react-hooks/exhaustive-deps': 'warn',
+    // Restricted globals rule
+    'no-restricted-globals': ['error'].concat(restrictedGlobals),
     // Disabled rules from presets
     '@typescript-eslint/explicit-function-return-type': 'off',
     '@typescript-eslint/no-use-before-define': 'off',
