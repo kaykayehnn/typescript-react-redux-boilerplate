@@ -1,11 +1,5 @@
 @import '~normalize.css';
 
-/* Removes rounded corners on mobile */
-textarea,
-input {
-  border-radius: 0px;
-}
-
 /* Overrides box-sizing */
 html {
   box-sizing: border-box;
@@ -19,6 +13,5 @@ html {
 
 body {
   /* FIXME: Change font */
-  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva,
-    Verdana, sans-serif;
+  font-family: 'Courier New';
 }
