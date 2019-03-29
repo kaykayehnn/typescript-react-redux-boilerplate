@@ -1,6 +1,7 @@
 const path = require('path')
 const openBrowser = require('react-dev-utils/openBrowser')
 const errorOverlayMiddleware = require('react-dev-utils/errorOverlayMiddleware')
+const evalSourceMapMiddleware = require('react-dev-utils/evalSourceMapMiddleware')
 
 const { cssTest, scssTest, basePath } = require('./webpack.config.base')
 const { HotModuleReplacementPlugin } = require('webpack')
@@ -49,7 +50,9 @@ const modifications = {
     hot: true,
     // Prevents injecting of default webpackHotDevClient
     inline: false,
-    historyApiFallback: true,
+    historyApiFallback: {
+      disableDotRule: true,
+    },
     watchOptions: {
       ignored: /[/\\]node_modules[/\\]/,
     },
@@ -58,7 +61,8 @@ const modifications = {
         target: `http://localhost:${PROXY_PORT}`,
       },
     },
-    before(app) {
+    before(app, server) {
+      app.use(evalSourceMapMiddleware(server))
       app.use(errorOverlayMiddleware())
     },
     after() {
