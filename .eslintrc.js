@@ -2,8 +2,7 @@ const prettierConfig = require('./.prettierrc.js')
 
 module.exports = {
   root: true,
-  parser: '@typescript-eslint/parser',
-  plugins: ['@typescript-eslint', 'react', 'react-hooks', 'jsx-a11y'],
+  plugins: ['react-hooks'],
   parserOptions: {
     project: './tsconfig.json',
   },
@@ -12,7 +11,6 @@ module.exports = {
     node: true,
     commonjs: true,
     es6: true,
-    jest: true,
   },
   settings: {
     react: {
@@ -23,7 +21,15 @@ module.exports = {
     {
       files: ['*.js'],
       rules: {
+        // This is a workaround for ESLint not supporting extending overrides
+        // See https://github.com/eslint/eslint/issues/8813
         '@typescript-eslint/no-var-requires': 'off',
+      },
+    },
+    {
+      files: ['*.test'],
+      env: {
+        jest: true,
       },
     },
   ],
@@ -31,8 +37,10 @@ module.exports = {
     'eslint:recommended',
     'plugin:@typescript-eslint/recommended',
     'plugin:react/recommended',
+    'plugin:promise/recommended',
     'plugin:jsx-a11y/recommended',
     'plugin:prettier/recommended',
+    'plugin:array-func/all',
     'prettier/@typescript-eslint',
     'prettier/react',
   ],
