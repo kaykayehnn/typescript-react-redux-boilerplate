@@ -56,6 +56,17 @@ const modifications = {
     watchOptions: {
       ignored: /[/\\]node_modules[/\\]/,
     },
+    stats: {
+      assets: false,
+      chunks: false,
+      chunkGroups: false,
+      chunkModules: false,
+      chunkOrigins: false,
+      entrypoints: false,
+      hash: false,
+      modules: false,
+      version: false,
+    },
     proxy: {
       '/api': {
         target: `http://localhost:${PROXY_PORT}`,
