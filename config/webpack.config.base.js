@@ -13,6 +13,7 @@ const htmlPluginOptions = {
   template: path.join(basePath, 'public', 'index.html'),
 }
 
+const tsTest = /\.tsx?$/
 const cssTest = /\.css$/
 const scssTest = /\.(sc|sa)ss$/
 
@@ -82,7 +83,15 @@ const baseConfig = {
   module: {
     rules: [
       {
-        test: /\.tsx?$/,
+        test: tsTest,
+        loader: 'eslint-loader',
+        enforce: 'pre',
+        options: {
+          formatter: require('eslint-formatter-pretty'),
+        },
+      },
+      {
+        test: tsTest,
         loader: 'babel-loader',
         options: {
           extends: path.join(__dirname, '..', 'babel.config.js'),
