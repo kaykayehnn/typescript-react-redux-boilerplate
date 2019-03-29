@@ -5,7 +5,8 @@ const errorOverlayMiddleware = require('react-dev-utils/errorOverlayMiddleware')
 const { cssTest, scssTest, basePath } = require('./webpack.config.base')
 const { HotModuleReplacementPlugin } = require('webpack')
 
-const PORT = +process.env.PORT || 3000
+const PORT = process.env.PORT || 3000
+const PROXY_PORT = process.env.PORT || 9000
 
 const modifications = {
   mode: 'development',
@@ -53,7 +54,7 @@ const modifications = {
     },
     proxy: {
       '/api': {
-        target: 'http://localhost:9000',
+        target: `http://localhost:${PROXY_PORT}`,
       },
     },
     before(app) {
