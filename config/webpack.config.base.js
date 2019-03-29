@@ -87,6 +87,7 @@ const baseConfig = {
         loader: 'eslint-loader',
         enforce: 'pre',
         options: {
+          cache: true,
           formatter: require('eslint-formatter-pretty'),
         },
       },
