@@ -7,10 +7,10 @@ module.exports = {
           'default',
           {
             discardComments: {
-              removeAll: true
-            }
-          }
-        ]
-      })
-  ].filter(Boolean)
+              removeAll: true,
+            },
+          },
+        ],
+      }),
+  ].filter(Boolean),
 }

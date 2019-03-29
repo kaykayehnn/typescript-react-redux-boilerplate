@@ -7,7 +7,12 @@ const HTMLWebpackPlugin = require('html-webpack-plugin')
 const InlineChunkHtmlPlugin = require('react-dev-utils/InlineChunkHtmlPlugin')
 const { GenerateSW } = require('workbox-webpack-plugin')
 
-const { htmlPluginOptions, cssTest, scssTest, basePath } = require('./webpack.config.base')
+const {
+  htmlPluginOptions,
+  cssTest,
+  scssTest,
+  basePath,
+} = require('./webpack.config.base')
 
 const htmlPluginProdOptions = {
   ...htmlPluginOptions,
@@ -21,22 +26,22 @@ const htmlPluginProdOptions = {
     keepClosingSlash: true,
     minifyJS: true,
     minifyCSS: true,
-    minifyURLs: true
-  }
+    minifyURLs: true,
+  },
 }
 
 const modifications = {
   mode: 'production',
   output: {
     filename: 'static/js/[name].[contenthash].js',
-    chunkFilename: 'static/js/[name].[contenthash].js'
+    chunkFilename: 'static/js/[name].[contenthash].js',
   },
   devtool: 'source-map',
   module: {
     rules: [
       {
         test: cssTest,
-        use: [MiniCssExtractPlugin.loader, 'css-loader']
+        use: [MiniCssExtractPlugin.loader, 'css-loader'],
       },
       {
         test: scssTest,
@@ -45,52 +50,52 @@ const modifications = {
           {
             loader: 'css-loader',
             options: {
-              localIdentName: '[hash:base64:5]'
-            }
-          }
-        ]
-      }
-    ]
+              localIdentName: '[hash:base64:5]',
+            },
+          },
+        ],
+      },
+    ],
   },
   optimization: {
     minimizer: [
       new TerserPlugin({
         terserOptions: {
           parse: {
-            ecma: 8
+            ecma: 8,
           },
           compress: {
             warnings: false,
             comparisons: false,
-            inline: 2
+            inline: 2,
           },
           mangle: {
-            safari10: true
+            safari10: true,
           },
           output: {
             ecma: 5,
             comments: false,
             // eslint-disable-next-line @typescript-eslint/camelcase
-            ascii_only: true
-          }
+            ascii_only: true,
+          },
         },
         parallel: true,
         cache: true,
-        sourceMap: true
-      })
-    ]
+        sourceMap: true,
+      }),
+    ],
   },
   plugins: [
     new CleanWebpackPlugin(),
     new CopyWebpackPlugin([path.join(basePath, 'public/')]),
     new MiniCssExtractPlugin({
-      filename: 'static/css/[name].[contenthash].css'
+      filename: 'static/css/[name].[contenthash].css',
     }),
     new HTMLWebpackPlugin(htmlPluginProdOptions),
     // 404 page for static file hosts
     new HTMLWebpackPlugin({
       ...htmlPluginProdOptions,
-      filename: '404.html'
+      filename: '404.html',
     }),
     new InlineChunkHtmlPlugin(HTMLWebpackPlugin, [/runtime/]),
     new GenerateSW({
@@ -99,9 +104,14 @@ const modifications = {
       clientsClaim: true,
       navigateFallback: '/index.html',
       include: [/^index\.html$/, /static/],
-      exclude: [/\.map$/, /^manifest.*\.js(?:on)?$/, /runtime.*\.js$/, /\.DS_STORE$/i]
-    })
-  ]
+      exclude: [
+        /\.map$/,
+        /^manifest.*\.js(?:on)?$/,
+        /runtime.*\.js$/,
+        /\.DS_STORE$/i,
+      ],
+    }),
+  ],
 }
 
 module.exports = { modifications }

@@ -9,15 +9,15 @@ module.exports = {
       '@babel/preset-env',
       {
         modules: isTest && 'commonjs',
-        exclude: ['transform-typeof-symbol']
-      }
+        exclude: ['transform-typeof-symbol'],
+      },
     ],
     ['@babel/preset-typescript', { isTSX: true, allExtensions: true }],
-    ['@babel/preset-react', { development: !isProduction }]
+    ['@babel/preset-react', { development: !isProduction }],
   ],
   plugins: [
     ['@babel/plugin-transform-runtime', { useESModules: true }],
     '@babel/plugin-syntax-dynamic-import',
-    isTest && 'babel-plugin-dynamic-import-node'
-  ].filter(Boolean)
+    isTest && 'babel-plugin-dynamic-import-node',
+  ].filter(Boolean),
 }

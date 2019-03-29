@@ -12,7 +12,9 @@ module.exports = function createPathMapper(prefix, isJest) {
     let value = paths[key]
 
     if (value.length > 1) {
-      throw new Error('Mapping paths is only supported for key-value type lookups')
+      throw new Error(
+        'Mapping paths is only supported for key-value type lookups'
+      )
     }
 
     value = value[0]

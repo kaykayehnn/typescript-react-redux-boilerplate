@@ -5,27 +5,27 @@ module.exports = {
   parser: '@typescript-eslint/parser',
   plugins: ['@typescript-eslint', 'react', 'react-hooks', 'jsx-a11y'],
   parserOptions: {
-    project: './tsconfig.json'
+    project: './tsconfig.json',
   },
   env: {
     browser: true,
     node: true,
     commonjs: true,
     es6: true,
-    jest: true
+    jest: true,
   },
   settings: {
     react: {
-      version: 'detect'
-    }
+      version: 'detect',
+    },
   },
   overrides: [
     {
       files: ['*.js'],
       rules: {
-        '@typescript-eslint/no-var-requires': 'off'
-      }
-    }
+        '@typescript-eslint/no-var-requires': 'off',
+      },
+    },
   ],
   extends: [
     'eslint:recommended',
@@ -34,7 +34,7 @@ module.exports = {
     'plugin:jsx-a11y/recommended',
     'plugin:prettier/recommended',
     'prettier/@typescript-eslint',
-    'prettier/react'
+    'prettier/react',
   ],
   rules: {
     // Prettier rule
@@ -50,6 +50,6 @@ module.exports = {
     '@typescript-eslint/no-non-null-assertion': 'off',
     '@typescript-eslint/no-empty-interface': 'off',
     'react/prop-types': 'off',
-    'no-console': 'off'
-  }
+    'no-console': 'off',
+  },
 }

@@ -10,19 +10,19 @@ const PORT = +process.env.PORT || 3000
 const modifications = {
   mode: 'development',
   entry: {
-    main: ['react-dev-utils/webpackHotDevClient', './src/index.tsx']
+    main: ['react-dev-utils/webpackHotDevClient', './src/index.tsx'],
   },
   output: {
     devtoolModuleFilenameTemplate(info) {
       return path.resolve(info.absoluteResourcePath).replace(/\\/g, '/')
-    }
+    },
   },
   devtool: 'cheap-module-source-map', // error overlay relies on this
   module: {
     rules: [
       {
         test: cssTest,
-        use: ['style-loader', 'css-loader']
+        use: ['style-loader', 'css-loader'],
       },
       {
         test: scssTest,
@@ -32,12 +32,12 @@ const modifications = {
           {
             loader: 'css-loader',
             options: {
-              localIdentName: '[name]__[local]--[hash:base64:5]'
-            }
-          }
-        ]
-      }
-    ]
+              localIdentName: '[name]__[local]--[hash:base64:5]',
+            },
+          },
+        ],
+      },
+    ],
   },
   devServer: {
     host: '0.0.0.0',
@@ -49,21 +49,21 @@ const modifications = {
     inline: false,
     historyApiFallback: true,
     watchOptions: {
-      ignored: /[/\\]node_modules[/\\]/
+      ignored: /[/\\]node_modules[/\\]/,
     },
     proxy: {
       '/api': {
-        target: 'http://localhost:9000'
-      }
+        target: 'http://localhost:9000',
+      },
     },
     before(app) {
       app.use(errorOverlayMiddleware())
     },
     after() {
       openBrowser(`http://localhost:${PORT}/`)
-    }
+    },
   },
-  plugins: [new HotModuleReplacementPlugin()]
+  plugins: [new HotModuleReplacementPlugin()],
 }
 
 module.exports = { modifications }

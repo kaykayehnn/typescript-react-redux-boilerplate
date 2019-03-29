@@ -10,7 +10,7 @@ const basePath = path.join(__dirname, '..')
 const outputPath = path.join(basePath, 'dist')
 
 const htmlPluginOptions = {
-  template: path.join(basePath, 'public', 'index.html')
+  template: path.join(basePath, 'public', 'index.html'),
 }
 
 const cssTest = /\.css$/
@@ -20,20 +20,20 @@ const cssLoaders = [
   {
     loader: 'css-loader',
     options: {
-      importLoaders: 1
-    }
+      importLoaders: 1,
+    },
   },
   {
     loader: 'postcss-loader',
     options: {
       config: {
-        path: __dirname
-      }
-    }
+        path: __dirname,
+      },
+    },
   },
   // Sass-loader resolves @import statements by inlining the files, while css-loader makes require
   // calls which are then split in chunks, which is not the desired behaviour.
-  'sass-loader'
+  'sass-loader',
 ]
 
 const scssLoaders = [
@@ -42,14 +42,14 @@ const scssLoaders = [
     loader: 'css-loader',
     options: {
       modules: true,
-      camelCase: 'only'
-    }
-  }
+      camelCase: 'only',
+    },
+  },
 ]
 
 function mergeRules(a, b) {
   const toConfig = rules => ({
-    module: { rules: [{ use: rules }] }
+    module: { rules: [{ use: rules }] },
   })
 
   return smart(toConfig(a), toConfig(b)).module.rules[0].use
@@ -60,24 +60,24 @@ const baseConfig = {
   entry: {
     // This order ensures polyfills are loaded before application source.
     polyfills: './src/polyfills.ts',
-    main: './src/index.tsx'
+    main: './src/index.tsx',
   },
   output: {
     path: outputPath,
-    publicPath: '/'
+    publicPath: '/',
   },
   resolve: {
     extensions: ['.ts', '.tsx', '.js'],
-    alias: createPathsMapper(path.join(basePath, 'src'))
+    alias: createPathsMapper(path.join(basePath, 'src')),
   },
   optimization: {
     splitChunks: {
       // Excludes polyfills from chunk deduplication.
       chunks(chunk) {
         return chunk.name !== 'polyfills'
-      }
+      },
     },
-    runtimeChunk: 'single'
+    runtimeChunk: 'single',
   },
   module: {
     rules: [
@@ -86,18 +86,18 @@ const baseConfig = {
         loader: 'babel-loader',
         options: {
           extends: path.join(__dirname, '..', 'babel.config.js'),
-          cacheDirectory: true
-        }
+          cacheDirectory: true,
+        },
       },
       {
         test: cssTest,
-        use: cssLoaders
+        use: cssLoaders,
       },
       {
         test: scssTest,
-        use: mergeRules(cssLoaders, scssLoaders)
-      }
-    ]
+        use: mergeRules(cssLoaders, scssLoaders),
+      },
+    ],
   },
   plugins: [
     new CaseSensitivePathsPlugin(),
@@ -105,13 +105,20 @@ const baseConfig = {
       async: false,
       compilerOptions: {
         // When enabled causes very poor performance during development.
-        isolatedModules: false
+        isolatedModules: false,
       },
       silent: true,
-      watch: [path.join(basePath, 'src')]
+      watch: [path.join(basePath, 'src')],
     }),
-    new HTMLWebpackPlugin(htmlPluginOptions)
-  ]
+    new HTMLWebpackPlugin(htmlPluginOptions),
+  ],
 }
 
-module.exports = { basePath, outputPath, htmlPluginOptions, cssTest, scssTest, baseConfig }
+module.exports = {
+  basePath,
+  outputPath,
+  htmlPluginOptions,
+  cssTest,
+  scssTest,
+  baseConfig,
+}

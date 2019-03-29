@@ -6,7 +6,7 @@ import { AppState } from './state/App.state'
 export function configureStore(preloadedState?: AppState) {
   const store = configureStoreOriginal({
     reducer: rootReducer,
-    preloadedState
+    preloadedState,
   })
 
   if (module.hot) {
