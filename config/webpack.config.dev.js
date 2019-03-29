@@ -18,7 +18,8 @@ const modifications = {
       return path.resolve(info.absoluteResourcePath).replace(/\\/g, '/')
     },
   },
-  devtool: 'cheap-module-source-map', // error overlay relies on this
+  // Error overlay relies on this
+  devtool: 'cheap-module-source-map',
   module: {
     rules: [
       {
