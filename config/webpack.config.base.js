@@ -119,6 +119,7 @@ const baseConfig = {
       },
       silent: true,
       watch: [path.join(basePath, 'src')],
+      formatter: require('react-dev-utils/typescriptFormatter'),
     }),
     new HTMLWebpackPlugin(htmlPluginOptions),
   ],
