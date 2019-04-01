@@ -88,7 +88,7 @@ const baseConfig = {
         enforce: 'pre',
         options: {
           cache: true,
-          formatter: require('eslint-formatter-pretty'),
+          formatter: require('react-dev-utils/eslintFormatter'),
         },
       },
       {
