@@ -8,6 +8,8 @@
     "allowSyntheticDefaultImports": true,
     "resolveJsonModule": true,
     "strict": true,
+    "noImplicitAny": true,
+    "noImplicitThis": true,
     "noFallthroughCasesInSwitch": true,
     "forceConsistentCasingInFileNames": true,
     "lib": ["dom", "es6"],
@@ -18,5 +20,5 @@
       "@Store/*": ["./store/*"]
     }
   },
-  "include": ["./src", "./__tests__"]
+  "include": ["./src"]
 }
