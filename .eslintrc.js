@@ -1,3 +1,4 @@
+// eslint-disable-next-line
 const restrictedGlobals = require('confusing-browser-globals')
 
 module.exports = {
