@@ -41,7 +41,6 @@ module.exports = {
     'plugin:promise/recommended',
     'plugin:jsx-a11y/recommended',
     'plugin:prettier/recommended',
-    'plugin:array-func/all',
     'prettier/@typescript-eslint',
     'prettier/react',
   ],
