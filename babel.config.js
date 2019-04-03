@@ -9,6 +9,8 @@ module.exports = {
       '@babel/preset-env',
       {
         modules: isTest && 'commonjs',
+        // configPath is used to resolve browserslist targets
+        configPath: __dirname,
         exclude: ['transform-typeof-symbol'],
       },
     ],
