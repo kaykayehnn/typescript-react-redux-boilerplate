@@ -115,7 +115,8 @@ const baseConfig = {
     new ForkTsCheckerWebpackPlugin({
       async: false,
       compilerOptions: {
-        // When enabled causes very poor performance during development.
+        // When enabled typechecks lib typings for each file they are imported
+        // in, which results in duplication of work and poor performance.
         isolatedModules: false,
       },
       silent: true,
