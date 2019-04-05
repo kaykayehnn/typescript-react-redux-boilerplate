@@ -1,9 +1,11 @@
+const path = require('path')
 const env = process.env.BABEL_ENV || process.env.NODE_ENV || 'development'
 
 const isTest = env === 'test'
 const isProduction = env === 'production'
 
 module.exports = {
+  // Base config for dependencies
   presets: [
     [
       '@babel/preset-env',
@@ -14,12 +16,20 @@ module.exports = {
         exclude: ['transform-typeof-symbol'],
       },
     ],
-    ['@babel/preset-typescript', { isTSX: true, allExtensions: true }],
-    ['@babel/preset-react', { development: !isProduction }],
   ],
-  plugins: [
-    ['@babel/plugin-transform-runtime', { useESModules: true }],
-    '@babel/plugin-syntax-dynamic-import',
-    isTest && 'babel-plugin-dynamic-import-node',
-  ].filter(Boolean),
+  overrides: [
+    // App source
+    {
+      test: path.join(__dirname, 'src'),
+      presets: [
+        ['@babel/preset-typescript', { isTSX: true, allExtensions: true }],
+        ['@babel/preset-react', { development: !isProduction }],
+      ],
+      plugins: [
+        ['@babel/plugin-transform-runtime', { useESModules: true }],
+        '@babel/plugin-syntax-dynamic-import',
+        isTest && 'babel-plugin-dynamic-import-node',
+      ].filter(Boolean),
+    },
+  ],
 }

@@ -1,4 +1,4 @@
-import { configureStore as configureStoreOriginal } from 'redux-starter-kit/src/configureStore'
+import { configureStore as configureStoreOriginal } from 'redux-starter-kit'
 
 import { rootReducer } from './reducers/'
 import { AppState } from './state/App.state'

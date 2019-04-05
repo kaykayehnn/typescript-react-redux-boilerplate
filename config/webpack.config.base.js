@@ -13,7 +13,7 @@ const htmlPluginOptions = {
   template: path.join(basePath, 'public', 'index.html'),
 }
 
-const tsTest = /\.tsx?$/
+const jsTest = /\.[jt]sx?$/
 const cssTest = /\.css$/
 const scssTest = /\.(sc|sa)ss$/
 
@@ -83,8 +83,9 @@ const baseConfig = {
   module: {
     rules: [
       {
-        test: tsTest,
+        test: jsTest,
         loader: 'eslint-loader',
+        include: /[/\\]src[/\\]/,
         enforce: 'pre',
         options: {
           cache: true,
@@ -92,7 +93,7 @@ const baseConfig = {
         },
       },
       {
-        test: tsTest,
+        test: jsTest,
         loader: 'babel-loader',
         options: {
           extends: path.join(__dirname, '..', 'babel.config.js'),
