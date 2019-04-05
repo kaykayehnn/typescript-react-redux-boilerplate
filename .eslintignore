@@ -1,4 +1,3 @@
 *.css
 *.scss
-*.d.ts
 dist/
