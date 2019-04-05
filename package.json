@@ -27,7 +27,7 @@
   "dependencies": {
     "@babel/runtime": "^7.3.4",
     "classnames": "^2.2.6",
-    "core-js": "^3.0.0",
+    "es6-promise": "^4.2.6",
     "normalize.css": "^8.0.1",
     "react": "^16.8.3",
     "react-dom": "^16.8.3",
@@ -35,7 +35,8 @@
     "react-router-dom": "^5.0.0",
     "redux": "^4.0.1",
     "redux-starter-kit": "^0.4.3",
-    "redux-thunk": "^2.3.0"
+    "redux-thunk": "^2.3.0",
+    "unfetch": "^4.1.0"
   },
   "devDependencies": {
     "@babel/core": "^7.3.4",
