@@ -1,5 +1,11 @@
 /* Custom normalize.css is injected via postcss */
 
+/* Removes margin */
+html,
+body {
+  margin: 0;
+}
+
 /* Overrides box-sizing */
 html {
   box-sizing: border-box;
