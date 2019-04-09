@@ -76,7 +76,7 @@ const modifications = {
       app.use(evalSourceMapMiddleware(server))
       app.use(errorOverlayMiddleware())
 
-      // Hacky, but solves race condition problem of navigating before
+      // Solves race condition problem of navigating before
       // development server has started listening for requests.
       setTimeout(() => openBrowser(`http://localhost:${PORT}/`), 1000)
     },
