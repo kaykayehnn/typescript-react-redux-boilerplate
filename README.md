@@ -63,9 +63,12 @@ The master branch contains only a minimal subset of the folder structure in orde
 ├──────── index.ts
 ├──────── {Component}.component.ts
 ├──────── {Component}.style.scss
-├──────── {Component}.style.scss.d.ts
+├──────── {Component}.test.js
 ├──── containers
-├────── {Container}.container.tsx
+├────── {Container}
+├──────── index.ts
+├──────── {Container}.container.ts
+├──────── {Container}.test.js
 ├──── declarations
 ├────── styles.d.ts
 ├──── store
@@ -73,8 +76,10 @@ The master branch contains only a minimal subset of the folder structure in orde
 ├──────── {State}.action.ts
 ├──────── index.ts
 ├────── reducers
-├──────── {State}.reducer.ts
-├──────── index.ts
+├──────── {State}
+├────────── {State}.reducer.ts
+├────────── {State}.test.js
+├────────── index.ts
 ├────── state
 ├──────── App.state.ts
 ├──────── {State}.state.ts
