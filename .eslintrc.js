@@ -61,5 +61,15 @@ module.exports = {
     '@typescript-eslint/no-empty-interface': 'off',
     'react/prop-types': 'off',
     'no-console': 'off',
+    // Other rules
+    'prefer-const': [
+      'warn',
+      {
+        destructuring: 'all',
+      },
+    ],
+    // Babel takes care of transpiling spread so we don't have to explicitly
+    // polyfill Object.assign
+    'prefer-object-spread': 'warn',
   },
 }
