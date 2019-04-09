@@ -5,6 +5,7 @@
     "module": "esnext",
     "moduleResolution": "node",
     "isolatedModules": true,
+    "skipLibCheck": true,
     "allowSyntheticDefaultImports": true,
     "resolveJsonModule": true,
     "strict": true,

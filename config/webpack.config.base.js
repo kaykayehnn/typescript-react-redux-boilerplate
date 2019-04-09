@@ -113,12 +113,6 @@ const baseConfig = {
   plugins: [
     new CaseSensitivePathsPlugin(),
     new ForkTsCheckerWebpackPlugin({
-      async: false,
-      compilerOptions: {
-        // When enabled typechecks lib typings for each file they are imported
-        // in, which results in duplication of work and poor performance.
-        isolatedModules: false,
-      },
       silent: true,
       watch: [path.join(basePath, 'src')],
       formatter: require('react-dev-utils/typescriptFormatter'),
