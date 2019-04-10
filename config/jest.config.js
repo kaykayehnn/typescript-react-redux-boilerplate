@@ -118,7 +118,10 @@ module.exports = {
   setupFiles: [],
 
   // The path to a module that runs some code to configure or set up the testing framework before each test
-  setupFilesAfterEnv: ['react-testing-library/cleanup-after-each'],
+  setupFilesAfterEnv: [
+    'react-testing-library/cleanup-after-each',
+    'jest-dom/extend-expect',
+  ],
 
   // A list of paths to snapshot serializer modules Jest should use for snapshot testing
   // snapshotSerializers: [],
