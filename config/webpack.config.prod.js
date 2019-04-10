@@ -85,6 +85,11 @@ const modifications = {
       }),
     ],
   },
+  stats: {
+    children: false,
+    entrypoints: false,
+    modules: false,
+  },
   plugins: [
     new CleanWebpackPlugin(),
     new CopyWebpackPlugin([path.join(basePath, 'public/')]),
