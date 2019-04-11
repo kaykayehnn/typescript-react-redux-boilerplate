@@ -82,6 +82,7 @@ const baseConfig = {
     runtimeChunk: 'single',
   },
   module: {
+    strictExportPresence: true,
     rules: [
       {
         test: jsTest,
