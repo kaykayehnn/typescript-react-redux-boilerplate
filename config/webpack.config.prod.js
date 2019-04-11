@@ -69,9 +69,6 @@ const modifications = {
             comparisons: false,
             inline: 2,
           },
-          mangle: {
-            safari10: true,
-          },
           output: {
             ecma: 5,
             comments: false,
