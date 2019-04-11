@@ -10,7 +10,10 @@ const store = configureStore()
 mountApp()
 
 if (module.hot) {
-  module.hot.accept('./App', mountApp)
+  module.hot.accept('./App', () => {
+    console.clear()
+    mountApp()
+  })
 }
 
 function mountApp() {
