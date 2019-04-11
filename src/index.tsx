@@ -2,6 +2,7 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 
 import './style.css'
+import './serviceWorker'
 import { configureStore } from '@Store/configureStore'
 import { App } from './App'
 

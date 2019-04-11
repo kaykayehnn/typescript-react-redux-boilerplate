@@ -81,6 +81,7 @@ The master branch contains only a minimal subset of the folder structure in orde
 ├────── {Model}.ts
 ├──── index.tsx
 ├──── polyfills.ts
+├──── serviceWorker.ts
 ├──── style.css
 ├
 ├── package.json
