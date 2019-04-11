@@ -10,8 +10,8 @@ module.exports = function config(env) {
 
   const isProduction = env === 'production'
 
-  let modifications = isProduction ? modificationsProd : modificationsDev
-  let config = smart(baseConfig, modifications)
+  const modifications = isProduction ? modificationsProd : modificationsDev
+  const config = smart(baseConfig, modifications)
 
   return config
 }
