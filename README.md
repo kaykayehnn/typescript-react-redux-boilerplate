@@ -41,14 +41,6 @@ The master branch contains only a minimal subset of the folder structure in orde
 
 ```
 .
-├── __tests__
-├──── {test_directory}
-├────── {test_file}.test.js
-├──── helpers.js
-├──── setup.js
-├
-├── config
-├
 ├── public
 ├──── index.html
 ├──── static
