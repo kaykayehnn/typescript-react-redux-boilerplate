@@ -32,8 +32,9 @@ const cssLoaders = [
       },
     },
   },
-  // Sass-loader resolves @import statements by inlining the files, while css-loader makes require
-  // calls which are then split in chunks, which is not the desired behaviour.
+  // Sass-loader resolves @import statements by inlining the files, while
+  // css-loader makes require calls which are then split in chunks, which is
+  // not the desired behaviour.
   'sass-loader',
 ]
 

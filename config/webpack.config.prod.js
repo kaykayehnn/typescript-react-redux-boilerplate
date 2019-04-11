@@ -30,105 +30,107 @@ const htmlPluginProdOptions = {
   },
 }
 
-const modifications = {
-  mode: 'production',
-  output: {
-    filename: 'static/js/[name].[contenthash].js',
-    chunkFilename: 'static/js/[name].[contenthash].js',
-  },
-  devtool: 'source-map',
-  module: {
-    rules: [
-      {
-        test: cssTest,
-        use: [MiniCssExtractPlugin.loader, 'css-loader'],
-      },
-      {
-        test: scssTest,
-        use: [
-          MiniCssExtractPlugin.loader,
-          {
-            loader: 'css-loader',
-            options: {
-              localIdentName: '[hash:base64:5]',
+function getModifications() {
+  return {
+    mode: 'production',
+    output: {
+      filename: 'static/js/[name].[contenthash].js',
+      chunkFilename: 'static/js/[name].[contenthash].js',
+    },
+    devtool: 'source-map',
+    module: {
+      rules: [
+        {
+          test: cssTest,
+          use: [MiniCssExtractPlugin.loader, 'css-loader'],
+        },
+        {
+          test: scssTest,
+          use: [
+            MiniCssExtractPlugin.loader,
+            {
+              loader: 'css-loader',
+              options: {
+                localIdentName: '[hash:base64:5]',
+              },
+            },
+          ],
+        },
+      ],
+    },
+    optimization: {
+      minimizer: [
+        new TerserPlugin({
+          terserOptions: {
+            parse: {
+              // We want terser to parse ecma 8 code. However, we don't want it
+              // to apply any minfication steps that turns valid ecma 5 code
+              // into invalid ecma 5 code. This is why the 'compress' and 'output'
+              // sections only apply transformations that are ecma 5 safe
+              // https://github.com/facebook/create-react-app/pull/4234
+              ecma: 8,
+            },
+            compress: {
+              warnings: false,
+              // Disabled because of an issue with Uglify breaking seemingly valid code:
+              // https://github.com/facebook/create-react-app/issues/2376
+              // Pending further investigation:
+              // https://github.com/mishoo/UglifyJS2/issues/2011
+              comparisons: false,
+              // Disabled because of an issue with Terser breaking valid code:
+              // https://github.com/facebook/create-react-app/issues/5250
+              // Pending futher investigation:
+              // https://github.com/terser-js/terser/issues/120
+              inline: 2,
+            },
+            output: {
+              ecma: 5,
+              comments: false,
+              // Turned on because emoji and regex is not minified properly using default
+              // https://github.com/facebook/create-react-app/issues/2488
+              // eslint-disable-next-line @typescript-eslint/camelcase
+              ascii_only: true,
             },
           },
+          parallel: true,
+          cache: true,
+          sourceMap: true,
+        }),
+      ],
+    },
+    stats: {
+      children: false,
+      entrypoints: false,
+      modules: false,
+    },
+    plugins: [
+      new CleanWebpackPlugin(),
+      new CopyWebpackPlugin([path.join(basePath, 'public/')]),
+      new MiniCssExtractPlugin({
+        filename: 'static/css/[name].[contenthash].css',
+      }),
+      new HTMLWebpackPlugin(htmlPluginProdOptions),
+      // 404 page for static file hosts
+      new HTMLWebpackPlugin({
+        ...htmlPluginProdOptions,
+        filename: '404.html',
+      }),
+      new InlineChunkHtmlPlugin(HTMLWebpackPlugin, [/runtime/]),
+      new GenerateSW({
+        // FIXME: change cache id
+        cacheId: 'react-app',
+        clientsClaim: true,
+        navigateFallback: '/index.html',
+        include: [/^index\.html$/, /static/],
+        exclude: [
+          /\.map$/,
+          /^manifest.*\.js(?:on)?$/,
+          /runtime.*\.js$/,
+          /\.DS_STORE$/i,
         ],
-      },
-    ],
-  },
-  optimization: {
-    minimizer: [
-      new TerserPlugin({
-        terserOptions: {
-          parse: {
-            // We want terser to parse ecma 8 code. However, we don't want it
-            // to apply any minfication steps that turns valid ecma 5 code
-            // into invalid ecma 5 code. This is why the 'compress' and 'output'
-            // sections only apply transformations that are ecma 5 safe
-            // https://github.com/facebook/create-react-app/pull/4234
-            ecma: 8,
-          },
-          compress: {
-            warnings: false,
-            // Disabled because of an issue with Uglify breaking seemingly valid code:
-            // https://github.com/facebook/create-react-app/issues/2376
-            // Pending further investigation:
-            // https://github.com/mishoo/UglifyJS2/issues/2011
-            comparisons: false,
-            // Disabled because of an issue with Terser breaking valid code:
-            // https://github.com/facebook/create-react-app/issues/5250
-            // Pending futher investigation:
-            // https://github.com/terser-js/terser/issues/120
-            inline: 2,
-          },
-          output: {
-            ecma: 5,
-            comments: false,
-            // Turned on because emoji and regex is not minified properly using default
-            // https://github.com/facebook/create-react-app/issues/2488
-            // eslint-disable-next-line @typescript-eslint/camelcase
-            ascii_only: true,
-          },
-        },
-        parallel: true,
-        cache: true,
-        sourceMap: true,
       }),
     ],
-  },
-  stats: {
-    children: false,
-    entrypoints: false,
-    modules: false,
-  },
-  plugins: [
-    new CleanWebpackPlugin(),
-    new CopyWebpackPlugin([path.join(basePath, 'public/')]),
-    new MiniCssExtractPlugin({
-      filename: 'static/css/[name].[contenthash].css',
-    }),
-    new HTMLWebpackPlugin(htmlPluginProdOptions),
-    // 404 page for static file hosts
-    new HTMLWebpackPlugin({
-      ...htmlPluginProdOptions,
-      filename: '404.html',
-    }),
-    new InlineChunkHtmlPlugin(HTMLWebpackPlugin, [/runtime/]),
-    new GenerateSW({
-      // FIXME: change cache id
-      cacheId: 'react-app',
-      clientsClaim: true,
-      navigateFallback: '/index.html',
-      include: [/^index\.html$/, /static/],
-      exclude: [
-        /\.map$/,
-        /^manifest.*\.js(?:on)?$/,
-        /runtime.*\.js$/,
-        /\.DS_STORE$/i,
-      ],
-    }),
-  ],
+  }
 }
 
-module.exports = { modifications }
+module.exports = getModifications

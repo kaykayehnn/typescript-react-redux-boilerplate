@@ -9,80 +9,82 @@ const { HotModuleReplacementPlugin } = require('webpack')
 const PORT = process.env.PORT || 3000
 const PROXY_PORT = process.env.PORT || 9000
 
-const modifications = {
-  mode: 'development',
-  entry: {
-    main: ['react-dev-utils/webpackHotDevClient', './src/index.tsx'],
-  },
-  output: {
-    devtoolModuleFilenameTemplate(info) {
-      return path.resolve(info.absoluteResourcePath).replace(/\\/g, '/')
+function getModifications(host, port) {
+  return {
+    mode: 'development',
+    entry: {
+      main: ['react-dev-utils/webpackHotDevClient', './src/index.tsx'],
     },
-  },
-  // Error overlay relies on this
-  devtool: 'cheap-module-source-map',
-  module: {
-    rules: [
-      {
-        test: cssTest,
-        // Replaces dts-css-modules-loader with style-loader
-        use: ['style-loader', 'css-loader'],
+    output: {
+      devtoolModuleFilenameTemplate(info) {
+        return path.resolve(info.absoluteResourcePath).replace(/\\/g, '/')
       },
-      {
-        test: scssTest,
-        use: [
-          'style-loader',
-          'dts-css-modules-loader?namedExport',
-          {
-            loader: 'css-loader',
-            options: {
-              localIdentName: '[name]__[local]--[hash:base64:5]',
+    },
+    // Error overlay relies on this
+    devtool: 'cheap-module-source-map',
+    module: {
+      rules: [
+        {
+          test: cssTest,
+          // Replaces dts-css-modules-loader with style-loader
+          use: ['style-loader', 'css-loader'],
+        },
+        {
+          test: scssTest,
+          use: [
+            'style-loader',
+            'dts-css-modules-loader?namedExport',
+            {
+              loader: 'css-loader',
+              options: {
+                localIdentName: '[name]__[local]--[hash:base64:5]',
+              },
             },
-          },
-        ],
+          ],
+        },
+      ],
+    },
+    devServer: {
+      host,
+      port,
+      contentBase: path.join(basePath, 'public'),
+      watchContentBase: true,
+      hot: true,
+      // Prevents injecting of default webpackHotDevClient
+      inline: false,
+      historyApiFallback: {
+        disableDotRule: true,
       },
-    ],
-  },
-  devServer: {
-    host: '0.0.0.0',
-    port: PORT,
-    contentBase: path.join(basePath, 'public'),
-    watchContentBase: true,
-    hot: true,
-    // Prevents injecting of default webpackHotDevClient
-    inline: false,
-    historyApiFallback: {
-      disableDotRule: true,
-    },
-    watchOptions: {
-      ignored: /[/\\]node_modules[/\\]/,
-    },
-    stats: {
-      assets: false,
-      chunks: false,
-      chunkGroups: false,
-      chunkModules: false,
-      chunkOrigins: false,
-      entrypoints: false,
-      hash: false,
-      modules: false,
-      version: false,
-    },
-    proxy: {
-      '/api': {
-        target: `http://localhost:${PROXY_PORT}`,
+      watchOptions: {
+        ignored: /[/\\]node_modules[/\\]/,
       },
-    },
-    before(app, server) {
-      app.use(evalSourceMapMiddleware(server))
-      app.use(errorOverlayMiddleware())
+      stats: {
+        assets: false,
+        chunks: false,
+        chunkGroups: false,
+        chunkModules: false,
+        chunkOrigins: false,
+        entrypoints: false,
+        hash: false,
+        modules: false,
+        version: false,
+      },
+      proxy: {
+        '/api': {
+          target: `http://localhost:${PROXY_PORT}`,
+        },
+      },
+      before(app, server) {
+        app.use(evalSourceMapMiddleware(server))
+        app.use(errorOverlayMiddleware())
 
-      // Solves race condition problem of navigating before
-      // development server has started listening for requests.
-      setTimeout(() => openBrowser(`http://localhost:${PORT}/`), 1000)
+        // Solves race condition problem of navigating before
+        // development server has started listening for requests.
+        setTimeout(() => openBrowser(`http://localhost:${PORT}/`), 1000)
+      },
     },
-  },
-  plugins: [new HotModuleReplacementPlugin()],
+    plugins: [new HotModuleReplacementPlugin()],
+  }
 }
 
-module.exports = { modifications }
+module.exports = getModifications
