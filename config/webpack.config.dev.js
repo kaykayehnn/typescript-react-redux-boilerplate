@@ -25,6 +25,7 @@ const modifications = {
     rules: [
       {
         test: cssTest,
+        // Replaces dts-css-modules-loader with style-loader
         use: ['style-loader', 'css-loader'],
       },
       {
