@@ -115,8 +115,9 @@ const baseConfig = {
   plugins: [
     new CaseSensitivePathsPlugin(),
     new ForkTsCheckerWebpackPlugin({
+      async: false,
       silent: true,
-      watch: [path.join(basePath, 'src')],
+      watch: path.join(basePath, 'src'),
       formatter: require('react-dev-utils/typescriptFormatter'),
     }),
     new HTMLWebpackPlugin(htmlPluginOptions),
