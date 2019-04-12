@@ -2,6 +2,7 @@ const path = require('path')
 const openBrowser = require('react-dev-utils/openBrowser')
 const errorOverlayMiddleware = require('react-dev-utils/errorOverlayMiddleware')
 const evalSourceMapMiddleware = require('react-dev-utils/evalSourceMapMiddleware')
+const noopServiceWorkerMiddleware = require('react-dev-utils/noopServiceWorkerMiddleware')
 
 const { cssTest, scssTest, basePath } = require('./webpack.config.base')
 const { HotModuleReplacementPlugin } = require('webpack')
@@ -77,6 +78,7 @@ function getModifications(host, port) {
       before(app, server) {
         app.use(evalSourceMapMiddleware(server))
         app.use(errorOverlayMiddleware())
+        app.use(noopServiceWorkerMiddleware())
 
         // Solves race condition problem of navigating before
         // development server has started listening for requests.
