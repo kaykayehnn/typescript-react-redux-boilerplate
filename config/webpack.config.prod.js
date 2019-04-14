@@ -117,7 +117,7 @@ function getModifications() {
       }),
       new InlineChunkHtmlPlugin(HTMLWebpackPlugin, [/runtime/]),
       new GenerateSW({
-        // FIXME: change cache id
+        // FIXME: Change cache id
         cacheId: 'react-app',
         clientsClaim: true,
         navigateFallback: '/index.html',
