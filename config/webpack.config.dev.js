@@ -7,7 +7,6 @@ const noopServiceWorkerMiddleware = require('react-dev-utils/noopServiceWorkerMi
 const { cssTest, scssTest, basePath } = require('./webpack.config.base')
 const { HotModuleReplacementPlugin } = require('webpack')
 
-const PORT = process.env.PORT || 3000
 const PROXY_PORT = process.env.PORT || 9000
 
 function getModifications(host, port) {
@@ -82,7 +81,7 @@ function getModifications(host, port) {
 
         // Solves race condition problem of navigating before
         // development server has started listening for requests.
-        setTimeout(() => openBrowser(`http://localhost:${PORT}/`), 1000)
+        setTimeout(() => openBrowser(`http://localhost:${port}/`), 1000)
       },
     },
     plugins: [new HotModuleReplacementPlugin()],
