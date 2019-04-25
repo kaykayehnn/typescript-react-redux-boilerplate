@@ -98,6 +98,18 @@
     "webpack-merge": "^4.2.1",
     "workbox-webpack-plugin": "^4.2.0"
   },
+  "browserslist": {
+    "production": [
+      "last 1 versions",
+      "> 0.2%",
+      "not dead"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
   "husky": {
     "hooks": {
       "pre-commit": "lint-staged",
