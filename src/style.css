@@ -1,4 +1,5 @@
-/* Custom normalize.css is injected via postcss */
+/* Custom normalize.css based on browserslist is injected via postcss */
+@import-normalize;
 
 /* Removes margin */
 html,
