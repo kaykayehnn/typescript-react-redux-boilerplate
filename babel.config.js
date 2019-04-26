@@ -1,8 +1,8 @@
 const path = require('path')
 const env = process.env.BABEL_ENV || process.env.NODE_ENV || 'development'
 
+const isDevelopment = env === 'development'
 const isTest = env === 'test'
-const isProduction = env === 'production'
 
 module.exports = {
   // Base config for dependencies
@@ -28,7 +28,7 @@ module.exports = {
       test: path.join(__dirname, 'src'),
       presets: [
         ['@babel/preset-typescript', { isTSX: true, allExtensions: true }],
-        ['@babel/preset-react', { development: !isProduction }],
+        ['@babel/preset-react', { development: isDevelopment || isTest }],
       ],
       plugins: [
         ['@babel/plugin-transform-runtime', { useESModules: true }],
