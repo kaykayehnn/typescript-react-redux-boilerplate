@@ -1,4 +1,4 @@
-// eslint-disable-next-line
+// eslint-disable-next-line @typescript-eslint/no-var-requires
 const restrictedGlobals = require('confusing-browser-globals')
 
 module.exports = {
