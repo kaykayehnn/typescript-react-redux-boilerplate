@@ -2,13 +2,14 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 
 import './style.css'
-import './serviceWorker'
+import { register } from './serviceWorker'
 import { configureStore } from '@Store/configureStore'
 import { App } from './App'
 
 const store = configureStore()
 
 mountApp()
+register()
 
 if (module.hot) {
   module.hot.accept('./App', mountApp)
