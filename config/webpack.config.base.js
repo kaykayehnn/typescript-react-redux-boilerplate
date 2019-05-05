@@ -90,8 +90,6 @@ const baseConfig = {
         include: /[/\\]src[/\\]/,
         enforce: 'pre',
         options: {
-          cache: true,
-          eslintPath: require.resolve('eslint'),
           formatter: require('react-dev-utils/eslintFormatter'),
         },
       },
