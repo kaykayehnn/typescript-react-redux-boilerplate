@@ -38,7 +38,6 @@ module.exports = {
     'eslint:recommended',
     'plugin:@typescript-eslint/recommended',
     'plugin:react/recommended',
-    'plugin:promise/recommended',
     'plugin:jsx-a11y/recommended',
     'plugin:prettier/recommended',
     'prettier/@typescript-eslint',
