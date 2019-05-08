@@ -132,30 +132,29 @@ function getModifications() {
           /runtime.*\.js$/,
           /\.DS_STORE$/i,
         ],
-        // FIXME: Add font caching. Below is an example config for Google fonts
-        // runtimeCaching: [
-        //   {
-        //     urlPattern: /^https:\/\/fonts\.googleapis\.com/,
-        //     handler: 'StaleWhileRevalidate',
-        //     options: {
-        //       cacheName: 'google-fonts-stylesheets',
-        //     },
-        //   },
-        //   {
-        //     urlPattern: /^https:\/\/fonts\.gstatic\.com/,
-        //     handler: 'CacheFirst',
-        //     options: {
-        //       cacheName: 'google-fonts-webfonts',
-        //       cacheableResponse: {
-        //         statuses: [0, 200],
-        //       },
-        //       expiration: {
-        //         // 1 year
-        //         maxAgeSeconds: 60 * 60 * 24 * 365,
-        //       },
-        //     },
-        //   },
-        // ],
+        runtimeCaching: [
+          {
+            urlPattern: /^https:\/\/fonts\.googleapis\.com/,
+            handler: 'StaleWhileRevalidate',
+            options: {
+              cacheName: 'google-fonts-stylesheets',
+            },
+          },
+          {
+            urlPattern: /^https:\/\/fonts\.gstatic\.com/,
+            handler: 'CacheFirst',
+            options: {
+              cacheName: 'google-fonts-webfonts',
+              cacheableResponse: {
+                statuses: [0, 200],
+              },
+              expiration: {
+                // 1 year
+                maxAgeSeconds: 60 * 60 * 24 * 365,
+              },
+            },
+          },
+        ],
       }),
     ],
   }
