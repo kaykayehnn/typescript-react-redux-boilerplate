@@ -27,7 +27,6 @@
   "dependencies": {
     "@babel/runtime": "^7.4.3",
     "classnames": "^2.2.6",
-    "es6-promise": "^4.2.6",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-redux": "^7.0.2",
@@ -35,7 +34,7 @@
     "redux": "^4.0.1",
     "redux-starter-kit": "^0.5.1",
     "redux-thunk": "^2.3.0",
-    "unfetch": "^4.1.0"
+    "whatwg-fetch": "^3.0.0"
   },
   "devDependencies": {
     "@babel/core": "^7.4.3",
@@ -81,7 +80,6 @@
     "lint-staged": "^8.1.5",
     "mini-css-extract-plugin": "^0.6.0",
     "node-sass": "^4.12.0",
-    "postcss-flexbugs-fixes": "^4.1.0",
     "postcss-loader": "^3.0.0",
     "postcss-normalize": "^7.0.1",
     "prettier": "^1.17.0",
@@ -101,7 +99,8 @@
     "production": [
       "last 1 versions",
       "> 0.2%",
-      "not dead"
+      "not ie > 0",
+      "not op_mini all"
     ],
     "development": [
       "last 1 chrome version",

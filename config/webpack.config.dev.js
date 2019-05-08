@@ -12,9 +12,7 @@ const PROXY_PORT = process.env.PORT || 9000
 function getModifications(host, port) {
   return {
     mode: 'development',
-    entry: {
-      main: ['react-dev-utils/webpackHotDevClient', './src/index.tsx'],
-    },
+    entry: ['react-dev-utils/webpackHotDevClient', './src/index.tsx'],
     output: {
       devtoolModuleFilenameTemplate(info) {
         return path.resolve(info.absoluteResourcePath).replace(/\\/g, '/')

@@ -2,14 +2,14 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 
 import './style.css'
-import { register } from './serviceWorker'
+import { loadPolyfills, registerServiceWorker } from './utilities/app'
 import { configureStore } from '@Store/configureStore'
 import { App } from './App'
 
 const store = configureStore()
 
-mountApp()
-register()
+loadPolyfills(mountApp)
+registerServiceWorker()
 
 if (module.hot) {
   module.hot.accept('./App', mountApp)

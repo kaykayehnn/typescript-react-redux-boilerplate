@@ -59,11 +59,7 @@ function mergeRules(a, b) {
 
 const baseConfig = {
   context: basePath,
-  entry: {
-    // This order ensures polyfills are loaded before application source.
-    polyfills: './src/polyfills.ts',
-    main: './src/index.tsx',
-  },
+  entry: './src/index.tsx',
   output: {
     path: outputPath,
     publicPath: '/',

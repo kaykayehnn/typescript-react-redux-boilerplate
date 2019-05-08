@@ -79,6 +79,8 @@ The master branch contains only a minimal subset of the folder structure in orde
 ├──── types
 ├────── Redux.ts
 ├────── {Model}.ts
+├──── utilities
+├────── app.ts
 ├──── index.tsx
 ├──── polyfills.ts
 ├──── serviceWorker.ts
