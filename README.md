@@ -101,7 +101,7 @@ All presentational components reside here. They can be split in two types:
 
 These components should receive any app state through props, their stateful concerns are limited to UI state. Props shape is defined in a container as the union of MapStateFromProps and MapDispatchFromProps for views and as an interface in the same file for subcomponents.
 
-Component folders consist of 4 files for ease of navigation in editor (Quick Open is useful when searching by component name) and brevity when importing (@Components/Component instead of @Components/Component/Component). This approach also allows splitting components in multiple files, which further improves maintainability.
+Component folders consist of 4 files for ease of navigation in editor (Quick Open is useful when searching by component name) and brevity when importing (@Components/Component instead of @Components/Component/Component).
 
 #### Containers
 
