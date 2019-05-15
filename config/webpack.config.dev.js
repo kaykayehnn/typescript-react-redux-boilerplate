@@ -6,6 +6,8 @@ const noopServiceWorkerMiddleware = require('react-dev-utils/noopServiceWorkerMi
 
 const { cssTest, scssTest, basePath } = require('./webpack.config.base')
 const { HotModuleReplacementPlugin } = require('webpack')
+const ForkTsCheckerErrorOverlayPlugin = require('fork-ts-checker-error-overlay-webpack-plugin')
+const ForkTsCheckerPlugin = require('fork-ts-checker-webpack-plugin')
 
 const PROXY_PORT = process.env.PORT || 9000
 
@@ -82,7 +84,10 @@ function getModifications(host, port) {
         setTimeout(() => openBrowser(`http://localhost:${port}/`), 1000)
       },
     },
-    plugins: [new HotModuleReplacementPlugin()],
+    plugins: [
+      new HotModuleReplacementPlugin(),
+      new ForkTsCheckerErrorOverlayPlugin(ForkTsCheckerPlugin),
+    ],
   }
 }
 

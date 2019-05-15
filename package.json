@@ -67,6 +67,7 @@
     "eslint-plugin-prettier": "^3.0.1",
     "eslint-plugin-react": "^7.12.4",
     "eslint-plugin-react-hooks": "^1.4.0",
+    "fork-ts-checker-error-overlay-webpack-plugin": "0.0.1",
     "fork-ts-checker-webpack-plugin": "^1.2.0",
     "html-webpack-plugin": "^4.0.0-beta.5",
     "husky": "^2.0.0",
