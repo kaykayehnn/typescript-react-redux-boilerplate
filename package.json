@@ -10,7 +10,7 @@
     "webpack"
   ],
   "version": "1.0.0",
-  "author": "Krasimir Nedelchev <kaykayehnn@outlook.com> (https://github.com/kaykayehnn)",
+  "author": "Krasimir Nedelchev (https://github.com/kaykayehnn)",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/kayKayEhnn/typescript-react-redux-boilerplate.git"
