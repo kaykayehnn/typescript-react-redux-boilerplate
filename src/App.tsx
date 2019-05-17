@@ -2,7 +2,7 @@ import React, { StrictMode, FunctionComponent } from 'react'
 import { BrowserRouter, Route } from 'react-router-dom'
 import { Provider } from 'react-redux'
 
-import { Component } from '@Components/Component'
+import Component from '@Components/Component'
 
 import { Store } from 'types/Redux'
 import { AppActionTypes } from '@Store/actions'
