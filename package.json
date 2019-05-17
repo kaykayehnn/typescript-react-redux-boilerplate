@@ -114,7 +114,8 @@
   },
   "lint-staged": {
     "*.{js,jsx,ts,tsx}": [
-      "eslint --fix",
+      "prettier --write",
+      "eslint --max-warnings=0",
       "git add"
     ],
     "*.{css,scss,md,html,json}": [
