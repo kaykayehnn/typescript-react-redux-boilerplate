@@ -27,7 +27,7 @@ module.exports = {
     {
       test: path.join(__dirname, 'src'),
       presets: [
-        ['@babel/preset-typescript', { isTSX: true, allExtensions: true }],
+        '@babel/preset-typescript',
         ['@babel/preset-react', { development: isDevelopment || isTest }],
       ],
       plugins: [
