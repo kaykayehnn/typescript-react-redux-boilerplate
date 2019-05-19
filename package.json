@@ -19,8 +19,8 @@
   "scripts": {
     "start": "webpack-dev-server --config=config/webpack.config.js --env=development",
     "build": "webpack --config=config/webpack.config.js --env=production --progress",
-    "lint": "eslint \"{src,__tests__,config}/**\" \"*.js\" \".*.js\"",
-    "format": "prettier --write \"{src,__tests__,config}/**\" \"*.js\" \".*.js\"",
+    "lint": "eslint \"{src,__tests__,config}/**\" \"*.js\"",
+    "format": "prettier --write \"{src,__tests__,config}/**\" \"*.js\"",
     "test": "jest --config=config/jest.config.js --passWithNoTests",
     "test:watch": "npm test -- --watch"
   },
@@ -113,14 +113,19 @@
     }
   },
   "lint-staged": {
-    "*.{js,jsx,ts,tsx}": [
-      "prettier --write",
-      "eslint --max-warnings=0",
-      "git add"
-    ],
-    "*.{css,scss,md,html,json}": [
-      "prettier --write",
-      "git add"
+    "linters": {
+      "*.{js,jsx,ts,tsx}": [
+        "prettier --write",
+        "eslint --max-warnings=0",
+        "git add"
+      ],
+      "*.{css,scss,md,html,json}": [
+        "prettier --write",
+        "git add"
+      ]
+    },
+    "ignore": [
+      ".*.js"
     ]
   }
 }
