@@ -1,4 +1,3 @@
-// eslint-disable-next-line @typescript-eslint/no-var-requires
 const restrictedGlobals = require('confusing-browser-globals')
 
 module.exports = {
@@ -67,8 +66,5 @@ module.exports = {
         destructuring: 'all',
       },
     ],
-    // Babel takes care of transpiling spread so we don't have to explicitly
-    // polyfill Object.assign
-    'prefer-object-spread': 'warn',
   },
 }
