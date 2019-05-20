@@ -49,6 +49,8 @@ const scssLoaders = [
   },
 ]
 
+const jsLoader = 'babel-loader?cacheDirectory'
+
 function mergeRules(a, b) {
   const toConfig = rules => ({
     module: { rules: [{ use: rules }] },
@@ -91,11 +93,7 @@ const baseConfig = {
       },
       {
         test: jsTest,
-        loader: 'babel-loader',
-        options: {
-          extends: path.join(__dirname, '..', 'babel.config.js'),
-          cacheDirectory: true,
-        },
+        loader: jsLoader,
       },
       {
         test: cssTest,

@@ -1,7 +1,10 @@
 const path = require('path')
+
 const env = process.env.BABEL_ENV || process.env.NODE_ENV || 'development'
+const rootDir = __dirname
 
 const isDevelopment = env === 'development'
+const isProduction = env === 'production'
 const isTest = env === 'test'
 
 module.exports = {
@@ -16,22 +19,25 @@ module.exports = {
             node: 'current',
           },
         }),
-        // configPath is used to resolve browserslist targets
-        configPath: __dirname,
         exclude: ['transform-typeof-symbol'],
       },
+    ],
+  ],
+  plugins: [
+    [
+      '@babel/plugin-transform-runtime',
+      { useESModules: isDevelopment || isProduction },
     ],
   ],
   overrides: [
     // App source
     {
-      test: path.join(__dirname, 'src'),
+      test: path.join(rootDir, 'src'),
       presets: [
         '@babel/preset-typescript',
         ['@babel/preset-react', { development: isDevelopment || isTest }],
       ],
       plugins: [
-        ['@babel/plugin-transform-runtime', { useESModules: true }],
         '@babel/plugin-syntax-dynamic-import',
         isTest && 'babel-plugin-dynamic-import-node',
       ].filter(Boolean),
