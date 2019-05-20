@@ -16,6 +16,7 @@ const htmlPluginOptions = {
 const jsTest = /\.[jt]sx?$/
 const cssTest = /\.css$/
 const scssTest = /\.(sc|sa)ss$/
+const svgTest = /\.svg$/
 
 const cssLoaders = [
   {
@@ -103,6 +104,15 @@ const baseConfig = {
         test: scssTest,
         use: mergeRules(cssLoaders, scssLoaders),
       },
+      {
+        test: svgTest,
+        use: [
+          jsLoader,
+          '@svgr/webpack?babel=0',
+          // Assets less than 5K are embedded as data URIs
+          'url-loader?limit=5000',
+        ],
+      },
     ],
   },
   plugins: [
@@ -121,5 +131,6 @@ module.exports = {
   htmlPluginOptions,
   cssTest,
   scssTest,
+  svgTest,
   baseConfig,
 }

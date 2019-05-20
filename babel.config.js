@@ -30,9 +30,13 @@ module.exports = {
     ],
   ],
   overrides: [
-    // App source
     {
-      test: path.join(rootDir, 'src'),
+      test: [
+        // App source
+        path.join(rootDir, 'src'),
+        // Assets processed by loaders
+        path.join(rootDir, 'public'),
+      ],
       presets: [
         '@babel/preset-typescript',
         ['@babel/preset-react', { development: isDevelopment || isTest }],
