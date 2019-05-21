@@ -18,7 +18,7 @@
     "paths": {
       "@Components/*": ["./components/*"],
       "@Store/*": ["./store/*"],
-      "@Icons/*": ["../public/static/vectors/*"]
+      "@Vectors/*": ["../public/static/vectors/*"]
     }
   },
   "include": ["./src"]
