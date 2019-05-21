@@ -65,7 +65,6 @@ const baseConfig = {
   entry: './src/index.tsx',
   output: {
     path: outputPath,
-    publicPath: '/',
   },
   resolve: {
     extensions: ['.ts', '.tsx', '.js'],
