@@ -1,8 +1,6 @@
 import React, { FunctionComponent } from 'react'
 
-export interface ComponentProps {}
-
-const Component: FunctionComponent<ComponentProps> = () => {
+const Component: FunctionComponent = () => {
   return <h1>Hello world</h1>
 }
 
