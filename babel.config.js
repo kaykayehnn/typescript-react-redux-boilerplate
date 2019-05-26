@@ -26,7 +26,11 @@ module.exports = {
   plugins: [
     [
       '@babel/plugin-transform-runtime',
-      { useESModules: isDevelopment || isProduction },
+      {
+        useESModules: isDevelopment || isProduction,
+        // Regenerator runtime is included in polyfills
+        regenerator: false,
+      },
     ],
   ],
   overrides: [
