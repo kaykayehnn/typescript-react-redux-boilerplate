@@ -6,7 +6,7 @@ export function loadPolyfills(callback: Function) {
   } else {
     import(/* webpackChunkName: "polyfills"*/ '../polyfills')
       .then(() => callback())
-      .catch(() => callback())
+      .catch(() => callback()) // ¯\_(ツ)_/¯
   }
 }
 
