@@ -4,7 +4,7 @@ export function loadPolyfills(callback: Function) {
   if (isModernBrowser) {
     callback()
   } else {
-    import(/* webpackChunkName: "polyfills"*/ '../polyfills')
+    import(/* webpackChunkName: "polyfills" */ '../polyfills')
       .then(() => callback())
       .catch(() => callback()) // ¯\_(ツ)_/¯
   }
