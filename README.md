@@ -12,7 +12,7 @@
 - Webpack
 - SASS & CSS Modules
 - Service Worker support
-- Jest & react-testing-library
+- Jest & React testing library
 - Hot Module Replacement
 - ESLint & Prettier
 - Redux DevTools via Chrome extension
