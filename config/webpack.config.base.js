@@ -118,6 +118,8 @@ const baseConfig = {
     new CaseSensitivePathsPlugin(),
     new ForkTsCheckerWebpackPlugin({
       watch: path.join(basePath, 'src'),
+      // Disable typechecking of test files
+      reportFiles: [path.join(basePath, 'src/**/*.{ts,tsx}'), '!*.test'],
       formatter: require('react-dev-utils/typescriptFormatter'),
     }),
     new HTMLWebpackPlugin(htmlPluginOptions),
