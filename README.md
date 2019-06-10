@@ -16,7 +16,6 @@
 - Hot Module Replacement
 - ESLint & Prettier
 - Redux DevTools via Chrome extension
-- An example architecture for building scalable web applications
 
 ### Usage
 
