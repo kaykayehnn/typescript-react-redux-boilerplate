@@ -62,7 +62,7 @@
     "css-loader": "^2.1.0",
     "cssnano": "^4.1.10",
     "dts-css-modules-loader": "^1.0.1",
-    "eslint": "^5.16.0",
+    "eslint": "^6.0.0",
     "eslint-config-prettier": "^4.1.0",
     "eslint-loader": "^2.1.2",
     "eslint-plugin-jsx-a11y": "^6.2.1",
