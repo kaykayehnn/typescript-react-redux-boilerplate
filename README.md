@@ -53,7 +53,7 @@ The master branch contains only a minimal subset of the folder structure in orde
 ├────── {Component}
 ├──────── index.ts
 ├──────── {Component}.component.ts
-├──────── {Component}.style.scss
+├──────── {Component}.module.scss
 ├──────── {Component}.test.js
 ├──── containers
 ├────── {Container}
