@@ -60,7 +60,6 @@ module.exports = {
     'no-restricted-globals': ['error'].concat(restrictedGlobals),
     // Disabled rules from presets
     'react/prop-types': 'off',
-    'no-console': 'off',
     // Other rules
     'prefer-const': [
       'warn',
