@@ -35,7 +35,9 @@ module.exports = {
       },
     },
     {
+      // Test-specific rules
       files: ['*.test.{js,ts,tsx}'],
+      extends: ['plugin:jest/recommended'],
       env: {
         jest: true,
       },
