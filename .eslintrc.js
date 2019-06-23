@@ -22,6 +22,7 @@ module.exports = {
       },
       extends: [
         'plugin:@typescript-eslint/recommended',
+        'plugin:@typescript-eslint/eslint-recommended',
         'prettier/@typescript-eslint',
       ],
       rules: {
@@ -59,12 +60,5 @@ module.exports = {
     'no-restricted-globals': ['error'].concat(restrictedGlobals),
     // Disabled rules from presets
     'react/prop-types': 'off',
-    // Other rules
-    'prefer-const': [
-      'warn',
-      {
-        destructuring: 'all',
-      },
-    ],
   },
 }
