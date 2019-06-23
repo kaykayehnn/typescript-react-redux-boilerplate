@@ -1,11 +1,7 @@
 const restrictedGlobals = require('confusing-browser-globals')
 
 module.exports = {
-  root: true,
   plugins: ['react-hooks'],
-  parserOptions: {
-    project: './tsconfig.json',
-  },
   env: {
     browser: true,
     node: true,
@@ -21,6 +17,9 @@ module.exports = {
     {
       // TypeScript-specific rules
       files: ['*.{ts,tsx}'],
+      parserOptions: {
+        project: './tsconfig.json',
+      },
       extends: [
         'plugin:@typescript-eslint/recommended',
         'prettier/@typescript-eslint',
