@@ -60,5 +60,6 @@ module.exports = {
     'no-restricted-globals': ['error'].concat(restrictedGlobals),
     // Disabled rules from presets
     'react/prop-types': 'off',
+    'react/jsx-key': ['error', { checkFragmentShorthand: true }],
   },
 }
