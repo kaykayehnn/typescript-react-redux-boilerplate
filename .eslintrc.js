@@ -1,6 +1,10 @@
 const restrictedGlobals = require('confusing-browser-globals')
 
 module.exports = {
+  parserOptions: {
+    ecmaVersion: 2019,
+    sourceType: 'module',
+  },
   plugins: ['react-hooks'],
   env: {
     browser: true,
