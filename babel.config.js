@@ -47,7 +47,7 @@ module.exports = {
       ],
       plugins: [
         '@babel/plugin-syntax-dynamic-import',
-        isTest && 'babel-plugin-dynamic-import-node',
+        isTest && '@babel/plugin-transform-modules-commonjs',
       ].filter(Boolean),
     },
   ],
