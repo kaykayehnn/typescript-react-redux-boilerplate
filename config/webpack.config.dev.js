@@ -4,8 +4,14 @@ const errorOverlayMiddleware = require('react-dev-utils/errorOverlayMiddleware')
 const evalSourceMapMiddleware = require('react-dev-utils/evalSourceMapMiddleware')
 const noopServiceWorkerMiddleware = require('react-dev-utils/noopServiceWorkerMiddleware')
 
-const { cssTest, scssTest, basePath } = require('./webpack.config.base')
+const {
+  cssTest,
+  scssTest,
+  basePath,
+  htmlPluginOptions,
+} = require('./webpack.config.base')
 const { HotModuleReplacementPlugin } = require('webpack')
+const HTMLWebpackPlugin = require('html-webpack-plugin')
 const ForkTsCheckerErrorOverlayPlugin = require('fork-ts-checker-error-overlay-webpack-plugin')
 const ForkTsCheckerPlugin = require('fork-ts-checker-webpack-plugin')
 
@@ -86,6 +92,7 @@ function getModifications(host, port) {
     },
     plugins: [
       new HotModuleReplacementPlugin(),
+      new HTMLWebpackPlugin(htmlPluginOptions),
       new ForkTsCheckerErrorOverlayPlugin(ForkTsCheckerPlugin),
     ],
   }

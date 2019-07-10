@@ -2,7 +2,6 @@ const path = require('path')
 const { smart } = require('webpack-merge')
 const CaseSensitivePathsPlugin = require('case-sensitive-paths-webpack-plugin')
 const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin')
-const HTMLWebpackPlugin = require('html-webpack-plugin')
 
 const createPathsMapper = require('./path-mapper')
 
@@ -122,7 +121,6 @@ const baseConfig = {
       reportFiles: [path.join(basePath, 'src/**/*.{ts,tsx}'), '!*.test'],
       formatter: require('react-dev-utils/typescriptFormatter'),
     }),
-    new HTMLWebpackPlugin(htmlPluginOptions),
   ],
 }
 
