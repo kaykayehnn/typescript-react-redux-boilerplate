@@ -57,6 +57,9 @@ function getModifications() {
         },
       ],
     },
+    optimization: {
+      moduleIds: 'hashed',
+    },
     stats: {
       children: false,
       entrypoints: false,
