@@ -121,7 +121,7 @@
     "linters": {
       "*.{js,jsx,ts,tsx}": [
         "prettier --write",
-        "eslint --max-warnings=0",
+        "eslint",
         "git add"
       ],
       "*.{css,scss,md,html,json}": [
