@@ -99,10 +99,11 @@
   },
   "browserslist": {
     "production": [
-      "last 1 versions",
+      "last 1 version",
       "> 0.5%",
       "not ie > 0",
-      "not op_mini all"
+      "not op_mini all",
+      "not dead"
     ],
     "development": [
       "last 1 chrome version",
