@@ -16,8 +16,7 @@
     "lib": ["dom", "es6"],
     "jsx": "preserve",
     "paths": {
-      "@Components/*": ["./components/*"],
-      "@Store/*": ["./store/*"]
+      "@Components/*": ["./components/*"]
     }
   },
   "include": ["./src"]
