@@ -17,8 +17,7 @@
     "jsx": "preserve",
     "paths": {
       "@Components/*": ["./components/*"],
-      "@Store/*": ["./store/*"],
-      "@Vectors/*": ["../public/static/vectors/*"]
+      "@Store/*": ["./store/*"]
     }
   },
   "include": ["./src"]
