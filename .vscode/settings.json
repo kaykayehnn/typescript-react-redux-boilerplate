@@ -1,0 +1,13 @@
+{
+  "css.lint.unknownAtRules": "ignore",
+  "files.exclude": {
+    "**/*.scss.d.ts": true
+  },
+  "material-icon-theme.files.associations": {
+    "*.state.ts": "Redux-Store",
+    "configureStore.ts": "Redux-Store"
+  },
+  "material-icon-theme.folders.associations": {
+    "state": "Redux-Store"
+  }
+}
